@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects
-  has_many :assignments
+  has_many :assignments, dependent: :destroy
   has_many :tasks, through: :assignments
 
   def projects_as_contributor
