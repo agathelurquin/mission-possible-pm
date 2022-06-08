@@ -5,7 +5,8 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @project = Project.find(params[:project_id])
+    # @project = Project.find(params[:project_id])
+    @project = Project.last
     @task.project = @project
     if @task.save
       redirect_to task_path(@task)
