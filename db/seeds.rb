@@ -26,7 +26,7 @@ puts 'Creating 10 fake projects'
     user: User.all.sample,
     name: Faker::Internet.email,
     description: Faker::Lorem.paragraph,
-    deadline: Faker::Date.forward
+    due_date: Faker::Date.forward
   )
   project.save!
 end

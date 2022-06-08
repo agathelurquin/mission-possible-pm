@@ -1,8 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit]
-  def index
-    @projects = Project.all
-  end
+  before_action :set_project, only: [:show, :edit, :update]
 
   def new
     @project = Project.new
@@ -18,6 +15,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    # How to set the rule for show projects where user = one of the participants of the project
+    # With assignments
   end
 
   def edit
