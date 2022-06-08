@@ -3,6 +3,6 @@ class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :assignments, through: :tasks
 
-  validates :name, :description, :deadline, presence: true
+  validates :name, :description, :due_date, presence: true
 
 end
