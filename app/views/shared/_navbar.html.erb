@@ -1,9 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-mp border-bottom border-light">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "#", class: "navbar-brand mx-3" do %>
       <%= image_tag "pm-logo.png" %>
     <% end %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-collapse">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
