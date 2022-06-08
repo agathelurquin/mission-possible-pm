@@ -1,0 +1,7 @@
+ <%= simple_form_for @task do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :due_date %>
+          <%= f.input :estimated_effort %>
+          <%= f.submit class: 'btn btn-primary' %>
+        <% end %>

@@ -1,7 +1,7 @@
- <%= simple_form_for @task do |f| %>
-          <%= f.input :name %>
-          <%= f.input :description %>
-          <%= f.input :due_date %>
-          <%= f.input :estimated_effort %>
-          <%= f.submit class: 'btn btn-primary' %>
-        <% end %>
+<h1>Add a new task</h1>
+
+<%= render 'form', task: @task %>
+
+<%= link_to tasks_path do %>
+  Back to tasks
+<% end %>
