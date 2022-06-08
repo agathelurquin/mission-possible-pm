@@ -4,7 +4,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.find(params[:id])
+    @task = Task.new(task_params)
+    @project = Project.find(params[:project_id])
+    @task.project = @project
     if @task.save
       redirect_to task_path(@task)
     else
@@ -20,7 +22,7 @@ class TasksController < ApplicationController
 
   private
 
-  def dining_params
-    params.require(:task).permit(:name, :description, :price, :due_date)
+  def task_params
+    params.require(:task).permit(:name, :description, :estimated_effort, :due_date)
   end
 end
