@@ -24,7 +24,7 @@ puts 'Creating 10 fake projects'
 10.times do
   project = Project.new(
     user: User.all.sample,
-    name: Faker::Internet.email,
+    name: Faker::Movie.title,
     description: Faker::Lorem.paragraph,
     due_date: Faker::Date.forward
   )

@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
   def update
     @project.update(project_params)
     redirect_to project_path(@project)
+
   end
 
   private
@@ -36,4 +37,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name, :description, :status, :price, :due_date)
   end
+
 end

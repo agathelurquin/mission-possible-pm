@@ -1,1 +1,17 @@
-<h1><%= @project.name%></h1>
+<div class="container border bg-light mt-3">
+
+  <h1 class="text-center"> Project: <%= @project.name %></h1>
+  <div class="container">
+    <p class="well">Description: <%= @project.description %></p>
+    <p class="well">Due date: <%= @project.due_date %></p>
+    <p class="well">Price: <%= @project.price %></p>
+    <p class="well">Status: <%= @project.status %></p>
+  </div>
+</div>
+<div class="container border bg-light mt-3">
+    <h3 class="text-center">Tasks</h3>
+    <% @tasks = @project.tasks %>
+    <% @tasks.each do |task| %>
+      <p><%= task.name %></P>
+    <% end %>
+</div>
