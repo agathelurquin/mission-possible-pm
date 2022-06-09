@@ -1,22 +1,75 @@
+.background {
+  background-color: $my-blue-green;
+}
 .banner {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(asset_path('banner.jpg'));
-  height: 500px;
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(asset_path('banner.jpg'));
+  height: px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center right;
   object-fit: cover;
-  padding: 150px;
+
+  & .text {
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
+    padding: 230px 150px 0px 150px;
+    font-weight: lighter;
+    color: $my-ice-green;
+    font-size: 22px;
+    strong {
+      background-color: rgba(246, 255, 248, 0.2);
+      padding: 0 10px 0 5px;
+      color: $my-darkest-blue;
+    }
+  }
+
+
+  & .sub {
+    opacity: 0.9;
+  }
+
+  & h1 {
+    margin: 0;
+    color: $my-darkest-blue;
+    font-size: 64px;
+    font-weight: lighter;
+  }
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  font-weight: lighter;
-  font-size: 32px;
+
+.input-group {
+  & .form-control {
+    border-radius: 50px;
+    background-color: transparent;
+  }
 }
 
-.banner p {
-  font-size: 20px;
-  color: $my-blue-green;
+
+.login-section {
+  & .smaller {
+    color: $my-darkest-blue;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
+    font-size: 22px;
+    font-weight: lighter;
+    & .btn {
+      background-color: red;
+    }
+  }
+}
+.newsletter {
+ & h5 {
+    color: $my-light-green;
+    font-weight: lighter;
+  }
+}
+
+.banner-form {
+  background-color: rgba(246, 255, 248, 0.8);
+  margin: 150px 30px 50px 30px;
+  & .form-label{
+  color: $my-darkest-blue;
+  }
+  & .form-control {
+    background-color: transparent;
+  }
 }

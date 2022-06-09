@@ -1,5 +1,8 @@
 .navbar-mp {
   justify-content: space-between;
+  & strong {
+    color: $my-blue-green;
+  }
 }
 
 .navbar-mp .navbar-collapse {
