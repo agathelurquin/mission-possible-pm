@@ -25,6 +25,12 @@
 }
 
 .banner-form {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   margin: 50px;
+  & .form-label{
+  color: $my-darkest-blue;
+  }
+  & .form-control {
+    background-color: transparent;
+  }
 }
