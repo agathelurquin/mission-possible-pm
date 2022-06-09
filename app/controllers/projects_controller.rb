@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update]
+  before_action :set_project, only: [ :show, :edit, :update ]
+
+  def index
+    @projects = Project.all
+  end
 
   def new
     @project = Project.new
@@ -8,7 +12,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      redirect_to project_path(@project)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +34,6 @@ class ProjectsController < ApplicationController
   def update
     @project.update(project_params)
     redirect_to project_path(@project)
-
   end
 
   private
