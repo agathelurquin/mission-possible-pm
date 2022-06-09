@@ -13,23 +13,22 @@
 
 <div class="container border bg-light mt-3">
   <h2>Members already assigned to this task</h2>
-  <% @task.users.each do |user| %>
-    <%= user.name %>
-  <% end %>
+  <ul>
+    <% @task.users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+  </ul>
 </div>
-
 <br><br><br>
 <div class="container">
-  <h4 class="ui header">Assign new member</h4>
+  <h2 class="ui header">Assign new member</h2>
   <span>
     <div class="ui inline dropdown">
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item">
-          <img class="ui avatar image" src="/images/avatar/small/jenny.jpg">
-          Jenny Hess
-        </div>
-      </div>
+      <ul>
+        <%  @users_available.each do |user| %>
+          <li><%= link_to user.name, new_assignment_path(user, @task) %></li>
+        <% end %>
+      </ul>
     </div>
   </span>
 </div>

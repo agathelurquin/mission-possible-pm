@@ -2,25 +2,24 @@ class TasksController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @project = Project.find(params[:project_id])
     @tasks = Task.where(project_id: @project)
   end
 
   def show
-    @project = Project.find(params[:id])
     @task.project = @project
     authorize @task
+    @users_available = User.where.not(id: @task.users)
   end
 
   def new
+    @task = Task.new
   end
 
   def create
-    @project = Project.find(params[:project_id])
     @task = Task.new(task_params)
     @task.project = @project
     if @task.save
-      redirect_to project_task_path(@task)
+      redirect_to project_path(@project)
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,12 +31,11 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-    redirect_to project_task_path(@task)
+    redirect_to project_task_path(@project, @task)
     authorize @task
   end
 
   def destroy
-    @project = Project.find(params[:project_id])
     @task.destroy
     redirect_to project_tasks_path(@project)
   end
@@ -50,6 +48,10 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def set_project
+    @project = Project.find(params[:project_id])
   end
 
 end

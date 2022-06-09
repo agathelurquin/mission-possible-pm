@@ -12,7 +12,8 @@
     <h3 class="text-center">Tasks</h3>
     <% @project.tasks.each do |task| %>
       <p><%= task.name %>
-      <%= link_to 'See task details', project_task_path(task)%>
+      <%= link_to 'See task details', project_task_path(@project, task)%>
+      <%= link_to 'Edit task', edit_project_task_path(@project, task)%>
       </p>
 
     <% end %>

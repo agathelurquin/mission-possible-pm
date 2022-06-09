@@ -6,7 +6,7 @@
       <ul class="list-group mb-3">
         <% @projects_pm.each do |project| %>
           <li class="list-group-item">
-            <%= link_to project.name, project_path(project) %>
+            <p><%= link_to project.name, project_path(project) %> <%= project.id %> </p>
           </li>
         <% end %>
       </ul>
