@@ -2,6 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    @project = Project.find(params[:project_id])
+    @tasks = Task.where(project_id: @project)
   end
 
   def show
@@ -13,8 +15,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    # @project = Project.find(params[:project_id])
-    @project = Project.last
+    @project = Project.find(params[:project_id])
     @task.project = @project
     if @task.save
       redirect_to task_path(@task)
