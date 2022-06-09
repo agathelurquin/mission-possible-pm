@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @task.project = @project
-
+    authorize @task
   end
 
   def new
@@ -27,11 +27,13 @@ class TasksController < ApplicationController
   end
 
   def edit
+    authorize @task
   end
 
   def update
     @task.update(task_params)
     redirect_to project_task_path(@task)
+    authorize @task
   end
 
   def destroy
