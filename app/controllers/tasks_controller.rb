@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
-  before_action :set_project, except: [ :edit, :update ]
+  before_action :set_project
 
   def index
     @tasks = Task.where(project_id: @project)
@@ -25,12 +25,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    # hi
   end
 
   def update
     @task.update(task_params)
-    redirect_to project_task_path(@task)
+    redirect_to project_task_path(@project, @task)
   end
 
   def destroy
