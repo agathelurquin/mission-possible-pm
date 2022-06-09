@@ -1,11 +1,11 @@
+        <% if user_signed_in? %>
 <div class="navbar navbar-expand-sm navbar-mp border-bottom border-light">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand mx-3" do %>
-      <%= image_tag "pm-logo.png" %>
+    <%= link_to "#", class: "navbar-brand mx-5 py-2" do %>
+            <h4>Mission<strong>:Possible</strong></h4>
     <% end %>
     <div class="navbar-collapse">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "MY PROJECTS", projects_path, class: "nav-link" %>
           </li>
@@ -17,12 +17,6 @@
           </li>
             <%= image_tag "default-avatar-icon.png", class: "avatar" %>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "LOGIN", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "SIGNUP", new_user_session_path, class: "nav-link" %>
-          </li>
         <% end %>
       </ul>
     </div>

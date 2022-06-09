@@ -1,8 +1,37 @@
-
+<div class="background">
 <div class="banner">
   <div class="container">
-    <h1>Mission<strong>:Possible</strong></h1>
-    <p>Efficient tools for smart projects</p>
-    <%= link_to "Start now", "#", class: "btn btn-ghost" %>
+   <div class="row">
+    <div class="col text text-center">
+      <h1>Mission<strong>:Possible</strong></h1>
+      <div class="sub">
+        <p>Why use complex tools when you can manage your projects in a nice & easy way?</p>
+      </div>
+     </div>
+    <div class="col banner-form">
+      <%= render partial: 'form' %>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-5 mx-5">
+  <div class="row">
+    <div class="col-8">
+      <div class="login-section p-3">
+          <h5 class="smaller">Already have an account? <%= link_to "Login", new_user_session_path, class: "btn btn-filled" %> </h5>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="newsletter text-center">
+            <h5>Join our Newsletter for our pro tips</h5>
+            <form>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="E-mail">
+                <button type="submit" class="btn btn-white">Subscribe</button>
+                </div>
+            </form>
+      </div>
+    </div>
   </div>
 </div>
