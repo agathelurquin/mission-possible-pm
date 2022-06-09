@@ -1,13 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
-  before_action :set_project
+  before_action :set_project, only: [:new, :create]
 
   def index
     @tasks = Task.where(project_id: @project)
   end
 
   def show
-    @task.project = @project
     @users_available = User.where.not(id: @task.users)
   end
 
