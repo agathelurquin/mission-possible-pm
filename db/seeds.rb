@@ -1,14 +1,5 @@
 require 'faker'
 
-puts "Cleaning database"
-
-Assignment.destroy_all
-Task.destroy_all
-Project.destroy_all
-User.destroy_all
-
-puts 'Database Clean'
-
 
 def create_user(first_name, full_name)
   user = User.new(
@@ -39,6 +30,15 @@ def create_assignment(user)
   assignment.save!
 end
 
+puts "*****************"
+puts "Cleaning the database"
+puts "*****************"
+
+Assignment.destroy_all
+Task.destroy_all
+Project.destroy_all
+User.destroy_all
+
 puts "************************"
 puts 'Creating our own e-mails'
 puts "************************"
@@ -53,7 +53,6 @@ joao = create_user 'joao', 'Joao da Silva'
 puts "*******************************"
 puts 'Creating 10 projects for Agathe'
 puts "*******************************"
-
 
 10.times do
   create_project(agathe)
@@ -95,7 +94,6 @@ puts 'Creating 50 fake tasks'
   task.save!
 end
 
-
 puts "****************************"
 puts 'Creating 20 fake users'
 puts "****************************"
@@ -104,9 +102,9 @@ puts "****************************"
   create_user Faker::Name.first_name, Faker::Name.name
 end
 
-puts "****************************"
-puts 'Creating assignments to Joao'
-puts "****************************"
+puts "*********************************"
+puts 'Creating assignments to user Joao'
+puts "*********************************"
 
 10.times do
   create_assignment(joao)
@@ -120,4 +118,4 @@ puts "****************************"
   create_assignment(User.all.sample)
 end
 
-puts "finished"
+puts "Seeding completed (❁´◡`❁)"
