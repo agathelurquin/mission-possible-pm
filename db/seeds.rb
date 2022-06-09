@@ -1,34 +1,85 @@
 require 'faker'
 
-puts "Cleaning database"
 
-Project.destroy_all
-Task.destroy_all
-Assignment.destroy_all
-
-puts 'Database Clean'
-
-puts 'Creating 50 fake users'
-
-50.times do
+def create_user(first_name, full_name)
   user = User.new(
-    email: Faker::Internet.email,
-    password: Faker::Code.npi,
-    name: Faker::Name.name
+    email: "#{first_name}@gmail.com",
+    password: '123456',
+    name: full_name
   )
   user.save!
+  return user
 end
 
-puts 'Creating 10 fake projects'
-
-10.times do
+def create_project(user)
   project = Project.new(
-    user: User.all.sample,
+    user: user,
     name: Faker::Movie.title,
     description: Faker::Lorem.paragraph,
+    status: 'In progress',
     due_date: Faker::Date.forward
   )
   project.save!
+end
+
+def create_assignment(user)
+  assignment = Assignment.new(
+    user: user,
+    task: Task.all.sample
+  )
+  assignment.save!
+end
+
+puts "*****************"
+puts "Cleaning the database"
+puts "*****************"
+
+Assignment.destroy_all
+Task.destroy_all
+Project.destroy_all
+User.destroy_all
+
+puts "************************"
+puts 'Creating our own e-mails'
+puts "************************"
+
+agathe = create_user 'agathe', 'Agathe Lurquin'
+adriana = create_user 'adriana', 'Adriana Osorio'
+julia = create_user 'julia', 'Julia 54rtor1'
+lucas = create_user 'lucas', 'Lucas Mendes'
+joao = create_user 'joao', 'Joao da Silva'
+
+
+puts "*******************************"
+puts 'Creating 10 projects for Agathe'
+puts "*******************************"
+
+10.times do
+  create_project(agathe)
+end
+
+puts "*******************************"
+puts 'Creating 10 projects for Adriana'
+puts "*******************************"
+
+10.times do
+  create_project(adriana)
+end
+
+puts "*******************************"
+puts 'Creating 10 projects for Julia'
+puts "*******************************"
+
+10.times do
+  create_project(julia)
+end
+
+puts "*******************************"
+puts 'Creating 10 projects for Lucas'
+puts "*******************************"
+
+10.times do
+  create_project(lucas)
 end
 
 puts 'Creating 50 fake tasks'
@@ -43,14 +94,28 @@ puts 'Creating 50 fake tasks'
   task.save!
 end
 
-puts 'Creating 50 fake assignments'
+puts "****************************"
+puts 'Creating 20 fake users'
+puts "****************************"
 
-50.times do
-  assignment = Assignment.new(
-    user: User.all.sample,
-    task: Task.all.sample
-  )
-  assignment.save!
+20.times do
+  create_user Faker::Name.first_name, Faker::Name.name
 end
 
-puts "finished"
+puts "*********************************"
+puts 'Creating assignments to user Joao'
+puts "*********************************"
+
+10.times do
+  create_assignment(joao)
+end
+
+puts "****************************"
+puts 'Creating 50 fake assignments'
+puts "****************************"
+
+50.times do
+  create_assignment(User.all.sample)
+end
+
+puts "Seeding completed (❁´◡`❁)"
