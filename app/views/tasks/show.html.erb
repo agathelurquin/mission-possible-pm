@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<%= link_to 'Go back to project', project_path(@project)%>
+<%= link_to 'Go back to project', project_path(@task.project)%>
 
 <div class="container border bg-light mt-3">
   <h2>Members already assigned to this task</h2>
@@ -26,7 +26,7 @@
     <div class="ui inline dropdown">
       <ul>
         <%  @users_available.each do |user| %>
-          <li><%= link_to user.name, new_assignment_path(user, @task) %></li>
+          <li><%= link_to user.name, task_assignments_path(@task, user_id: user.id), method: :post %></li>
         <% end %>
       </ul>
     </div>
