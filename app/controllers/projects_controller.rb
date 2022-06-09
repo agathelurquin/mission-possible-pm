@@ -18,6 +18,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def index
+    @projects_pm = Project.where(user_id: current_user)
+    @projects_worker = current_user.projects_as_contributor
+  end
+
   def show
     # How to set the rule for show projects where user = one of the participants of the project
     # With assignments

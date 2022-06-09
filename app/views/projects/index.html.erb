@@ -1,9 +1,24 @@
-<h1> All Projects </h1>
-
-<ul>
-  <% @projects.each do |project| %>
-    <li> <%= project.name%> </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Create new booking', new_project_path%>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>My Projects</h1>
+      <h2>As a PM</h2>
+      <ul class="list-group mb-3">
+        <% @projects_pm.each do |project| %>
+          <li class="list-group-item">
+            <%= link_to project.name, project_path(project) %>
+          </li>
+        <% end %>
+      </ul>
+      <h2>As a worker</h2>
+      <ul class="list-group mb-3">
+        <% @projects_worker.each do |project| %>
+          <li class="list-group-item">
+            <%= link_to project.name, project_path(project) %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add a new Project", new_project_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

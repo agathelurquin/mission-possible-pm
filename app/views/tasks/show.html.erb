@@ -1,3 +1,33 @@
-<h1>show of the task for testing purposes</h1>
-<h2><%= @task.name %></h2>
-<p><%= @task.description %></p>
+<div class="container border bg-light mt-3">
+<h1 class="text-center"> Task: <%= @task.name %></h1>
+  <div class="container">
+    <p class="well">Description: <%= @task.description %></p>
+    <p class="well">Due date: <%= @task.due_date %></p>
+    <p class="well">Estimated effort: <%= @task.estimated_effort %></p>
+    <p class="well">Status: <%= @task.status %></p>
+    <p class="well">Completion date: <%= @task.completion_date %></p>
+  </div>
+</div>
+
+<div class="container border bg-light mt-3">
+  <h2>Members already assigned to this task</h2>
+  <% @task.users.each do |user| %>
+    <%= user.name %>
+  <% end %>
+</div>
+
+<br><br><br>
+<div class="container">
+  <h4 class="ui header">Assign new member</h4>
+  <span>
+    <div class="ui inline dropdown">
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item">
+          <img class="ui avatar image" src="/images/avatar/small/jenny.jpg">
+          Jenny Hess
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
