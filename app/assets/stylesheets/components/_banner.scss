@@ -1,5 +1,5 @@
 .banner {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(asset_path('banner.jpg'));
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(asset_path('banner.jpg'));
   height: 700px;
   width: 100%;
   background-size: cover;
@@ -9,14 +9,14 @@
 
   & .text {
     text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
-    padding: 150px 150px 0px 150px;
+    padding: 200px 150px 0px 150px;
     font-weight: lighter;
     color: $my-ice-green;
     font-size: 22px;
     strong {
-      color: $my-dark-blue;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-      opacity: 0.9;
+      background-color: rgba(246, 255, 248, 0.2);
+      padding: 0 10px 0 5px;
+      color: $my-darkest-blue;
     }
   }
 
@@ -39,8 +39,8 @@
 
 .banner-form {
   margin: 50px;
-  background-color: rgba(255, 255, 255, 0.8);
-  margin: 50px;
+  background-color: rgba(246, 255, 248, 0.8);
+  margin: 150px 0 0 0;
   & .form-label{
   color: $my-darkest-blue;
   }
