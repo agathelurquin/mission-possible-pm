@@ -9,6 +9,7 @@ class TasksController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @task.project = @project
+    @users_available = User.where.not(id: @task.users)
   end
 
   def new
