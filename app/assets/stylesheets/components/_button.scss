@@ -27,3 +27,19 @@
 
   }
 }
+
+.btn-white {
+  background-color: white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  color: $my-dark-blue;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  &:hover{
+    background-color: $my-blue-green;
+    color:white;
+    border: 1px solid $my-blue-green;
+  }
+}
