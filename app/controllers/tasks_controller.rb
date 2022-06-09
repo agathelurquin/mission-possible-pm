@@ -10,12 +10,13 @@ class TasksController < ApplicationController
   end
 
   def new
+    @project = Project.find(params[:project_id])
     @task = Task.new
   end
 
   def create
-    @task = Task.new(task_params)
     @project = Project.find(params[:project_id])
+    @task = Task.new(task_params)
     @task.project = @project
     if @task.save
       redirect_to task_path(@task)
@@ -33,8 +34,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @project = Project.find(params[:project_id])
     @task.destroy
-    reddirect_to tasks_path
+    redirect_to project_tasks_path(@project)
   end
 
   private
