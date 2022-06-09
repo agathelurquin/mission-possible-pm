@@ -1,12 +1,11 @@
 .banner {
   background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(asset_path('banner.jpg'));
-  height: 500px;
+  height: 700px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center right;
   object-fit: cover;
-  padding: 150px;
 }
 
 .banner h1 {
@@ -19,4 +18,13 @@
 .banner p {
   font-size: 20px;
   color: $my-blue-green;
+}
+
+.text {
+  padding: 150px;
+}
+
+.banner-form {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 50px;
 }

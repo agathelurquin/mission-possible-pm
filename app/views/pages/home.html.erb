@@ -1,9 +1,15 @@
 
 <div class="banner">
   <div class="container">
-    <h1>Mission<strong>:Possible</strong></h1>
-    <p>Manage your projects in a nice & easy way!</p>
-    <%= link_to "Start now", "#", class: "btn btn-ghost" %>
-    <%= render partial: 'form' %>
+   <div class="row">
+    <div class="col text">
+      <h1>Mission<strong>:Possible</strong></h1>
+        <p>Manage your projects in a nice & easy way!</p>
+        <%= link_to "Start now", "#", class: "btn btn-ghost" %>
+      </div>
+    <div class="col banner-form">
+      <%= render partial: 'form' %>
+    </div>
+    </div>
   </div>
 </div>
