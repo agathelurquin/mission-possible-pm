@@ -9,6 +9,8 @@
   </div>
 </div>
 
+<%= link_to 'Go back to project', project_path(@project)%>
+
 <div class="container border bg-light mt-3">
   <h2>Members already assigned to this task</h2>
   <% @task.users.each do |user| %>
