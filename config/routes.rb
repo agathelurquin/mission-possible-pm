@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :projects do
-    resources :tasks, only: [ :index, :new, :create ]
+    resources :tasks
   end
-
-  resources :tasks, except: [ :index, :new, :create ]
 end

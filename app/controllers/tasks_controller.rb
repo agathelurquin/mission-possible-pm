@@ -7,11 +7,12 @@ class TasksController < ApplicationController
   end
 
   def show
+    @project = Project.find(params[:id])
+    @task.project = @project
+
   end
 
   def new
-    @project = Project.find(params[:project_id])
-    @task = Task.new
   end
 
   def create
@@ -19,7 +20,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.project = @project
     if @task.save
-      redirect_to task_path(@task)
+      redirect_to project_task_path(@task)
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +31,7 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-    redirect_to task_path(@task)
+    redirect_to project_task_path(@task)
   end
 
   def destroy
