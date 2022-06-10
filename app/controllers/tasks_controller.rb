@@ -8,6 +8,7 @@ class TasksController < ApplicationController
 
   def show
     @users_available = User.where.not(id: @task.users)
+    @project = @task.project
   end
 
   def new

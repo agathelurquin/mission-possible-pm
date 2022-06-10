@@ -7,7 +7,9 @@
     <p class="well">Status: <%= @task.status %></p>
     <p class="well">Completion date: <%= @task.completion_date %></p>
   </div>
-  <%= link_to 'Back to project', project_path(@task.project)%>
+      <%= link_to 'Edit task', edit_project_task_path(@project, @task)%>
+      <%= link_to 'Delete task', task_path(@task), method: 'delete'%>
+  <%= link_to 'Go back to project', project_path(@task.project)%>
 </div>
 
 <div class="container border bg-light mt-3">
