@@ -1,16 +1,16 @@
 class AssignmentsController < ApplicationController
 
-  def new
-    @assignment = Assignment.new
-  end
+  # def new
+  #   @assignment = Assignment.new
+  # end
 
   def create
     @task = Task.find(params[:task_id])
     @user = User.find(params[:user_id])
-    @assignment = Assignment.new(@user, @task)
+    @assignment = Assignment.new(user: @user, task: @task)
 
     if @assignment.save
-      redirect_to project_task_path(@task)
+      redirect_to task_path(@task)
     else
       render :new, status: :unprocessable_entity
     end

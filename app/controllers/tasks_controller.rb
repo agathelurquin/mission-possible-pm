@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_project, only: [:new, :create]
 
   def index
     @tasks = Task.where(project_id: @project)
@@ -13,6 +14,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @task.project = @project
   end
 
   def create
@@ -28,6 +30,7 @@ class TasksController < ApplicationController
 
   def edit
     authorize @task
+    @project = @task.project
   end
 
   def update
@@ -37,8 +40,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @project = @task.project
     @task.destroy
-    redirect_to project_tasks_path(@project)
+    redirect_to project_path(@project)
   end
 
   private

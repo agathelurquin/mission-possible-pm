@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :projects do
-    resources :tasks
+    resources :tasks, only: [:index, :new, :create, :edit, :update]
   end
 
-  resources :assignments, only: [:new, :create]
+  resources :tasks, only: [:show, :destroy] do
+    resources :assignments, only: [:create]
+  end
+
 end
