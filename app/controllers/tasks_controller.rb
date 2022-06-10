@@ -12,6 +12,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @task.project = @project
   end
 
   def create
@@ -25,16 +26,18 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @project = @task.project
   end
 
   def update
     @task.update(task_params)
-    redirect_to project_task_path(@project, @task)
+    redirect_to task_path(@task)
   end
 
   def destroy
+    @project = @task.project
     @task.destroy
-    redirect_to project_tasks_path(@project)
+    redirect_to project_path(@project)
   end
 
   private

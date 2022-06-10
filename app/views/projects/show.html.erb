@@ -13,7 +13,7 @@
     <% @project.tasks.each do |task| %>
       <p><%= task.name %>
       <%= link_to 'See task details', task_path(task)%>
-      <%= link_to 'Edit task', edit_task_path(task)%>
+      <%= link_to 'Edit task', edit_project_task_path(@project, task)%>
       </p>
 
     <% end %>
