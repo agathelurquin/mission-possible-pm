@@ -8,12 +8,15 @@ class AssignmentsController < ApplicationController
     @task = Task.find(params[:task_id])
     @user = User.find(params[:user_id])
     @assignment = Assignment.new(user: @user, task: @task)
+    @assignment.save
+    redirect_to task_path(@task, anchor: "top-of-list")
+  end
 
-    if @assignment.save
-      redirect_to task_path(@task)
-    else
-      render :new, status: :unprocessable_entity
-    end
+  def destroy
+    @task = Task.find(params[:task_id])
+    @user = User.find(params[:user_id])
+    @task.users.delete(@user)
+    redirect_to task_path(@task, anchor: "top-of-list")
   end
 
   private
