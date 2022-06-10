@@ -10,7 +10,11 @@ class TaskPolicy < ApplicationPolicy
     true
   end
 
-  create?
+  def new?
+    true
+  end
+
+  def create?
     true
   end
 
@@ -27,5 +31,4 @@ class TaskPolicy < ApplicationPolicy
   def is_owner?
     record.user == user
   end
-
 end

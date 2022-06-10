@@ -15,6 +15,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @task.project = @project
+    authorize @task
   end
 
   def create
@@ -29,8 +30,8 @@ class TasksController < ApplicationController
   end
 
   def edit
-    authorize @task
     @project = @task.project
+    authorize @task
   end
 
   def update
