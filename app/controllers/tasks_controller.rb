@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     @task.project = @project
     authorize @task
     @users_available = User.where.not(id: @task.users)
+    @project = @task.project
   end
 
   def new

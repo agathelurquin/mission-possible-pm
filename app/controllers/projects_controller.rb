@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [ :show, :edit, :update ]
+  before_action :set_project, only: [ :show, :edit, :update, :destroy ]
 
   def new
     @project = Project.new
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @project.user = current_user
     if @project.save
-      redirect_to root_path
+      redirect_to project_path(@project)
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,6 +37,11 @@ class ProjectsController < ApplicationController
     authorize @project
     @project.update(project_params)
     redirect_to project_path(@project)
+  end
+
+  def destroy
+    @project.destroy
+    redirect_to projects_path
   end
 
   private
