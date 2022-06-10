@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :tasks, only: [:show, :destroy] do
-    resources :assignments, only: [:create]
+    resources :assignments, only: [:create, :destroy]
   end
 
 end
