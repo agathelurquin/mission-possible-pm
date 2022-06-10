@@ -8,6 +8,7 @@ class AssignmentsController < ApplicationController
     @task = Task.find(params[:task_id])
     @user = User.find(params[:user_id])
     @assignment = Assignment.new(user: @user, task: @task)
+    authorize @assignment
 
     if @assignment.save
       redirect_to task_path(@task)

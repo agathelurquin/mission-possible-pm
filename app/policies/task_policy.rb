@@ -20,7 +20,7 @@ class TaskPolicy < ApplicationPolicy
 
   def edit?
     # user == > current user
-    # record == > @project
+    # record == > @task
     is_owner?
   end
 
@@ -29,6 +29,6 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def is_owner?
-    record.user == user
+    record.project.user == user
   end
 end

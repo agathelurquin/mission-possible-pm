@@ -1,7 +1,9 @@
-<h1>Edit this task</h1>
+<div class="container">
+  <h1>Edit this task</h1>
 
-<%= render 'form', task: @task %>
+  <%= render 'form', task: @task %>
 
-<%= link_to project_path(@project) do %>
-  Back to project
-<% end %>
+  <%= link_to project_path(@project) do %>
+    Back to project
+  <% end %>
+</div>
