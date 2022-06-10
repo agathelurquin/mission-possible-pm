@@ -10,6 +10,10 @@ class TaskPolicy < ApplicationPolicy
     true
   end
 
+  create?
+    true
+  end
+
   def edit?
     # user == > current user
     # record == > @project

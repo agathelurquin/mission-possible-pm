@@ -17,6 +17,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    authorize @task
     @task.project = @project
     if @task.save
       redirect_to project_path(@project)
