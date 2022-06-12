@@ -6,6 +6,8 @@
     <p class="well">Due date: <%= @project.due_date %></p>
     <p class="well">Price: <%= @project.price %></p>
     <p class="well">Status: <%= @project.status %></p>
+    <p class="well"> Files: </p>
+    <%= cl.file_tag @project.file.key%>
     <br>
     <%= link_to 'Delete project', project_path(@project), method: 'delete'%>
 
