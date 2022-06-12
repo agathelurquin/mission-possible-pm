@@ -5,7 +5,7 @@
       <%= f.input :status %>
       <%= f.input :price %>
       <%= f.input :due_date %>
-      <%= f.input :file, as: :file %>
+      <%= f.input :files, as: :file, input_html: { multiple: true } %>
       <%= f.submit %>
   <% end %>
 </div>

@@ -7,7 +7,27 @@
     <p class="well">Price: <%= @project.price %></p>
     <p class="well">Status: <%= @project.status %></p>
     <p class="well"> Files: </p>
-    <%= cl.file_tag @project.file.key%>
+    <% if @project.files.attached? %>
+      <ul>
+        <% @project.files.each do |file| %>
+          <li>
+            <% if file.image? %>
+              <%= link_to rails_blob_path(file, disposition: 'attachment') do %>
+                <%= cl_image_tag "#{file.key}", alt: "Download file" %>
+              <% end %>
+            <% else %>
+              <% if file.representable? %>
+                <%= link_to rails_blob_path(file, disposition: 'preview') %>
+              <% else %>
+                <%= link_to rails_blob_path(file, disposition: 'attachment') do %>
+                  <%= cl_image_tag "#{file.key}", alt: "Download file" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
     <br>
     <%= link_to 'Delete project', project_path(@project), method: 'delete'%>
 
