@@ -1,4 +1,4 @@
-<div class="container chatroom">
+<div class="container chatroom p-5">
   <h1>#<%= @chatroom.name %></h1>
 
   <div class="messages">
@@ -16,11 +16,14 @@
   remote: true,
   html: {class: "d-flex"} do |f|
 %>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message ##{@chatroom.name}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn" %>
-<% end %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message ##{@chatroom.name}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary", style:"height:39px;" %>
+  <% end %>
+  <div class="text-center">
+    <%= link_to 'Back to project', project_path(@chatroom.project) %>
+  </div>
 </div>
