@@ -7,6 +7,6 @@ class Chatroom < ApplicationRecord
   private
 
   def chatroom_name
-    self.name = self.project.name
+    self.name = project.name
   end
 end
