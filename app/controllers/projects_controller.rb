@@ -24,17 +24,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # How to set the rule for show projects where user = one of the participants of the project
-    # With assignments
-    authorize @project
   end
 
   def edit
-    authorize @project
   end
 
   def update
-    authorize @project
     @project.update(project_params)
     redirect_to project_path(@project)
   end
@@ -48,6 +43,7 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+    authorize @project
   end
 
   def project_params

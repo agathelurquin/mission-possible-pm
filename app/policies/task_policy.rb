@@ -31,4 +31,9 @@ class TaskPolicy < ApplicationPolicy
   def is_owner?
     record.project.user == user
   end
+
+  def destroy?
+    true
+  end
+
 end

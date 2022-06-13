@@ -16,7 +16,9 @@ class AssignmentsController < ApplicationController
   def destroy
     @task = Task.find(params[:task_id])
     @user = User.find(params[:user_id])
-    @task.users.delete(@user)
+    @assignment = Assignment.find_by(task: @task, user: @user)
+    authorize @assignment
+    @assignment.destroy
     redirect_to task_path(@task, anchor: "top-of-list")
   end
 

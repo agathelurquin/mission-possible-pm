@@ -4,9 +4,13 @@ class AssignmentPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
-    def create?
-      true
-    end
-
   end
+  def create?
+    record.task.project.user == user
+  end
+
+  def destroy?
+    record.task.project.user == user
+  end
+
 end

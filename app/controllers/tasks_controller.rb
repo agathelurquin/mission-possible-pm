@@ -1,14 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
-  before_action :set_project, only: [:new, :create]
+  before_action :set_project, only: [:new, :create, :update]
 
   def index
     @tasks = Task.where(project_id: @project)
   end
 
   def show
-    @task.project = @project
-    authorize @task
     @users_available = User.where.not(id: @task.users)
     @project = @task.project
   end
@@ -32,13 +30,14 @@ class TasksController < ApplicationController
 
   def edit
     @project = @task.project
-    authorize @task
   end
 
   def update
-    @task.update(task_params)
-    redirect_to project_task_path(@project, @task)
-    authorize @task
+    if @task.update(task_params)
+      redirect_to project_path(@project)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -55,6 +54,7 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+    authorize @task
   end
 
   def set_project
