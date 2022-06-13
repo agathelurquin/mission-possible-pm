@@ -4,10 +4,13 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :tasks, only: [:index, :new, :create, :edit, :update]
+    resources :files, only: :destroy
   end
 
   resources :tasks, only: [:show, :destroy] do
     resources :assignments, only: [:create, :destroy]
   end
+
+
 
 end

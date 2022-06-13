@@ -11,9 +11,11 @@
         <% @project.files.each do |file| %>
           <% if file.image? %>
               <%= image_tag(file, :width => "260px")%>
+              <%= link_to 'remove file', project_file_path(@project, file), method: 'delete'%>
           <% else %>
             <div class="container">
               <%= link_to file.filename, rails_blob_path(file, disposition: "attachement"), target: "_blank"%>
+              <%= link_to 'remove file', project_file_path(@project, file), method: 'delete'%>
             </div>
           <% end %>
         <% end %>
