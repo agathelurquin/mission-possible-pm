@@ -27,15 +27,25 @@ class ProjectsController < ApplicationController
           }
         ]
       )
-        @projects_worker.select! do |project|
+      @projects_worker.select! do |project|
         project.name.downcase.include?(params[:query].downcase)
       end
     end
   end
 
   def show
-    # How to set the rule for show projects where user = one of the participants of the project
-    # With assignments
+    #definir @tasks com base no filtro
+    if params[:query].present?
+      @tasks = Task.where(
+        ["name ILIKE :name and project_id = :project_id",
+          {name: "%#{params[:query]}%",
+          project_id: @project.id
+          }
+        ]
+      )
+    else
+      @tasks = @project.tasks
+    end
   end
 
   def edit
