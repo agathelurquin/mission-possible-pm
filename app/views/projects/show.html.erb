@@ -10,7 +10,7 @@
     <% if @project.files.attached? %>
         <% @project.files.each do |file| %>
           <% if file.image? %>
-              <%= image_tag(file, :size => "260px")%>
+              <%= image_tag(file, :width => "260px")%>
           <% else %>
             <div class="container">
               <%= link_to file.filename, rails_blob_path(file, disposition: "attachement"), target: "_blank"%>
