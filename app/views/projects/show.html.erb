@@ -10,11 +10,15 @@
     <% if @project.files.attached? %>
         <% @project.files.each do |file| %>
           <% if file.image? %>
-            <%= image_tag(file) %>
+              <%= image_tag(file, :size => "260px")%>
           <% else %>
-            <%= link_to file.filename, rails_blob_path(file, disposition: "attachement"), target: "_blank"%>
+            <div class="container">
+              <%= link_to file.filename, rails_blob_path(file, disposition: "attachement"), target: "_blank"%>
+            </div>
           <% end %>
         <% end %>
+    <% else %>
+      <p> No files attached yet </p>
     <% end %>
     <br>
     <%= link_to 'Delete project', project_path(@project), method: 'delete'%>

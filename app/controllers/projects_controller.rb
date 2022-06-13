@@ -32,6 +32,10 @@ class ProjectsController < ApplicationController
   def update
     @project.update(project_params)
     redirect_to project_path(@project)
+
+    # if @project.update(project_params)
+    #   @project.files.attach(params[:project][:files]) if params.dig(:project, :files).present?
+    # end
   end
 
   def destroy

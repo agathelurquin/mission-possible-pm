@@ -5,5 +5,4 @@ class Project < ApplicationRecord
   has_many_attached :files, dependent: :destroy
 
   validates :name, :description, :due_date, presence: true
-
 end
