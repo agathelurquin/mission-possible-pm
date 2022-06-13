@@ -10,7 +10,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(user: @user, task: @task)
     authorize @assignment
     @assignment.save
-    redirect_to task_path(@task, anchor: "top-of-list")
+    redirect_to task_path(@task)
   end
 
   def destroy
@@ -19,7 +19,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.find_by(task: @task, user: @user)
     authorize @assignment
     @assignment.destroy
-    redirect_to task_path(@task, anchor: "top-of-list")
+    redirect_to task_path(@task)
   end
 
   private

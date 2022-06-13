@@ -1,35 +1,45 @@
 <div class="container border bg-light mt-3">
-  <h1 class="text-center"> Task: <%= @task.name %></h1>
-  <div class="container">
-    <p class="well">Description: <%= @task.description %></p>
-    <p class="well">Due date: <%= @task.due_date %></p>
-    <p class="well">Estimated effort: <%= @task.estimated_effort %></p>
-    <p class="well">Status: <%= @task.status %></p>
-    <p class="well">Completion date: <%= @task.completion_date %></p>
-  </div>
-      <%= link_to 'Edit task', edit_project_task_path(@project, @task)%>
-      <%= link_to 'Delete task', task_path(@task), method: 'delete'%>
-  <%= link_to 'Go back to project', project_path(@task.project)%>
+  <h3>Project: <%= @project.name %></h3>
+  <h4>Task: <%= @task.name %></h4>
+  <p class="well">Description: <%= @task.description %></p>
+  <p class="well">Due date: <%= @task.due_date %></p>
+  <p class="well">Estimated effort: <%= @task.estimated_effort %></p>
+  <p class="well">Status: <%= @task.status %></p>
+  <p class="well">Completion date: <%= @task.completion_date %></p>
+  <%= link_to edit_project_task_path(@project, @task), class: 'pull-right btn btn-default' do %>
+    <i class="fas fa-edit"></i> Edit this task
+  <% end %>
+
+  <%= link_to task_path(@task), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you?" }  do %>
+    <i class="fas fa-trash-alt"></i> Delete this task
+  <% end %>
+
+  <%= link_to project_path(@task.project), class: 'pull-right btn btn-default' do %>
+    <i class="fa fa-history"></i> Back to project
+  <% end %>
 </div>
 
 <div class="container border bg-light mt-3">
-  <h2 id='top-of-list'>Members already assigned to this task</h2>
-  <ul>
-    <% @task.users.order('name asc').each do |user| %>
-      <li><%= link_to user.name, task_assignment_path(@task, user_id: user.id), method: :delete %></li>
-    <% end %>
-  </ul>
-</div>
-
-<div class="container border bg-light mt-3">
-  <h2 class="ui header">Assign new member</h2>
-  <span>
-    <div class="ui inline dropdown">
+  <div class="row">
+    <div class="col-6">
+      <h4 id='top-of-list'>Workers assigned to this task (click to unassign)</h4>
       <ul>
-        <%  @users_available.order('name asc').each do |user| %>
-          <li><%= link_to user.name, task_assignments_path(@task, user_id: user.id), method: :post %></li>
+        <% @task.users.order('name asc').each do |user| %>
+          <li><%= link_to user.name, task_assignment_path(@task, user_id: user.id), method: :delete %></li>
         <% end %>
       </ul>
     </div>
-  </span>
+    <div class="col-6">
+      <h4 class="ui header">Workers not assigned to this task (click to assign) </h4>
+      <span>
+        <div class="ui inline dropdown">
+          <ul>
+            <%  @users_available.order('name asc').each do |user| %>
+              <li><%= link_to user.name, task_assignments_path(@task, user_id: user.id), method: :post %></li>
+            <% end %>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </div>
 </div>

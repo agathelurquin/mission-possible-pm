@@ -1,6 +1,6 @@
 <div class="container border bg-light mt-3">
 
-  <h1 class="text-center"> Project: <%= @project.name %></h1>
+  <h1> Project: <%= @project.name %></h1>
   <div class="container">
     <p class="well">Description: <%= @project.description %></p>
     <p class="well">Due date: <%= @project.due_date %></p>
@@ -23,23 +23,45 @@
       <p> No files attached yet </p>
     <% end %>
     <br>
-    <%= link_to 'Delete project', project_path(@project), method: 'delete'%>
+
+    <%= link_to edit_project_path(@project), class: 'pull-right btn btn-default' do %>
+      <i class="fas fa-edit"></i> Edit this project
+    <% end %>
+
+    <%= link_to new_project_task_path(@project), class: 'pull-right btn btn-default' do %>
+      <i class="fas fa-plus"></i> Add a task
+    <% end %>
+
+    <%= link_to project_path(@project), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you?" }  do %>
+      <i class="fas fa-trash-alt"></i> Delete this project
+    <% end %>
+
+    <%= link_to projects_path, class: 'pull-right btn btn-default' do %>
+      <i class="fa fa-history"></i> Back to list
+    <% end %>
 
   </div>
 </div>
 <div class="container border bg-light mt-3">
-    <h3 class="text-center">Tasks</h3>
-    <% @project.tasks.each do |task| %>
-      <p><%= task.name %>
-      <%= link_to 'See task details', task_path(task)%>
-      <%= link_to 'Edit task', edit_project_task_path(@project, task)%>
-      </p>
-
+  <%= form_tag project_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a task"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 </div>
-<div class='container mt-3'>
-  <%= link_to 'Edit this project', edit_project_path(@project) %>
-  <%= link_to 'Add a task to this project', new_project_task_path(@project) %>
-  <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
 
+<div class="container border bg-light mt-3">
+  <h3>Tasks</h3>
+  <% @tasks.each do |task| %>
+    <p><%= link_to task.name, task_path(task)%></p>
+  <% end %>
+
+  <div class='container mt-3'>
+    <%= link_to 'Edit this project', edit_project_path(@project) %>
+    <%= link_to 'Add a task to this project', new_project_task_path(@project) %>
+    <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
+  </div>
 </div>

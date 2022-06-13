@@ -20,10 +20,35 @@ class ProjectsController < ApplicationController
   def index
     @projects_pm = Project.where(user_id: current_user)
     @projects_worker = current_user.projects_as_contributor
+   
+    if params[:query].present?
+      @projects_pm = Project.where(
+        ["name ILIKE :name and user_id = :current_user",
+          {name: "%#{params[:query]}%",
+          current_user: current_user
+          }
+        ]
+      )
+      @projects_worker.select! do |project|
+        project.name.downcase.include?(params[:query].downcase)
+      end
+    end
     @projects_pm = policy_scope(Project).order(created_at: :desc)
   end
 
   def show
+    #definir @tasks com base no filtro
+    if params[:query].present?
+      @tasks = Task.where(
+        ["name ILIKE :name and project_id = :project_id",
+          {name: "%#{params[:query]}%",
+          project_id: @project.id
+          }
+        ]
+      )
+    else
+      @tasks = @project.tasks
+    end
   end
 
   def edit
