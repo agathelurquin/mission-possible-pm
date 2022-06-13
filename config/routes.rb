@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :tasks, only: [:index, :new, :create, :edit, :update]
+    resources :chatrooms, only: :show
   end
 
   resources :tasks, only: [:show, :destroy] do
