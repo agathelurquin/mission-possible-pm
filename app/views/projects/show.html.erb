@@ -6,6 +6,16 @@
     <p class="well">Due date: <%= @project.due_date %></p>
     <p class="well">Price: <%= @project.price %></p>
     <p class="well">Status: <%= @project.status %></p>
+    <p class="well">Attach files to your project:</p>
+    <% if @project.files.attached? %>
+      <p>
+        <strong> Attachments : </strong>
+        <br>
+        <% @project.files.each do |file| %>
+          <%= image_tag(file) %>
+        <% end %>
+      </p>
+    <% end %>
     <br>
     <%= link_to 'Delete project', project_path(@project), method: 'delete'%>
 
