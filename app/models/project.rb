@@ -6,4 +6,11 @@ class Project < ApplicationRecord
 
   validates :name, :description, :due_date, presence: true
 
+  after_save :create_chatroom
+
+  private
+
+  def create_chatroom
+    Chatroom.create! project_id: self.id
+  end
 end
