@@ -21,8 +21,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # How to set the rule for show projects where user = one of the participants of the project
-    # With assignments
   end
 
   def edit
