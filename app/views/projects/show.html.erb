@@ -6,6 +6,22 @@
     <p class="well">Due date: <%= @project.due_date %></p>
     <p class="well">Price: <%= @project.price %></p>
     <p class="well">Status: <%= @project.status %></p>
+    <p class="well">Attachments:</p>
+    <% if @project.files.attached? %>
+        <% @project.files.each do |file| %>
+          <% if file.image? %>
+              <%= image_tag(file, :width => "260px")%>
+              <%= link_to 'remove file', project_file_path(@project, file), method: 'delete'%>
+          <% else %>
+            <div class="container">
+              <%= link_to file.filename, rails_blob_path(file, disposition: "attachement"), target: "_blank"%>
+              <%= link_to 'remove file', project_file_path(@project, file), method: 'delete'%>
+            </div>
+          <% end %>
+        <% end %>
+    <% else %>
+      <p> No files attached yet </p>
+    <% end %>
     <br>
 
     <%= link_to edit_project_path(@project), class: 'pull-right btn btn-default' do %>
@@ -36,9 +52,16 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 </div>
+
 <div class="container border bg-light mt-3">
   <h3>Tasks</h3>
   <% @tasks.each do |task| %>
     <p><%= link_to task.name, task_path(task)%></p>
   <% end %>
+
+  <div class='container mt-3'>
+    <%= link_to 'Edit this project', edit_project_path(@project) %>
+    <%= link_to 'Add a task to this project', new_project_task_path(@project) %>
+    <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
+  </div>
 </div>
