@@ -3,10 +3,12 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    authorize @project
   end
 
   def create
     @project = Project.new(project_params)
+    authorize @project
     @project.user = current_user
     if @project.save
       redirect_to project_path(@project)
@@ -18,6 +20,7 @@ class ProjectsController < ApplicationController
   def index
     @projects_pm = Project.where(user_id: current_user)
     @projects_worker = current_user.projects_as_contributor
+    @projects_pm = policy_scope(Project).order(created_at: :desc)
   end
 
   def show
@@ -40,10 +43,10 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+    authorize @project
   end
 
   def project_params
     params.require(:project).permit(:name, :description, :status, :price, :due_date, files: [])
   end
-
 end
