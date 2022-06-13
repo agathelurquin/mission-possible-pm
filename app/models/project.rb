@@ -3,6 +3,7 @@ class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :assignments, through: :tasks
   has_one :chatroom, dependent: :destroy
+  has_many_attached :files, dependent: :destroy
 
   validates :name, :description, :due_date, presence: true
 

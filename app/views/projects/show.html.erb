@@ -6,6 +6,16 @@
     <p class="well">Due date: <%= @project.due_date %></p>
     <p class="well">Price: <%= @project.price %></p>
     <p class="well">Status: <%= @project.status %></p>
+    <p class="well">Attachments:</p>
+    <% if @project.files.attached? %>
+        <% @project.files.each do |file| %>
+          <% if file.image? %>
+            <%= image_tag(file) %>
+          <% else %>
+            <%= link_to file.filename, rails_blob_path(file, disposition: "attachement"), target: "_blank"%>
+          <% end %>
+        <% end %>
+    <% end %>
     <br>
     <%= link_to 'Delete project', project_path(@project), method: 'delete'%>
 
