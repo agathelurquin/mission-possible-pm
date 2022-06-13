@@ -1,6 +1,5 @@
 require 'faker'
 
-
 def create_user(first_name, full_name)
   user = User.new(
     email: "#{first_name}@gmail.com",
