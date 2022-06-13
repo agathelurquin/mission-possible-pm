@@ -7,11 +7,13 @@
     <p class="well">Price: <%= @project.price %></p>
     <p class="well">Status: <%= @project.status %></p>
     <p class="well">Attach files to your project:</p>
-    <% if @project.file.attached? %>
+    <% if @project.files.attached? %>
       <p>
-        <strong> Attachment : </strong>
+        <strong> Attachments : </strong>
         <br>
-        <%= image_tag @project.file %>
+        <% @project.files.each do |file| %>
+          <%= image_tag(file) %>
+        <% end %>
       </p>
     <% end %>
     <br>
