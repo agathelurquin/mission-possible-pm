@@ -1,14 +1,14 @@
-<div class="container border mt-3">
+<div class="container mt-3">
+  <h1><%= @project.name %></h1>
 
-  <h1> Project: <%= @project.name %></h1>
 
-  <div class="container">
+  <div class="container border">
     <div class="row">
       <div class="col-3">
         <p class="well">Status: <%= @project.status %></p>
       </div>
       <div class="col-2">
-        <p class="well">Due date: <%= @project.due_date %></p>
+        <p class="well"><%= @project.due_date %></p>
       </div>
       <div class="col-2">
         <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
@@ -39,14 +39,27 @@
       <% end %>
       </div>
       <div class="col-9">
-        <h3>Tasks</h3>
+
+       <%= form_tag project_path, method: :get, :class => 'input-group' do %>
+        <%= text_field_tag :query,params[:query], class: "form-control rounded-0" %>
+       <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+        <% end %>
+
+       <ul class="list-group">
           <% @tasks.each do |task| %>
-            <p><%= link_to task.name, task_path(task)%></p>
+            <li class="list-group-item"><%= link_to task.name, task_path(task)%></li>
           <% end %>
+        </ul>
+
+    <%= link_to new_project_task_path(@project), class: 'pull-right btn btn-default' do %>
+      <i class="fas fa-plus"></i> Add a task
+    <% end %>
       </div>
     </div><!--.row-->
   </div><!--.container-->
 
+
+</div>
 
   <div class="container">
 
@@ -54,34 +67,14 @@
       <i class="fas fa-edit"></i> Edit this project
     <% end %>
 
-    <%= link_to new_project_task_path(@project), class: 'pull-right btn btn-default' do %>
-      <i class="fas fa-plus"></i> Add a task
-    <% end %>
 
     <%= link_to project_path(@project), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you?" }  do %>
       <i class="fas fa-trash-alt"></i> Delete this project
     <% end %>
 
+
+  </div>
+
     <%= link_to projects_path, class: 'pull-right btn btn-default' do %>
       <i class="fa fa-history"></i> Back to list
     <% end %>
-
-  </div>
-</div>
-<div class="container border bg-light mt-3">
-  <%= form_tag project_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a task"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-</div>
-
-  <div class='container mt-3'>
-    <%= link_to 'Edit this project', edit_project_path(@project) %>
-    <%= link_to 'Add a task to this project', new_project_task_path(@project) %>
-    <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
-  </div>
-</div>
