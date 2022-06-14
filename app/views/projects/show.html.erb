@@ -14,20 +14,14 @@
         <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
       </div>
       <div class="col-3">
-
        <% @project.users.first(6).each do |user| %>
-            <p><%= user.name%></p>
+            <p><%= user.name%></p> <!--to be replaced by avatar-->
           <% end %>
-
-
-
       </div>
-
     </div><!--.row-->
     <div class= "row">
       <div class="col-3">
         <p class="well bg-light">Description: <%= @project.description %></p>
-
          <div class="well bg-light"><p>Files</p>
             <% if @project.files.attached? %>
               <% @project.files.each do |file| %>
@@ -47,7 +41,7 @@
           </div>
       </div>
       <div class="col-9">
-
+        <h3>tasks</h3>
        <%= form_tag project_path, method: :get, :class => 'input-group' do %>
         <%= text_field_tag :query,params[:query], class: "form-control rounded-0" %>
        <%= submit_tag "Search", class: "btn btn-outline-primary" %>
@@ -55,7 +49,11 @@
 
        <ul class="list-group">
           <% @tasks.each do |task| %>
-            <li class="list-group-item"><%= link_to task.name, task_path(task)%></li>
+            <li class="list-group-item">
+              <%= link_to task.name, task_path(task)%>
+              <% task.users.each do |user| %>
+              <%= user.name %></li>
+              <%end%>
           <% end %>
         </ul>
 
