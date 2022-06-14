@@ -15,7 +15,7 @@
       </div>
       <div class="col-3">
 
-       <% @project.users.each do |user| %>
+       <% @project.users.first(6).each do |user| %>
             <p><%= user.name%></p>
           <% end %>
 
