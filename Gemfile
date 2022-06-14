@@ -37,6 +37,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Gem pundit
 gem 'pundit'
 
+# Blazer for dashboards
+gem 'blazer'
 
 gem 'devise'
 

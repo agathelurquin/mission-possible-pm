@@ -33,7 +33,6 @@ class ProjectsController < ApplicationController
         project.name.downcase.include?(params[:query].downcase)
       end
     end
-    # @projects_pm = policy_scope(Project).order(created_at: :desc)
   end
 
   def show
