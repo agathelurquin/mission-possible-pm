@@ -50,11 +50,17 @@
        <ul class="list-group">
           <% @tasks.each do |task| %>
             <li class="list-group-item">
-              <%= link_to task.name, task_path(task)%>
-              <% task.users.each do |user| %>
-              <%= user.name %></li>
+              <div class="row">
+              <div class="col">
+                <%= link_to task.name, task_path(task)%>
+              </div>
+              <div class="row"><% task.users.each do |user| %>
+                <%= user.name %>
               <%end%>
+              </div>
           <% end %>
+            </div>
+          </li>
         </ul>
 
     <%= link_to new_project_task_path(@project), class: 'pull-right btn btn-default' do %>
