@@ -18,17 +18,11 @@
       </div>
     </div><!--.row-->
     <div class= "row">
-    </div>
-  </div><!--.container-->
+      <div class="col-3">
+        <p class="well">Description: <%= @project.description %></p>
 
-
-  <div class="container">
-    <p class="well">Description: <%= @project.description %></p>
-    <p class="well">Due date: <%= @project.due_date %></p>
-    <p class="well">Price: <%= @project.price %></p>
-    <p class="well">Status: <%= @project.status %></p>
-    <p class="well">Attachments:</p>
-    <% if @project.files.attached? %>
+         <p class="well">Attachments:</p>
+      <% if @project.files.attached? %>
         <% @project.files.each do |file| %>
           <% if file.image? %>
               <%= image_tag(file, :width => "260px")%>
@@ -40,10 +34,21 @@
             </div>
           <% end %>
         <% end %>
-    <% else %>
-      <p> No files attached yet </p>
-    <% end %>
-    <br>
+      <% else %>
+        <p> No files attached yet </p>
+      <% end %>
+      </div>
+      <div class="col-9">
+        <h3>Tasks</h3>
+          <% @tasks.each do |task| %>
+            <p><%= link_to task.name, task_path(task)%></p>
+          <% end %>
+      </div>
+    </div><!--.row-->
+  </div><!--.container-->
+
+
+  <div class="container">
 
     <%= link_to edit_project_path(@project), class: 'pull-right btn btn-default' do %>
       <i class="fas fa-edit"></i> Edit this project
@@ -73,12 +78,6 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 </div>
-
-<div class="container border bg-light mt-3">
-  <h3>Tasks</h3>
-  <% @tasks.each do |task| %>
-    <p><%= link_to task.name, task_path(task)%></p>
-  <% end %>
 
   <div class='container mt-3'>
     <%= link_to 'Edit this project', edit_project_path(@project) %>
