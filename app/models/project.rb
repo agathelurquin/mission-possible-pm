@@ -7,6 +7,7 @@ class Project < ApplicationRecord
   has_many_attached :files, dependent: :destroy
 
   validates :name, :description, :due_date, presence: true
+  validates :name, uniqueness: true
 
   after_save :create_chatroom
 

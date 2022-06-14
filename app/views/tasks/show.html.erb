@@ -1,22 +1,37 @@
+  <div class="container border bg-light mt-3">
+    <h3>Project: <%= @project.name %></h3>
+  </div>
+
 <div class="container border bg-light mt-3">
-  <h3>Project: <%= @project.name %></h3>
-  <h4>Task: <%= @task.name %></h4>
-  <p class="well">Description: <%= @task.description %></p>
-  <p class="well">Due date: <%= @task.due_date %></p>
-  <p class="well">Estimated effort: <%= @task.estimated_effort %></p>
-  <p class="well">Status: <%= @task.status %></p>
-  <p class="well">Completion date: <%= @task.completion_date %></p>
-  <%= link_to edit_project_task_path(@project, @task), class: 'pull-right btn btn-default' do %>
-    <i class="fas fa-edit"></i> Edit this task
-  <% end %>
+  <div class="row">
+    <div class="col-6">
+      <h4>Task: <%= @task.name %></h4>
+      <p class="well">Description: <%= @task.description %></p>
+      <p class="well">Due date: <%= @task.due_date %></p>
+      <p class="well">Estimated effort: <%= @task.estimated_effort %></p>
+      <p class="well">Status: <%= @task.status %></p>
+      <p class="well">Completion date: <%= @task.completion_date %></p>
 
-  <%= link_to task_path(@task), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you?" }  do %>
-    <i class="fas fa-trash-alt"></i> Delete this task
-  <% end %>
+    </div>
+    <div class="col-6">
+      <%= render 'active_text_form', task: @task %>
+    </div>
+  </div>
+  <div class="row mx-auto">
+    <div class="col-12 ">
+      <%= link_to edit_project_task_path(@project, @task), class: 'pull-right btn btn-default' do %>
+        <i class="fas fa-edit"></i> Edit this task
+      <% end %>
 
-  <%= link_to project_path(@task.project), class: 'pull-right btn btn-default' do %>
-    <i class="fa fa-history"></i> Back to project
-  <% end %>
+      <%= link_to task_path(@task), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you?" }  do %>
+        <i class="fas fa-trash-alt"></i> Delete this task
+      <% end %>
+
+      <%= link_to project_path(@task.project), class: 'pull-right btn btn-default' do %>
+        <i class="fa fa-history"></i> Back to project
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="container border bg-light mt-3">
@@ -41,5 +56,8 @@
         </div>
       </span>
     </div>
+  </div>
+  <div class="container">
+    <%= render 'active_text_form', task: @task %>
   </div>
 </div>

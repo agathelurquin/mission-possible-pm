@@ -34,7 +34,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to project_path(@project)
+      redirect_to task_path(@task)
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :estimated_effort, :due_date)
+    params.require(:task).permit(:name, :description, :estimated_effort, :due_date, :notes)
   end
 
   def set_task
