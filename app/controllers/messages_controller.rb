@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
+    authorize @message
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
@@ -13,7 +14,6 @@ class MessagesController < ApplicationController
     else
       render "chatrooms/show"
     end
-    authorize @controller
   end
 
   private
