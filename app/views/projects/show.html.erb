@@ -5,38 +5,46 @@
   <div class="container border">
     <div class="row">
       <div class="col-3">
-        <p class="well">Status: <%= @project.status %></p>
+        <p class="well bg-light">Status: <%= @project.status %></p>
       </div>
       <div class="col-2">
-        <p class="well"><%= @project.due_date %></p>
+        <p class="well bg-light"><%= @project.due_date %></p>
       </div>
       <div class="col-2">
         <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
       </div>
       <div class="col-3">
-       <p>workers assigned avatars</p>
+
+       <% @project.users.each do |user| %>
+            <p><%= user.name%></p>
+          <% end %>
+
+
+
       </div>
+
     </div><!--.row-->
     <div class= "row">
       <div class="col-3">
-        <p class="well">Description: <%= @project.description %></p>
+        <p class="well bg-light">Description: <%= @project.description %></p>
 
-         <p class="well">Attachments:</p>
-      <% if @project.files.attached? %>
-        <% @project.files.each do |file| %>
-          <% if file.image? %>
-              <%= image_tag(file, :width => "260px")%>
-              <%= link_to 'remove file', project_file_path(@project, file), method: 'delete'%>
-          <% else %>
-            <div class="container">
-              <%= link_to file.filename, rails_blob_path(file, disposition: "attachement"), target: "_blank"%>
-              <%= link_to 'remove file', project_file_path(@project, file), method: 'delete'%>
-            </div>
-          <% end %>
-        <% end %>
-      <% else %>
-        <p> No files attached yet </p>
-      <% end %>
+         <div class="well bg-light"><p>Files</p>
+            <% if @project.files.attached? %>
+              <% @project.files.each do |file| %>
+                <% if file.image? %>
+                    <%= image_tag(file, :width => "260px")%>
+                    <%= link_to 'remove file', project_file_path(@project, file), method: 'delete'%>
+                <% else %>
+                  <div class="container">
+                    <%= link_to file.filename, rails_blob_path(file, disposition: "attachement"), target: "_blank"%>
+                    <%= link_to 'remove file', project_file_path(@project, file), method: 'delete'%>
+                  </div>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p> No files attached yet </p>
+            <% end %>
+          </div>
       </div>
       <div class="col-9">
 
@@ -58,9 +66,6 @@
     </div><!--.row-->
   </div><!--.container-->
 
-
-</div>
-
   <div class="container">
 
     <%= link_to edit_project_path(@project), class: 'pull-right btn btn-default' do %>
@@ -78,3 +83,4 @@
     <%= link_to projects_path, class: 'pull-right btn btn-default' do %>
       <i class="fa fa-history"></i> Back to list
     <% end %>
+</div>
