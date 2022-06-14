@@ -1,6 +1,27 @@
-<div class="container border bg-light mt-3">
+<div class="container border mt-3">
 
   <h1> Project: <%= @project.name %></h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <p class="well">Status: <%= @project.status %></p>
+      </div>
+      <div class="col-2">
+        <p class="well">Due date: <%= @project.due_date %></p>
+      </div>
+      <div class="col-2">
+        <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
+      </div>
+      <div class="col-3">
+       <p>workers assigned avatars</p>
+      </div>
+    </div><!--.row-->
+    <div class= "row">
+    </div>
+  </div><!--.container-->
+
+
   <div class="container">
     <p class="well">Description: <%= @project.description %></p>
     <p class="well">Due date: <%= @project.due_date %></p>
