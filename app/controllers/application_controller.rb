@@ -14,9 +14,14 @@ class ApplicationController < ActionController::Base
   #   redirect_to(projects_path)
   # end
 
+  def after_sign_in_path_for(resource)
+    projects_path
+  end
+
   private
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
+
 end
