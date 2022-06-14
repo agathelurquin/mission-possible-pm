@@ -18,9 +18,9 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects_pm = Project.where(user_id: current_user)
+    @projects_pm = policy_scope(Project).where(user_id: current_user)
     @projects_worker = current_user.projects_as_contributor
-   
+
     if params[:query].present?
       @projects_pm = Project.where(
         ["name ILIKE :name and user_id = :current_user",
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
         project.name.downcase.include?(params[:query].downcase)
       end
     end
-    @projects_pm = policy_scope(Project).order(created_at: :desc)
+    # @projects_pm = policy_scope(Project).order(created_at: :desc)
   end
 
   def show
