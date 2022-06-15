@@ -32,13 +32,6 @@
       <div class="col-2">
         <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
       </div>
-      <div class="col-3">
-       <% @project.users.first(6).each do |user| %>
-              <% if user.avatar.attached? %>
-                <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% end %>
-          <% end %>
-      </div>
     </div><!--.row-->
 
     <div class= "row">
