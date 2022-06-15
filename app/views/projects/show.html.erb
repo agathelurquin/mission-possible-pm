@@ -4,23 +4,27 @@
 
   <div class="container border">
     <div class="row">
+     <% if @progress_percent.nan? %>
+      <p><%=@project.status%></p>
+     <% else %>
       <% if @progress_percent == 0 %>
         <div class="progress p-0">
-           <div class="progress-bar bg-danger" role="progressbar" style="width: <%=@progress_percent%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0% completed</div>
+           <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0% completed</div>
         </div>
         <% elsif @progress_percent == 100 %>
         <div class="progress p-0">
-          <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100% completed!</div>
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100% completed!</div>
         </div>
       <% elsif @progress_percent < 50 %>
         <div class="progress p-0">
-          <div class="progress-bar bg-info" role="progressbar" style="width: <%=@progress_percent%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent%>% completed</div>
+          <div class="progress-bar bg-info" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed</div>
         </div>
       <% else %>
         <div class="progress p-0">
-          <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent%>% completed</div>
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed</div>
         </div>
       <% end %>
+    <%end%>
 
       <div class="col-2">
         <p class="well bg-light"><%= @project.due_date %></p>
