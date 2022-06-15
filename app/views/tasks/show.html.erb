@@ -11,7 +11,7 @@
       <p class="well">Status: <%= @task.status %></p>
       <p class="well">Completion date: <%= @task.completion_date %></p>
     </div>
-    <div class="row">
+    <div class="row mx-auto">
       <div class="col-12 ">
         <%= link_to edit_project_task_path(@project, @task), class: 'pull-right btn btn-default' do %>
           <i class="fas fa-edit"></i> Edit this task

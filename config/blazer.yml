@@ -29,7 +29,6 @@ data_sources:
         SELECT DISTINCT name
         FROM projects
         ORDER BY name ASC
-
       status: |
         SELECT DISTINCT status
         FROM projects
