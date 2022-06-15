@@ -2,7 +2,7 @@
     <h3>Project: <%= @project.name %></h3>
   </div>
 
-  <div class="container shaded-container mt-3">
+  <div class="container cards-container mt-3">
     <div class="row">
       <h4>Task: <%= @task.name %></h4>
       <p class="well">Description: <%= @task.description %></p>
@@ -29,17 +29,17 @@
   </div>
 </div>
 
-<div class="container shaded-container mt-3">
+<div class="container cards-container mt-3">
   <%= render 'active_text_form', task: @task %>
 </div>
 
-<div class="container shaded-container mt-3">
+<div class="container cards-container mt-3">
   <h4>Your Project Team</h4>
   <div class="row">
     <div class="col-6 ">
       <div class="insider-container">
         <h5 id='top-of-list'>Workers assigned to this task </h5>
-        <p class="indications"><i >click to unassign</i></p>
+        <p class="indications"><i>click to unassign</i></p>
         <ul>
           <% @task.users.order('name asc').each do |user| %>
             <li><%= link_to user.name, task_assignment_path(@task, user_id: user.id), method: :delete %></li>
@@ -51,7 +51,7 @@
     <div class="col-6 ">
       <div class="insider-container">
         <h5 class="ui header">Workers not assigned to this task</h5>
-        <p class="indications"><i >click to assign</i></p>
+        <p class="indications"><i>click to assign</i></p>
         <span>
         <div class="ui inline dropdown">
           <ul>

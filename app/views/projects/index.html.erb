@@ -1,34 +1,74 @@
 <div class="container">
+
+  <h1 class="page-title">Hi <%= current_user.name.split(" ").first%> ! Let's see what's going on in your team </h1>
+  <p class="indications">Here are all the open projects in your organization</p>
   <div class="row">
-    <div class="search-bar">
-      <div class="col-auto search-icon">
-        <i class="fas fa-search search-icon-element" aria-hidden="true"></i>
-      </div>
-      <div class="col-11">
-        <%= form_tag projects_path, method: :get do %>
-              <%= text_field_tag :query,
-                params[:query],
-                class: "form-control-project",
-                placeholder:  'Find a project'
-              %>
-            <% end %>
-      </div>
-    </div>
+
   </div>
 
   <hr>
-  <div class="container shaded-container">
-    <div class="row">
+  <div class="container">
+    <div class="row title-add-new">
+      <h2 class="col-auto">Your Projects</h2>
+      <div class="col-auto icon-col">
+        <%= link_to new_project_path do %>
+          <i class="fas fa-plus-circle"></i>
+        <% end %>
+      </div>
+
+    </div>
+
+
+    <div class="search-bar">
+      <div class="col-auto icon-col">
+        <i class="fas fa-search element-icon" aria-hidden="true"></i>
+      </div>
+      <div class="col-11">
+        <%= form_tag projects_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control-project",
+            placeholder:  'Find a project'
+          %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row cards-container">
       <div class="col-6">
         <h3>My projects as PM</h3>
         <ul class="list-group mb-3">
           <% @projects_pm.each do |project| %>
             <li class="list-group-item">
-              <p><%= link_to project.name, project_path(project) %></p>
+
+
+
+
+                <div class="project-card">
+                  <img src='assets/images/Productivity-Illustration.png' class="project-illustration" />
+                  <div class="pcard-content">
+                    <p><%= project.name %></p>
+                </div>
+
+                <div class="project-actions">
+                  <%= link_to edit_project_path(project), class: 'p-icon' do %>
+                    <i class="fas fa-pencil-alt"></i>
+                  <% end %>
+                  <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </div>
+
+              <%# <p><%= link_to project.name, project_path(project) %>
             </li>
           <% end %>
         </ul>
       </div>
+
+
+
+
+
+
       <div class="col-6">
         <h3>My projects as a worker</h3>
         <ul class="list-group mb-3">

@@ -13,3 +13,48 @@
   border-radius: 5px;
   box-shadow: rgba(0,0,0,0.15) 0px 2px 8px;
 }
+
+// project cards
+
+.project-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.project-card .pcard-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.project-card p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.project-card small {
+  color: #999999;
+  font-weight: bold;
+}
+.project-card .project-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+.project-card:hover .project-actions {
+  opacity: 1;
+}
+
+.project-card .project-actions .p-icon {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.project-card .project-actions .p-icon:hover {
+  color: #555555;
+}
