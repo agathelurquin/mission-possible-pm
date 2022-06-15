@@ -1,5 +1,16 @@
 
+.page-title{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.title-add-new{
+  display: flex;
+}
+
 .form-control-project {
+  background-color: #F8F9FA;
   border: none;
   border-bottom: 1px solid #70A8A1;
   margin: 15px 0;
@@ -8,14 +19,20 @@
 
 .search-bar{
   display: flex;
+  margin-bottom: 20px;
 }
 
-.search-icon {
+.icon-col {
   align-self: center;
   justify-content: start;
   margin-right: 15px;
 }
 
-.search-icon-element {
+.element-icon {
   color: #70A8A1;
+}
+
+.fa-plus-circle {
+  color: #70A8A1;
+  font-size: 25px;;
 }

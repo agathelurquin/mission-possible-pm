@@ -2,7 +2,7 @@
     <h3>Project: <%= @project.name %></h3>
   </div>
 
-  <div class="container shaded-container mt-3">
+  <div class="container cards-container mt-3">
     <div class="row">
       <h4>Task: <%= @task.name %></h4>
       <p class="well">Description: <%= @task.description %></p>
@@ -29,11 +29,11 @@
   </div>
 </div>
 
-<div class="container shaded-container mt-3">
+<div class="container cards-container mt-3">
   <%= render 'active_text_form', task: @task %>
 </div>
 
-<div class="container shaded-container mt-3">
+<div class="container cards-container mt-3">
   <h4>Your Project Team</h4>
   <div class="row">
     <div class="col-6 ">
@@ -55,6 +55,7 @@
     <div class="col-6 ">
       <div class="insider-container">
         <h5 class="ui header">Workers not assigned to this task</h5>
+
 
         <%= form_tag task_path(@task), method: :get do %>
           <%= text_field_tag :query,
