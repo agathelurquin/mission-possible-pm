@@ -9,6 +9,13 @@ class User < ApplicationRecord
   has_many :tasks, through: :assignments
   has_one_attached :avatar
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def projects_as_contributor
     tasks.map do |task|
       task.project
