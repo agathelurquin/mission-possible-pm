@@ -6,6 +6,9 @@ def create_user(first_name, full_name)
     password: '123456',
     name: full_name
   )
+  user.avatar.attach(io: File.open('app/assets/images/default-avatar-icon.png'),
+                     filename: 'default-avatar-icon.png',
+                     content_type: 'image/png')
   user.save!
   return user
 end
@@ -13,7 +16,7 @@ end
 def create_project(user)
   project = Project.new(
     user: user,
-    name: Faker::Movie.title,
+    name: "#{Faker::Movie.title} - #{Faker::Movie.quote}",
     description: Faker::Lorem.paragraph,
     status: 'In progress',
     due_date: Faker::Date.forward
@@ -81,13 +84,14 @@ puts "*******************************"
   create_project(lucas)
 end
 
-puts 'Creating 50 fake tasks'
+puts 'Creating 100 fake tasks'
 
-50.times do
+100.times do
   task = Task.new(
-    name: Faker::Verb.base,
+    name: Faker::Hobby.activity,
     project: Project.all.sample,
     description: Faker::Lorem.sentence(word_count: 3),
+    estimated_effort: (1..40).to_a.sample,
     due_date: Faker::Date.forward
   )
   task.save!
