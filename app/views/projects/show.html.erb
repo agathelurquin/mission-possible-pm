@@ -34,7 +34,9 @@
       </div>
       <div class="col-3">
        <% @project.users.first(6).each do |user| %>
-            <p><%= user.name%></p> <!--to be replaced by avatar-->
+              <% if user.avatar.attached? %>
+                <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
           <% end %>
       </div>
     </div><!--.row-->
@@ -77,7 +79,9 @@
                 <%= link_to task.name, task_path(task)%>
               </div>
               <div class="row"><% task.users.each do |user| %>
-                <%= user.name %>
+                <% if user.avatar.attached? %>
+                  <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
               <%end%>
               </div>
           <% end %>
