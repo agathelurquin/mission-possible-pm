@@ -4,5 +4,6 @@ class Task < ApplicationRecord
   has_many :users, through: :assignments
   has_rich_text :notes
 
-  validates :name, :description, :due_date, presence: true
+  validates :name, :description, :due_date, :estimated_effort, presence: true
+  STATUS = ["open", "in progress", "completed", "canceled"]
 end

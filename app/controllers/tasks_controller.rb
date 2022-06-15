@@ -9,6 +9,11 @@ class TasksController < ApplicationController
   def show
     @users_available = User.where.not(id: @task.users)
     @project = @task.project
+    if params[:query].present?
+      @users_available = User.search_by_name(params[:query])
+    else
+      @users_available = User.where.not(id: @task.users)
+    end
   end
 
   def new
@@ -49,7 +54,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :estimated_effort, :due_date, :notes)
+    params.require(:task).permit(:name, :description, :estimated_effort, :due_date, :notes, :status)
   end
 
   def set_task
