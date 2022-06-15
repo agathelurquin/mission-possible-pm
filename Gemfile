@@ -33,7 +33,8 @@ gem "aws-sdk-s3", require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-
+# Gem pg seach
+gem 'pg_search', '~> 2.3.0'
 # Gem pundit
 gem 'pundit'
 
