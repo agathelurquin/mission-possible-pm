@@ -18,6 +18,13 @@ font-size: 12px;
 margin: 0px 10px;
 }
 
+a {
+  text-decoration: none;
+  color: #3BAD83;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+
 .avatar {
   width: 30px;
   height: 30px;
