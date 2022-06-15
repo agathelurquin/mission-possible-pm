@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_project, only: [ :show, :edit, :tasks_completed, :update, :destroy ]
 
   def new
     @project = Project.new
@@ -48,6 +48,15 @@ class ProjectsController < ApplicationController
     else
       @tasks = @project.tasks
     end
+
+    @tasks_status = @project.tasks
+    @total_tasks = @tasks_status.count
+    @total_completed = @tasks_status.select do |task_status|
+      task_status.status == "completed"
+    end
+    @tasks_count = @total_completed.count
+    @progress = @tasks_count / @total_tasks.to_f
+    @progress_percent = (@progress * 100).to_i
   end
 
   def edit
