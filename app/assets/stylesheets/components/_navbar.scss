@@ -18,15 +18,37 @@ font-size: 12px;
 margin: 0px 10px;
 }
 
-a {
-  text-decoration: none;
-  color: #3BAD83;
-  -webkit-transition: color 0.2s ease-out;
-  transition: color 0.2s ease-out;
-}
 
 .avatar {
   width: 30px;
   height: 30px;
   margin: 0px 20px;
+}
+
+// Added for the hover effect, did not touch anything up those lines
+// To remove effect and go back to default, delete the lines down
+
+.nav-link::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.nav-link:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-link::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #9ae2c3;
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+.nav-link {
+  position: relative;
 }
