@@ -1,7 +1,7 @@
 class Chatroom < ApplicationRecord
   before_validation :chatroom_name
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
   belongs_to :project
 
   private
