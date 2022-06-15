@@ -56,7 +56,7 @@ class ProjectsController < ApplicationController
     end
     @tasks_count = @total_completed.count
     @progress = @tasks_count / @total_tasks.to_f
-    @progress_percent = (@progress * 100).to_i
+    @progress_percent = (@progress * 100)
   end
 
   def edit
