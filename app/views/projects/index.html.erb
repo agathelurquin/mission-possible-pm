@@ -42,11 +42,11 @@
 
 
           <% @projects_pm.each do |project| %>
-            <li class="list-group-item">
+            <li >
                 <div class="project-card">
                   <div class="row align-items-center">
                     <div class="col-11">
-                      <%= link_to project_path(project) do %>
+                      <%= link_to project_path(project), class: 'pname'  do %>
                         <div class="pcard-content">
                             <p><%= project.name.truncate(30) %></p>
                         </div>
