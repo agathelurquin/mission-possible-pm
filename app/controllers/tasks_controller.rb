@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     @users_available = User.where.not(id: @task.users)
     @project = @task.project
     if params[:query].present?
-      @users_available = User.search_by_name(params[:query])
+      @users_available = User.search_by_name(params[:query]).where.not(id: @task.users)
     else
       @users_available = User.where.not(id: @task.users)
     end

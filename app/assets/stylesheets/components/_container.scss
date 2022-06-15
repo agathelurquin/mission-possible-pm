@@ -1,4 +1,4 @@
-.shaded-container {
+.cards-container {
   width: 100%;
   background-color: #FFFFFF;
   padding: 32px 16px 16px;
@@ -12,4 +12,51 @@
   padding: 32px 16px 16px;
   border-radius: 5px;
   box-shadow: rgba(0,0,0,0.15) 0px 2px 8px;
+}
+
+// project cards
+
+.project-card {
+  // display: flex;
+  // align-items: center;
+  margin-bottom: 8px  !important;
+  background: white !important;
+  padding: 8px 16px !important;
+  border: 1px solid rgb(235,235,235) !important;
+}
+
+// .project-card .pcard-content {
+//   flex-grow: 1;
+//   padding: 0 24px;
+// }
+
+.project-card p {
+  margin-bottom: 0;
+  line-height: 3;
+}
+
+.project-card small {
+  color: #999999;
+  font-weight: bold;
+}
+.project-card .project-actions {
+  justify-content: end;
+  align-items: center;
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+.project-card:hover .project-actions {
+  opacity: 1;
+}
+
+.project-card .project-actions .p-icon {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.project-card .project-actions .p-icon:hover {
+  color: #555555;
 }
