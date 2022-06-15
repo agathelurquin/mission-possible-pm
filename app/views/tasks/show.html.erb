@@ -51,7 +51,18 @@
     <div class="col-6 ">
       <div class="insider-container">
         <h5 class="ui header">Workers not assigned to this task</h5>
-        <p class="indications"><i >click to assign</i></p>
+
+        <%= form_tag task_path(@task), method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+
+        <p class="indications"></p>
+
         <span>
         <div class="ui inline dropdown">
           <ul>
