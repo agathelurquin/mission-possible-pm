@@ -1,37 +1,43 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <%= form_tag projects_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a project"
-        %>
-       <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-      <hr>
-      <div class="container shaded-container">
-        <div class="row">
-          <div class="col-6">
-            <h3>My projects as PM</h3>
-            <ul class="list-group mb-3">
-              <% @projects_pm.each do |project| %>
-                <li class="list-group-item">
-                  <p><%= link_to project.name, project_path(project) %></p>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-          <div class="col-6">
-            <h3>My projects as a worker</h3>
-            <ul class="list-group mb-3">
-              <% @projects_worker.each do |project| %>
-                <li class="list-group-item">
-                  <%= link_to project.name, project_path(project) %>
-                </li>
-              <% end %>
-            </ul>
-        </div>
+    <div class="search-bar">
+      <div class="col-1 search-icon">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </div>
+      <div class="col-11">
+        <%= form_tag projects_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder:  'Find a project'
+              %>
+            <% end %>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="container shaded-container">
+    <div class="row">
+      <div class="col-6">
+        <h3>My projects as PM</h3>
+        <ul class="list-group mb-3">
+          <% @projects_pm.each do |project| %>
+            <li class="list-group-item">
+              <p><%= link_to project.name, project_path(project) %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-6">
+        <h3>My projects as a worker</h3>
+        <ul class="list-group mb-3">
+          <% @projects_worker.each do |project| %>
+            <li class="list-group-item">
+              <%= link_to project.name, project_path(project) %>
+            </li>
+          <% end %>
+        </ul>
       </div>
       <%= link_to "Add a new Project", new_project_path, class: 'btn btn-primary' %>
     </div>
