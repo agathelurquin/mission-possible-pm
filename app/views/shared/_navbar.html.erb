@@ -1,24 +1,28 @@
-        <% if user_signed_in? %>
-<div class="navbar navbar-expand-sm navbar-mp border-bottom border-light">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand mx-5 py-2" do %>
-            <h4>Mission<strong>:Possible</strong></h4>
-    <% end %>
-    <div class="navbar-collapse">
-      <ul class="navbar-nav me-auto">
+<% if user_signed_in? %>
+  <div class="navbar navbar-expand-sm navbar-mp border-bottom border-light">
+    <div class="container-fluid">
+      <%= link_to root_path, class: "navbar-brand mx-5 py-2" do %>
+              <h4>Mission<strong>:Possible</strong></h4>
+      <% end %>
+      <div class="navbar-collapse">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <%= link_to "MY PROJECTS", projects_path, class: "nav-link" %>
+            <%= link_to "My Projects", projects_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "DASHBOARD", blazer_path, class: "nav-link" %>
+            <%= link_to "Dashboard", blazer_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
-            <%= image_tag "default-avatar-icon.png", class: "avatar" %>
-        <% else %>
-        <% end %>
-      </ul>
+          <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "default-avatar-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
