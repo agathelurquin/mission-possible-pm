@@ -25,7 +25,7 @@ gem 'redis', '~> 4.0'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # AWS file upload
 gem "aws-sdk-s3", require: false

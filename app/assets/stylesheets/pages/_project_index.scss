@@ -1,0 +1,21 @@
+
+.form-control {
+  border: none;
+  border-bottom: 1px solid #70A8A1;
+  margin: 15px 0;
+  width:50%
+}
+
+.search-bar{
+  display: flex;
+}
+
+.search-icon {
+  align-self: center;
+  justify-content: start;
+  margin-right: 15px;
+}
+
+.search-icon-element {
+  color: #70A8A1;
+}
