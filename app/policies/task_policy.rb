@@ -21,11 +21,11 @@ class TaskPolicy < ApplicationPolicy
   def edit?
     # user == > current user
     # record == > @task
-    is_owner?
+    true
   end
 
   def update?
-    is_owner?
+    true
   end
 
   def is_owner?

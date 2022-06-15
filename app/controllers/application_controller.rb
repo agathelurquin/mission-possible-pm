@@ -11,8 +11,13 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
-    @task = Task.find(params[:task_id])
-    redirect_to(task_path(@task))
+    if params[:controller] == "assignments"
+      @task = Task.find(params[:task_id])
+      redirect_to(task_path(@task))
+    else
+      @project = Project.find(params[:id])
+      redirect_to(project_path(@project))
+    end
   end
 
   def after_sign_in_path_for(resource)
