@@ -4,9 +4,28 @@
 
   <div class="container border">
     <div class="row">
-      <div class="col-3">
-        <p class="well bg-light">Status: <%= @project.status %></p>
-      </div>
+     <% if @progress_percent.nan? %>
+      <p><%=@project.status%></p>
+     <% else %>
+      <% if @progress_percent == 0 %>
+        <div class="progress p-0">
+           <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0% completed</div>
+        </div>
+        <% elsif @progress_percent == 100 %>
+        <div class="progress p-0">
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100% completed!</div>
+        </div>
+      <% elsif @progress_percent < 50 %>
+        <div class="progress p-0">
+          <div class="progress-bar bg-info" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed</div>
+        </div>
+      <% else %>
+        <div class="progress p-0">
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed</div>
+        </div>
+      <% end %>
+    <%end%>
+
       <div class="col-2">
         <p class="well bg-light"><%= @project.due_date %></p>
       </div>
@@ -21,10 +40,12 @@
           <% end %>
       </div>
     </div><!--.row-->
+
     <div class= "row">
       <div class="col-3">
-        <p class="well bg-light">Description: <%= @project.description %></p>
-         <div class="well bg-light"><p>Files</p>
+        <p class="well bg-light">Description: <%= @project.description %></p>   <!--descriptiion-->
+
+         <div class="well bg-light"><p>Files</p>    <!--attached files-->
             <% if @project.files.attached? %>
               <% @project.files.each do |file| %>
                 <% if file.image? %>
@@ -42,14 +63,15 @@
             <% end %>
           </div>
       </div>
+
       <div class="col-9">
         <h3>tasks</h3>
-       <%= form_tag project_path, method: :get, :class => 'input-group' do %>
+       <%= form_tag project_path, method: :get, :class => 'input-group' do %>     <!--searchbar-->
         <%= text_field_tag :query,params[:query], class: "form-control rounded-0" %>
        <%= submit_tag "Search", class: "btn btn-outline-primary" %>
         <% end %>
 
-       <ul class="list-group">
+       <ul class="list-group"> <!--task list-->
           <% @tasks.each do |task| %>
             <li class="list-group-item">
               <div class="row">
