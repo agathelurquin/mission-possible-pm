@@ -39,24 +39,56 @@
     <div class="col-6 ">
       <div class="insider-container">
         <h5 id='top-of-list'>Workers assigned to this task </h5>
+<<<<<<< HEAD
         <p class="indications"><i>click to unassign</i></p>
         <ul>
           <% @task.users.order('name asc').each do |user| %>
             <li><%= link_to user.name, task_assignment_path(@task, user_id: user.id), method: :delete %></li>
           <% end %>
         </ul>
+=======
+        <p class="indications"><i >click to unassign</i></p>
+        <% @task.users.order('name asc').each do |user| %>
+          <div class="col-2">
+              <% if user.avatar.attached? %>
+                <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
+                  <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
+                  data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                </button>
+              <% end %>
+          </div>
+        <% end %>
+>>>>>>> master
       </div>
-
     </div>
     <div class="col-6 ">
       <div class="insider-container">
         <h5 class="ui header">Workers not assigned to this task</h5>
+<<<<<<< HEAD
         <p class="indications"><i>click to assign</i></p>
+=======
+
+        <%= form_tag task_path(@task), method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+
+        <p class="indications"></p>
+
+>>>>>>> master
         <span>
         <div class="ui inline dropdown">
           <ul>
-            <%  @users_available.order('name asc').each do |user| %>
-              <li><%= link_to user.name, task_assignments_path(@task, user_id: user.id), method: :post %></li>
+            <% @users_available.order('name asc').each do |user| %>
+              <li><%= link_to user.name, task_assignments_path(@task, user_id: user.id), method: :post %>
+                <% if user.avatar.attached? %>
+                  <%= image_tag user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
+               </li>
             <% end %>
           </ul>
       </div>

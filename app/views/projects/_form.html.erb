@@ -2,9 +2,9 @@
   <%= simple_form_for @project do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
-      <%= f.input :status %>
       <%= f.input :price %>
       <%= f.input :due_date %>
+      <%= f.input :status, collection: Project::STATUS %>
       <%= f.file_field :files, multiple: true %>
       <%= f.submit %>
   <% end %>

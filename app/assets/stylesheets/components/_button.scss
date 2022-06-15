@@ -25,23 +25,6 @@
     background-color: $my-blue-green;
     color:white;
     border: 1px solid $my-blue-green;
-
-  }
-}
-
-.btn-filled-general {
-  background-color: $my-dark-blue;
-  border: 1px solid $my-dark-blue;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  color: white;
-  transition: opacity 0.3s ease;
-  &:hover{
-    background-color: $my-blue-green;
-    color:white;
-    border: 1px solid $my-blue-green;
-
   }
 }
 
@@ -61,6 +44,11 @@
   }
 }
 
+.btn-avatar {
+  border: 0;
+  background-color: transparent;
+}
+
 .btn-filled-general {
   background-color: $my-dark-blue;
   border: 1px solid $my-dark-blue;
@@ -73,6 +61,5 @@
     background-color: $my-blue-green;
     color:white;
     border: 1px solid $my-blue-green;
-
-  }
+ }
 }
