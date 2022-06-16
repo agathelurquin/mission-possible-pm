@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   end
 
   get "calendar", to: "pages#calendar"
+
+  get "landing", to: "pages#landing"
+  
 end
