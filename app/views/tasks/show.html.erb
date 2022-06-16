@@ -1,73 +1,89 @@
-  <div class="container mt-3">
-    <h3>Project: <%= @project.name %></h3>
-  </div>
+  <hr>
+  <div class="container extra-padding">
+    <div class="page-header">
+      <div class="row title-add-new">
+        <h1 class="col-auto"> <%= @project.name.truncate(15) %> > <%= @task.name%> </h3>
+        <div class="col-auto icon-col">
+          <%= link_to edit_project_task_path(@project, @task) do %>
+            <i class="fas fa-pen"></i>
+          <% end %>
+        </div>
+      </div>
+      <h2 class="indications page-subheader"><%= @task.description %> </h2>
+    </div>
 
-  <div class="container cards-container mt-3">
+    <br>
     <div class="row">
-      <h4>Task: <%= @task.name %></h4>
-      <p class="well">Description: <%= @task.description %></p>
-      <p class="well">Due date: <%= @task.due_date %></p>
-      <p class="well">Estimated effort: <%= @task.estimated_effort %></p>
-      <p class="well">Status: <%= @task.status %></p>
-      <p class="well">Completion date: <%= @task.completion_date %></p>
-    </div>
-    <div class="row mx-auto">
-      <div class="col-12 ">
-        <%= link_to edit_project_task_path(@project, @task), class: 'pull-right btn btn-default' do %>
-          <i class="fas fa-edit"></i> Edit this task
-        <% end %>
-
-        <%= link_to task_path(@task), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you?" }  do %>
-          <i class="fas fa-trash-alt"></i> Delete this task
-        <% end %>
-
-        <%= link_to project_path(@task.project), class: 'pull-right btn btn-default' do %>
-          <i class="fa fa-history"></i> Back to project
-        <% end %>
+      <div class="col-3">
+        <p class="badge-ghost">Due date: <%= @task.due_date %></p>
+      </div>
+      <div class="col-3">
+      <p class="badge-ghost">Estimated effort: <%= @task.estimated_effort %></p>
+      </div>
+      <div class="col-3">
+        <p class="badge-ghost">Status: <%= @task.status %></p>
+      </div>
+      <div class="col-3">
+        <p class="badge-ghost">Completion date: <%= @task.completion_date %></p>
       </div>
     </div>
-  </div>
-</div>
-<div class="container cards-container mt-3">
-  <%= render 'active_text_form', task: @task %>
-</div>
 
-<div class="container cards-container mt-3">
-  <h4>Your Project Team</h4>
-  <div class="row">
-    <div class="col-6 ">
-      <div class="insider-container">
-        <h5 id='top-of-list'>Workers assigned to this task </h5>
-        <p class="indications"><i >click to unassign</i></p>
-        <% @task.users.order('name asc').each do |user| %>
-          <div class="col-2">
-              <% if user.avatar.attached? %>
-                <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
-                  <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
-                  data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                </button>
-              <% end %>
-          </div>
-        <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 ">
+          <%= link_to edit_project_task_path(@project, @task), class: 'pull-right btn btn-default' do %>
+            <i class="fas fa-edit"></i> Edit this task
+          <% end %>
+          <%= link_to task_path(@task), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you?" }  do %>
+            <i class="fas fa-trash-alt"></i> Delete this task
+          <% end %>
+          <%= link_to project_path(@task.project), class: 'pull-right btn btn-default' do %>
+            <i class="fa fa-history"></i> Back to project
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="col-6 ">
+
+    <div class="container cards-container mt-3">
+      <%= render 'active_text_form', task: @task %>
+    </div>
+
+    <div class="container cards-container mt-3">
+      <h4>Your Project Team</h4>
+        <div class="insider-container">
+          <h5 id='top-of-list'>Workers assigned to this task </h5>
+          <p class="indications"><i >click to unassign</i></p>
+          <% @task.users.order('name asc').each do |user| %>
+            <div class="col-2">
+                <% if user.avatar.attached? %>
+                  <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
+                    <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
+                    data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  </button>
+                <% end %>
+            </div>
+          <% end %>
+        </div>
+
       <div class="insider-container">
         <h5 class="ui header">Workers not assigned to this task</h5>
-
-
-        <%= form_tag task_path(@task), method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find"
-          %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-
-        <p class="indications"></p>
+        <div class="search-bar">
+          <div class="col-auto icon-col">
+            <i class="fas fa-search element-icon" aria-hidden="true"></i>
+          </div>
+          <div class="col-11">
+            <%= form_tag task_path(@task), method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control-project search-user",
+                placeholder: "Find"
+              %>
+            <% end %>
+          </div>
+        </div>
 
         <span>
+
         <div class="ui inline dropdown">
           <ul>
             <% @users_available.order('name asc').each do |user| %>
@@ -75,13 +91,11 @@
                 <% if user.avatar.attached? %>
                   <%= image_tag user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>
-               </li>
+              </li>
             <% end %>
           </ul>
+        </div>
+        </span>
       </div>
-
-      </div>
-      </span>
     </div>
   </div>
-</div>
