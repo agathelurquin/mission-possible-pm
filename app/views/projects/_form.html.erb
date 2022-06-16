@@ -1,11 +1,13 @@
-<div class="container py-5">
-  <%= simple_form_for @project do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :due_date %>
-      <%= f.input :status, collection: Project::STATUS %>
-      <%= f.file_field :files, multiple: true %>
-      <%= f.submit %>
-  <% end %>
+<div class="container">
+    <%= simple_form_for @project do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :due_date %>
+        <%= f.input :status, collection: Project::STATUS %>
+        <%= f.file_field :files, multiple: true %>
+        <div class="form-actions mt-3">
+          <%= f.button_button t(".Submit"), class: "btn-filled-general" %>
+        </div>
+    <% end %>
 </div>

@@ -58,33 +58,35 @@
       </div>
 
       <div class="col-9">
-        <h3>tasks</h3>
-       <%= form_tag project_path, method: :get, :class => 'input-group' do %>     <!--searchbar-->
-        <%= text_field_tag :query,params[:query], class: "form-control rounded-0" %>
-       <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+        <h3>Tasks</h3>
+        <%= form_tag project_path, method: :get, :class => 'input-group' do %>     <!--searchbar-->
+          <%= text_field_tag :query,params[:query], class: "form-control rounded-0" %>
+          <%= submit_tag "Search", class: "btn btn-outline-primary" %>
         <% end %>
-
-       <ul class="list-group"> <!--task list-->
+        <ul class="list-group"> <!--task list-->
           <% @tasks.each do |task| %>
             <li class="list-group-item">
               <div class="row">
-              <div class="col">
-                <%= link_to task.name, task_path(task)%>
+                <div class="col">
+                  <%= link_to task.name, task_path(task)%>
+                  (<%= task.status %>)
+                  <% task.users.each do |user| %>
+                    <% if user.avatar.attached? %>
+                      <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
+                          <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
+                          data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                      </button>
+                    <% end %>
+                  <%end%>
+                </div>
               </div>
-              <div class="row"><% task.users.each do |user| %>
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% end %>
-              <%end%>
-              </div>
+            </li>
           <% end %>
-            </div>
-          </li>
         </ul>
 
-    <%= link_to new_project_task_path(@project), class: 'pull-right btn btn-default' do %>
-      <i class="fas fa-plus"></i> Add a task
-    <% end %>
+        <%= link_to new_project_task_path(@project), class: 'pull-right btn btn-default' do %>
+        <i class="fas fa-plus"></i> Add a task
+        <% end %>
       </div>
     </div><!--.row-->
   </div><!--.container-->
