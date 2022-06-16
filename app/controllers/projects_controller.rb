@@ -2,8 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [ :show, :edit, :tasks_completed, :update, :destroy ]
 
   def new
-    @project = Project.new
-    authorize @project
+    # @project = Project.new
+    # authorize @project
   end
 
   def create
@@ -18,6 +18,8 @@ class ProjectsController < ApplicationController
   end
 
   def index
+    @project = Project.new
+    # authorize @project
     @projects_pm = policy_scope(Project).where(user_id: current_user)
     @projects_worker = current_user.projects_as_contributor
     @today = "2022-06-18"

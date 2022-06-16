@@ -5,9 +5,9 @@
       <div class="row title-add-new">
         <h1 class="col-auto">Your Projects</h1>
         <div class="col-auto icon-col">
-          <%= link_to new_project_path do %>
-            <i class="fas fa-plus-circle"></i>
-          <% end %>
+
+          <i class="fas fa-plus-circle" data-bs-toggle="modal" data-bs-target="#form"></i>
+
         </div>
       </div>
       <h2 class="indications page-subheader">Hi <%= current_user.name.split(" ").first%> ! Let's see what's going on in your team 🚀 </h2>
@@ -109,3 +109,11 @@
     </div>
   </div>
 </div>
+
+            <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content" style="padding:50px" data-controller="mask">
+                  <%= render "form", project: @project %>
+                </div>
+              </div>
+            </div>
