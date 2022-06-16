@@ -5,5 +5,5 @@ class Task < ApplicationRecord
   has_rich_text :notes
 
   validates :name, :description, :due_date, :estimated_effort, presence: true
-  STATUS = ["open", "in progress", "completed", "canceled"]
+  STATUS = ["Open", "In progress", "Completed", "Cancelled"]
 end

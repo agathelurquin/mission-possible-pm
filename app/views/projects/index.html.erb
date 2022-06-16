@@ -40,7 +40,7 @@
                   <div class="project-card-infos">
                     <div>
                       <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
-                      <p><%= project.tasks.where.not(status: "completed").count %> tasks in progress!</p>
+                      <p><%= project.tasks.where.not(status: "Completed").count %> tasks in progress!</p>
 
                     </div>
                     <div class="project-actions project-card-actions ">
@@ -56,7 +56,11 @@
                 <div class="project-card-infos">
                 <div class="d-flex">
                   <% project.users.each do |user| %>
-                    <%= image_tag user.avatar, class:"avatar m-0" %>
+                    <%= link_to "#", data: { bs: { toggle: "tooltip", placement: "top",
+                                     custom: { class: "custom-tooltip" } } },
+                                     title: user.name, type: "button" do %>
+                      <%= image_tag user.avatar, class: "avatar m-0" %>
+                    <% end %>
                   <% end %>
                 </div>
                   <h2 class="project-card-pricing">Due in <%= (1..40).to_a.sample %> days</h2>
@@ -78,7 +82,7 @@
                   <div class="project-card-infos">
                     <div>
                       <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
-                      <p><%= project.tasks.where.not(status: "completed").count %> tasks in progress!</p>
+                      <p><%= project.tasks.where.not(status: "Completed").count %> tasks in progress!</p>
 
                     </div>
                     <div class="project-actions project-card-actions ">
@@ -94,7 +98,11 @@
                 <div class="project-card-infos">
                 <div class="d-flex">
                   <% project.users.each do |user| %>
-                    <%= image_tag user.avatar, class:"avatar m-0" %>
+                    <%= link_to "#", data: { bs: { toggle: "tooltip", placement: "top",
+                                     custom: { class: "custom-tooltip" } } },
+                                     title: user.name, type: "button" do %>
+                      <%= image_tag user.avatar, class: "avatar m-0" %>
+                    <% end %>
                   <% end %>
                 </div>
                   <h2 class="project-card-pricing">Due in 2 days</h2>

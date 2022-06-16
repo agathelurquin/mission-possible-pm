@@ -11,7 +11,7 @@ class Project < ApplicationRecord
 
   after_save :create_chatroom
 
-  STATUS = ["open", "in progress", "completed", "canceled"]
+  STATUS = ["Open", "In progress", "Completed", "Cancelled"]
 
   private
 
