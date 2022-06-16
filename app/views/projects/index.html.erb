@@ -1,21 +1,16 @@
+<hr>
 <div class="container">
-
-  <h1 class="page-title">Hi <%= current_user.name.split(" ").first%> ! Let's see what's going on in your team 🚀</h1>
-  <p class="indications page-subheader">Here are all the open projects in your organization</p>
-  <div class="row">
-
-  </div>
-
-  <hr>
   <div class="container">
-    <div class="row title-add-new">
-      <h2 class="col-auto">Your Projects</h2>
-      <div class="col-auto icon-col">
-        <%= link_to new_project_path do %>
-          <i class="fas fa-plus-circle"></i>
-        <% end %>
+    <div class="page-header">
+      <div class="row title-add-new">
+        <h1 class="col-auto">Your Projects</h1>
+        <div class="col-auto icon-col">
+          <%= link_to new_project_path do %>
+            <i class="fas fa-plus-circle"></i>
+          <% end %>
+        </div>
       </div>
-
+      <h2 class="indications page-subheader">Hi <%= current_user.name.split(" ").first%> ! Let's see what's going on in your team 🚀 </h2>
     </div>
 
 
@@ -37,45 +32,35 @@
       <div class="col-6">
         <h3>My projects as PM</h3>
         <ul class="list-group mb-3">
-
-
-
-
           <% @projects_pm.each do |project| %>
             <li>
-                <div class="project-card">
-                  <div class="row align-items-center">
-                    <div class="col-11">
-                      <%= link_to project_path(project), class: 'project-info'  do %>
-                        <div class="pcard-content">
-                          <div class="pname">
-                            <p><%= project.name.truncate(20) %></p>
-                            <br>
-                          </div>
-                          <div class="pavatar">
-                            <% project.users.each do |user| %>
-                              <%= image_tag user.avatar, width: 20 %>
-                            <% end %>
-                          </div>
-                        </div>
+              <div class="project-card">
+                <%= link_to project_path(project), class: 'project-info'  do %>
+                  <div class="project-card-infos">
+                    <div>
+                      <h2><%= project.name.truncate(20) %></h2>
+                      <p>6 remaining tasks!</p>
+
+                    </div>
+                    <div class="project-actions project-card-actions ">
+                      <%= link_to edit_project_path(project), class: 'p-icon' do %>
+                        <i class="fas fa-pencil-alt"></i>
+                      <% end %>
+                      <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
+                        <i class="far fa-trash-alt"></i>
                       <% end %>
                     </div>
-
-                    <div class="col-1">
-                      <div class="project-actions">
-                        <%= link_to edit_project_path(project), class: 'p-icon' do %>
-                          <i class="fas fa-pencil-alt"></i>
-                        <% end %>
-                        <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
-                          <i class="far fa-trash-alt"></i>
-                        <% end %>
-                      </div>
-                      <div class="pdeadline">
-                        <%= project.due_date%>
-                      </div>
-                    </div>
+                  <% end %>
                   </div>
+                <div class="project-card-infos">
+                <div class="pavatar">
+                  <% project.users.each do |user| %>
+                    <%= image_tag user.avatar, width: 20 %>
+                  <% end %>
                 </div>
+                  <h2 class="project-card-pricing">Due in 4 days</h2>
+                </div>
+              </div>
             </li>
           <% end %>
         </ul>
@@ -85,25 +70,17 @@
         <h3>My projects as a worker</h3>
         <ul class="list-group mb-3">
 
-
           <% @projects_worker.each do |project| %>
             <li>
               <div class="project-card">
-                <div class="row align-items-center">
-                  <div class="col-11">
-                    <%= link_to project_path(project), class: 'pname' do%>
-                      <div class="pcard-content">
-                        <p><%= project.name.truncate(20) %></p>
-                        <br>
-                        <% project.users.each do |user| %>
-                          <%= image_tag user.avatar, width: 20 %>
-                        <% end %>
-                      </div>
-                    <% end %>
-                  </div>
+                <%= link_to project_path(project), class: 'project-info'  do %>
+                  <div class="project-card-infos">
+                    <div>
+                      <h2><%= project.name.truncate(20) %></h2>
+                      <p>3 remaining tasks!</p>
 
-                  <div class="col-1">
-                    <div class="project-actions">
+                    </div>
+                    <div class="project-actions project-card-actions ">
                       <%= link_to edit_project_path(project), class: 'p-icon' do %>
                         <i class="fas fa-pencil-alt"></i>
                       <% end %>
@@ -111,19 +88,21 @@
                         <i class="far fa-trash-alt"></i>
                       <% end %>
                     </div>
+                  <% end %>
                   </div>
+                <div class="project-card-infos">
+                <div class="pavatar">
+                  <% project.users.each do |user| %>
+                    <%= image_tag user.avatar, width: 20 %>
+                  <% end %>
+                </div>
+                  <h2 class="project-card-pricing">Due in 2 days</h2>
                 </div>
               </div>
             </li>
           <% end %>
         </ul>
       </div>
-
-
-
-
-
-
 
       <%= link_to "Add a new Project", new_project_path, class: 'btn btn-primary' %>
     </div>

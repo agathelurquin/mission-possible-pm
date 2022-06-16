@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
   def index
     @projects_pm = policy_scope(Project).where(user_id: current_user)
     @projects_worker = current_user.projects_as_contributor
+    @today = "2022-06-18"
 
     if params[:query].present?
       @projects_pm = Project.where(
