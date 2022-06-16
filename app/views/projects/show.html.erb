@@ -107,43 +107,47 @@
           </div>
         </div>
         <div class="cards-container extra-margin">
-          <ul class="list-group"> <!--task list-->
-            <% @tasks.each do |task| %>
-              <li>
-                <div class="project-card ">
-                  <%= link_to task_path(task), class: 'project-info'  do %>
-                    <div class="project-card-infos">
-                      <div>
-                        <h2><%= task.name %></h2>
-                        <p>(<%= task.status %>)</p>
-                      </div>
-                      <div class="project-actions project-card-actions ">
-                        <%= link_to edit_project_task_path(@project, task), class: 'p-icon' do %>
-                          <i class="fas fa-pencil-alt"></i>
-                        <% end %>
-                        <%= link_to task_path(task), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
-                          <i class="far fa-trash-alt"></i>
-                        <% end %>
-                      </div>
-                    <% end %>
-                    </div>
-                  <div class="project-card-infos">
-                  <div class="pavatar">
-                    <% task.users.each do |user| %>
-                      <% if user.avatar.attached? %>
-                        <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
-                            <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
-                            data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                        </button>
+          <% if @project.tasks.count > 0 %>
+            <ul class="list-group"> <!--task list-->
+              <% @tasks.each do |task| %>
+                <li>
+                  <div class="project-card ">
+                    <%= link_to task_path(task), class: 'project-info'  do %>
+                      <div class="project-card-infos">
+                        <div>
+                          <h2><%= task.name %></h2>
+                          <p>(<%= task.status %>)</p>
+                        </div>
+                        <div class="project-actions project-card-actions ">
+                          <%= link_to edit_project_task_path(@project, task), class: 'p-icon' do %>
+                            <i class="fas fa-pencil-alt"></i>
+                          <% end %>
+                          <%= link_to task_path(task), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
+                            <i class="far fa-trash-alt"></i>
+                          <% end %>
+                        </div>
                       <% end %>
-                    <% end %>
+                      </div>
+                    <div class="project-card-infos">
+                    <div class="avatar">
+                      <% task.users.each do |user| %>
+                        <% if user.avatar.attached? %>
+                          <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
+                              <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
+                              data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                          </button>
+                        <% end %>
+                      <% end %>
+                    </div>
+                      <h2 class="project-card-pricing">Effort: <%= task.estimated_effort%> </h2>
+                    </div>
                   </div>
-                    <h2 class="project-card-pricing">Effort: <%= task.estimated_effort%> </h2>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No tasks created yet</p>
+          <% end %>
         </div>
       </div>
     </div><!--.row-->
