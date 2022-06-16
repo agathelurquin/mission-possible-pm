@@ -1,7 +1,9 @@
 <%= simple_form_for [@project, @task] do |f| %>
    <div class="form-input">
     <%= f.label :notes, class: "notes-label" %>
-    <%= f.rich_text_area :notes, placeholder: 'Write your notes' %>
-    <%= f.submit %>
+
+      <%= f.rich_text_area :notes, placeholder: 'Write your notes', class: "scroll_field" %>
+
+    <%= f.submit "Update notes" %>
   </div>
 <% end %>
