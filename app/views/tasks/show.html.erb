@@ -2,7 +2,7 @@
   <div class="container extra-padding">
     <div class="page-header">
       <div class="row title-add-new">
-        <h1 class="col-auto"> <%= @project.name.truncate(15) %> > <%= @task.name%> </h3>
+        <h1 class="col-auto"> <%= @project.name.truncate(15) %> > <%= @task.name%> </h1>
         <div class="col-auto icon-col">
           <%= link_to edit_project_task_path(@project, @task) do %>
             <i class="fas fa-pen"></i>
@@ -11,7 +11,6 @@
       </div>
       <h2 class="indications page-subheader"><%= @task.description %> </h2>
     </div>
-
     <br>
     <div class="row">
       <div class="col-3">
@@ -56,10 +55,11 @@
           <% @task.users.order('name asc').each do |user| %>
             <div class="col-2">
                 <% if user.avatar.attached? %>
-                  <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
-                    <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
-                    data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                  </button>
+                  <%= link_to task_assignment_path(@task, user_id: user.id), method: :delete,
+                    data: { bs: { toggle: "tooltip", placement: "top", custom: { class: "custom-tooltip" } } },
+                    title: user.name, type: "button" do %>
+                      <%= image_tag user.avatar, class: "avatar" %>
+                  <% end %>
                 <% end %>
             </div>
           <% end %>
