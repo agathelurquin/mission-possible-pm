@@ -1,7 +1,13 @@
 <div class="container">
-  <h1>Edit this task</h1>
-  <%= render 'form', task: @task %>
-  <%= link_to project_path(@project) do %>
-    Back to project
-  <% end %>
+  <div class="row">
+    <div class="col-8">
+      <h1>Edit this task</h1>
+    </div>
+    <div class="col-4" style= "align-self: center;">
+      <%= link_to task_path(@task), class: 'btn btn-ghost-pshow' do %>
+          <i class="fa fa-history"></i> Back to project
+        <% end %>
+    </div>
+  </div>
+    <%= render 'form', task: @task %>
 </div>

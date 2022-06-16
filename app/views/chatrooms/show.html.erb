@@ -18,7 +18,9 @@
     %>
     <%= f.submit "Send", class: "btn btn-primary", style:"height:39px;" %>
   <% end %>
-  <div class="text-center">
-    <%= link_to 'Back to project', project_path(@chatroom.project) %>
-  </div>
+    <div class="chat-button">
+      <%= link_to project_path(@chatroom.project), class: 'btn btn-ghost-pshow' do %>
+        <i class="fa fa-history"></i> Back to project
+      <% end %>
+    </div>
 </div>
