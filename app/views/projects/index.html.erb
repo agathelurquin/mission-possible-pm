@@ -40,7 +40,7 @@
                   <div class="project-card-infos">
                     <div>
                       <h2><%= project.name.truncate(20) %></h2>
-                      <p>6 remaining tasks!</p>
+                      <p><%= project.tasks.where.not(status: "completed").count %> tasks in progress!</p>
 
                     </div>
                     <div class="project-actions project-card-actions ">
@@ -78,7 +78,7 @@
                   <div class="project-card-infos">
                     <div>
                       <h2><%= project.name.truncate(20) %></h2>
-                      <p>3 remaining tasks!</p>
+                      <p><%= project.tasks.where.not(status: "completed").count %> tasks in progress!</p>
 
                     </div>
                     <div class="project-actions project-card-actions ">
