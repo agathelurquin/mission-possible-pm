@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
     @tasks_status = @project.tasks
     @total_tasks = @tasks_status.count
     @total_completed = @tasks_status.select do |task_status|
-      task_status.status == "completed"
+      task_status.status == "Completed"
     end
     @tasks_count = @total_completed.count
     @progress = @tasks_count / @total_tasks.to_f
@@ -79,8 +79,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    flash[:alert] = "This project has open tasks."
-    redirect_to project_path(@project)
     @project.destroy
     redirect_to projects_path
   end
@@ -97,7 +95,7 @@ class ProjectsController < ApplicationController
   end
 
   def ok_to_complete_project?
-    if params[:project][:status] == "completed" && params[:project][:status] != @project.status && @project.tasks.where.not(status: "completed").present?
+    if params[:project][:status] == "Completed" && params[:project][:status] != @project.status && @project.tasks.where.not(status: "Completed").present?
       return false
     else
       return true

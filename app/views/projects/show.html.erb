@@ -129,17 +129,18 @@
                       <% end %>
                       </div>
                     <div class="project-card-infos">
-                    <div class="avatar">
-                      <% task.users.each do |user| %>
-                        <% if user.avatar.attached? %>
-                          <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
-                              <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
-                              data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                          </button>
+                      <div class="d-flex">
+                        <% task.users.each do |user| %>
+                          <% if user.avatar.attached? %>
+                            <%= link_to "#", data: { bs: { toggle: "tooltip", placement: "top", custom: { class: "custom-tooltip" } } },
+                                title: user.name, type: "button" do %>
+                                  <%= image_tag user.avatar, class: "avatar m-0" %>
+                            <% end %>
+                          <% end %>
                         <% end %>
-                      <% end %>
-                    </div>
+                      </div>
                       <h2 class="project-card-pricing">Effort: <%= task.estimated_effort%> </h2>
+
                     </div>
                   </div>
                 </li>
