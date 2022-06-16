@@ -6,9 +6,7 @@ def create_user(first_name, full_name)
     password: '123456',
     name: full_name
   )
-  user.avatar.attach(io: File.open('app/assets/images/default-avatar-icon.png'),
-                     filename: 'default-avatar-icon.png',
-                     content_type: 'image/png')
+  user.avatar: Faker::Avatar.image,
   user.save!
   return user
 end
