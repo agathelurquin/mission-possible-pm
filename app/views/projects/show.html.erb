@@ -2,7 +2,7 @@
   <h1><%= @project.name %></h1>
 
 
-  <div class="container border">
+  <div class="cards-container">
     <div class="row">
      <% if @progress_percent.nan? %>
       <p><%=@project.status%></p>
@@ -59,10 +59,24 @@
 
       <div class="col-9">
         <h3>Tasks</h3>
-        <%= form_tag project_path, method: :get, :class => 'input-group' do %>     <!--searchbar-->
-          <%= text_field_tag :query,params[:query], class: "form-control rounded-0" %>
-          <%= submit_tag "Search", class: "btn btn-outline-primary" %>
-        <% end %>
+        <div class="search-bar">
+          <div class="col-auto icon-col">
+            <i class="fas fa-search element-icon" aria-hidden="true"></i>
+          </div>
+          <div class="col-11">
+
+
+            <%= form_tag projects_path, method: :get, :class => 'input-group' do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control-project",
+                placeholder:  'Find a task'
+              %>
+            <% end %>
+          </div>
+        </div>
+
+
         <ul class="list-group"> <!--task list-->
           <% @tasks.each do |task| %>
             <li class="list-group-item">
