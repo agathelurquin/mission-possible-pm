@@ -1,41 +1,76 @@
+<hr>
 <div class="container mt-3">
-  <h1><%= @project.name %></h1>
+  <h1 class="page-header"><%= @project.name %></h1>
 
+  <div class="row align-items-center justify-content-around extra-margin">
+    <div class="col-3">
+        <p class="button-39">Due date: <%= @project.due_date %></p>
+    </div>
+
+
+    <div class="col-3">
+      <%= link_to project_path(@project), class: 'btn btn-ghost-pshow', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
+        <i class="fas fa-trash-alt"></i> Delete this project
+      <% end %>
+    </div>
+
+    <div class="col-3">
+      <%= link_to projects_path, class: 'btn btn-ghost-pshow' do %>
+        <i class="fa fa-history"></i> Back to list
+      <% end %>
+    </div>
+  </div>
 
   <div class="cards-container-pview">
 
     <div class="row">
-     <% if @progress_percent.nan? %>
-      <p><%=@project.status%></p>
-     <% else %>
-      <% if @progress_percent == 0 %>
-        <div class="progress p-0" style="height: 30px;">
-           <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0% completed ⚡️</div>
-        </div>
-        <% elsif @progress_percent == 100 %>
-        <div class="progress p-0" style="height: 30px;">
-          <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100% completed!</div>
-        </div>
+      <% if @progress_percent.nan? %>
+        <p><%=@project.status%></p>
       <% else %>
-        <div class="progress p-0" style="height: 30px;">
-          <div class="progress-bar bg-info" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed 🤓 </div>
-        </div>
-      <% end %>
-    <%end%>
-
-      <div class="col-2">
-        <p class="button-39"><%= @project.due_date %></p>
-      </div>
-      <div class="col-2">
-        <%= link_to 'Chatroom', chatroom_path(@project.chatroom), class: "btn btn-filled"%>
-      </div>
+        <% if @progress_percent == 0 %>
+          <div class="progress p-0 pg-bar-style">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0% completed ⚡️</div>
+          </div>
+          <% elsif @progress_percent == 100 %>
+          <div class="progress p-0 pg-bar-style">
+            <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100% completed!</div>
+          </div>
+        <% else %>
+          <div class="progress p-0 pg-bar-style">
+            <div class="progress-bar bg-info" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed 🤓 </div>
+          </div>
+        <% end %>
+      <%end%>
     </div><!--.row-->
 
-    <div class= "row">
-      <div class="col-5">
-        <p class="cards-container">Description: <%= @project.description %></p>   <!--descriptiion-->
 
-         <div class="cards-container"><p>Files</p>    <!--attached files-->
+
+
+
+
+
+    <div class= "row upper-margin justify-content-between extra-padding">
+      <div class="col-5 ">
+        <div class="row title-add-new extra-padding">
+          <h3 class="col-auto">Project Details</h1>
+          <div class="col-auto icon-col">
+            <%= link_to edit_project_path(@project) do %>
+              <i class="fas fa-pen"></i>
+            <% end %>
+          </div>
+        </div>
+
+
+        <div class="cards-container">
+          <p class="box-title">
+          DESCRIPTION
+          </p>
+          <p>
+            <%= @project.description %>
+          </p>   <!--descriptiion-->
+        </div>
+
+         <div class="cards-container"><p class="box-title">FILES</p>    <!--attached files-->
             <% if @project.files.attached? %>
               <% @project.files.each do |file| %>
                 <% if file.image? %>
@@ -51,6 +86,9 @@
             <% else %>
               <p> No files attached yet </p>
             <% end %>
+          </div>
+          <div>
+            <%= link_to 'Chatroom', chatroom_path(@project.chatroom), class: "btn btn-filled", style: "width: 95%"%>
           </div>
       </div>
 
@@ -74,11 +112,11 @@
             <% end %>
           </div>
         </div>
-        <div class="cards-container">
+        <div class="cards-container extra-margin">
           <ul class="list-group"> <!--task list-->
             <% @tasks.each do |task| %>
               <li>
-                <div class="project-card">
+                <div class="project-card ">
                   <%= link_to task_path(task), class: 'project-info'  do %>
                     <div class="project-card-infos">
                       <div>
@@ -116,23 +154,4 @@
       </div>
     </div><!--.row-->
   </div><!--.container-->
-
-  <div class="container">
-
-    <%= link_to edit_project_path(@project), class: 'pull-right btn btn-default' do %>
-      <i class="fas fa-edit"></i> Edit this project
-    <% end %>
-
-
-    <%= link_to project_path(@project), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
-      <i class="fas fa-trash-alt"></i> Delete this project
-    <% end %>
-
-    <%= link_to projects_path, class: 'pull-right btn btn-default' do %>
-      <i class="fa fa-history"></i> Back to list
-    <% end %>
-
-  </div>
-
-
 </div>

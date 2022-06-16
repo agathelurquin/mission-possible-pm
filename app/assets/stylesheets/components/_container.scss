@@ -1,7 +1,8 @@
 .cards-container {
   width: 100%;
   background-color: #F8F9FA;
-  padding: 32px 16px 16px;
+  margin: 10px;
+  padding: 20px 16px;
   border-radius: 5px;
   box-shadow: rgba(0,0,0,0.15) 0px 2px 8px;
 }
@@ -49,7 +50,8 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   min-height: 100px;
-  margin: 20px 0;
+  margin: 10px 0;
+  padding: 0 5px;
 }
 
 .cards-container li {
