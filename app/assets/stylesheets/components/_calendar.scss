@@ -11,11 +11,11 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: $my-blue-green;
   transition: background 0.3s ease;
 }
 
-.meeting:hover {
+.project:hover {
   background: #1BCB7F;
   color: white;
 }

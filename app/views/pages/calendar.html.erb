@@ -1,1 +1,13 @@
-<p> this will be my calendar </p>
+<div class="container pb-5">
+  <div class="text-center">
+  <h1>My Calendar</h1>
+  </div>
+  <%= month_calendar(attribute: :due_date, events: @projects) do |date, projects| %>
+    <%= date %>
+    <% projects.each do |project| %>
+    <div class="project">
+      <p><%= project.name %></p>
+    </div>
+    <% end %>
+  <% end %>
+</div>
