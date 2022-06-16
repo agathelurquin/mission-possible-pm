@@ -14,36 +14,9 @@
   box-shadow: rgba(0,0,0,0.15) 0px 2px 8px;
 }
 
-// project cards
 
-.project-card {
-  // display: flex;
-  // align-items: center;
-  border-radius: 5px;
-  margin-bottom: 8px ;
-  background: white;
-  padding: 8px 16px;
-  border: 1px solid rgb(235,235,235);
-  // min-height: 100px;
-}
-
-.project-card .pcard-content {
-  // flex-grow: 1;
-  padding: 0 24px;
-}
-
-.project-card p {
-  margin-bottom: 0;
-  // height: auto;
-}
-
-// .project-card small {
-//   color: #999999;
-//   font-weight: bold;
-// }
 .project-card .project-actions {
   justify-content: end;
-  align-items: center;
   opacity: 0;
   display: flex;
   transition: ease .3s;
@@ -54,7 +27,7 @@
 }
 
 .project-card .project-actions .p-icon {
-  color: #b4dac9;
+  color: #70A9A1;
   margin-left: 16px;
   font-size: 14px;
   font-weight: bold;
@@ -64,9 +37,47 @@
   color: #b4dac9;
 }
 
+.project-info {
+  text-decoration: none !important;
+}
+
+// card le wagon
+
+.project-card {
+  overflow: hidden;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  min-height: 100px;
+  margin: 20px 0;
+}
+
 .cards-container li {
   list-style: none;
 }
-.pname {
-  text-decoration: none;
+.project-card h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.project-card p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.project-card .project-card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.project-card-infos .project-card-actions {
+  position: absolute;
+  right: 16px;
+  // top: -20px;
+  width: 40px;
 }
