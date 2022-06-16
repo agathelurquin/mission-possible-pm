@@ -39,7 +39,7 @@
                 <%= link_to project_path(project), class: 'project-info'  do %>
                   <div class="project-card-infos">
                     <div>
-                      <h2><%= project.name.truncate(20) %></h2>
+                      <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
                       <p><%= project.tasks.where.not(status: "completed").count %> tasks in progress!</p>
 
                     </div>
@@ -54,12 +54,12 @@
                   <% end %>
                   </div>
                 <div class="project-card-infos">
-                <div class="pavatar">
+                <div class="d-flex">
                   <% project.users.each do |user| %>
-                    <%= image_tag user.avatar, width: 20 %>
+                    <%= image_tag user.avatar, class:"avatar m-0" %>
                   <% end %>
                 </div>
-                  <h2 class="project-card-pricing">Due in 4 days</h2>
+                  <h2 class="project-card-pricing">Due in <%= (1..40).to_a.sample %> days</h2>
                 </div>
               </div>
             </li>
@@ -77,7 +77,7 @@
                 <%= link_to project_path(project), class: 'project-info'  do %>
                   <div class="project-card-infos">
                     <div>
-                      <h2><%= project.name.truncate(20) %></h2>
+                      <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
                       <p><%= project.tasks.where.not(status: "completed").count %> tasks in progress!</p>
 
                     </div>
@@ -92,9 +92,9 @@
                   <% end %>
                   </div>
                 <div class="project-card-infos">
-                <div class="pavatar">
+                <div class="d-flex">
                   <% project.users.each do |user| %>
-                    <%= image_tag user.avatar, width: 20 %>
+                    <%= image_tag user.avatar, class:"avatar m-0" %>
                   <% end %>
                 </div>
                   <h2 class="project-card-pricing">Due in 2 days</h2>
