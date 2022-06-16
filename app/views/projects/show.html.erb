@@ -74,30 +74,45 @@
             <% end %>
           </div>
         </div>
-        <ul class="list-group"> <!--task list-->
-          <% @tasks.each do |task| %>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col">
-                  <%= link_to task.name, task_path(task)%>
-                  (<%= task.status %>)
-                  <% task.users.each do |user| %>
-                    <% if user.avatar.attached? %>
-                      <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
-                          <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
-                          data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                      </button>
+        <div class="cards-container">
+          <ul class="list-group"> <!--task list-->
+            <% @tasks.each do |task| %>
+              <li>
+                <div class="project-card">
+                  <%= link_to task_path(task), class: 'project-info'  do %>
+                    <div class="project-card-infos">
+                      <div>
+                        <h2><%= task.name %></h2>
+                        <p>(<%= task.status %>)</p>
+                      </div>
+                      <div class="project-actions project-card-actions ">
+                        <%= link_to edit_project_task_path(@project, task), class: 'p-icon' do %>
+                          <i class="fas fa-pencil-alt"></i>
+                        <% end %>
+                        <%= link_to task_path(task), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
+                          <i class="far fa-trash-alt"></i>
+                        <% end %>
+                      </div>
                     <% end %>
-                  <%end%>
+                    </div>
+                  <div class="project-card-infos">
+                  <div class="pavatar">
+                    <% task.users.each do |user| %>
+                      <% if user.avatar.attached? %>
+                        <button type="button", class="btn-avatar", data-toggle="tooltip" data-placement="top" title="<%= user.name %>">
+                            <%= image_tag user.avatar, class: "avatar-large dropdown-toggle", id: "navbarDropdown",
+                            data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                        </button>
+                      <% end %>
+                    <% end %>
+                  </div>
+                    <h2 class="project-card-pricing">Effort: <%= task.estimated_effort%> </h2>
+                  </div>
                 </div>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-
-        <%= link_to new_project_task_path(@project), class: 'pull-right btn btn-default' do %>
-        <i class="fas fa-plus"></i> Add a task
-        <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div><!--.row-->
   </div><!--.container-->
@@ -113,10 +128,11 @@
       <i class="fas fa-trash-alt"></i> Delete this project
     <% end %>
 
-
-  </div>
-
     <%= link_to projects_path, class: 'pull-right btn btn-default' do %>
       <i class="fa fa-history"></i> Back to list
     <% end %>
+
+  </div>
+
+
 </div>
