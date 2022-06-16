@@ -48,7 +48,11 @@
                     <div class="col-11">
                       <%= link_to project_path(project), class: 'pname'  do %>
                         <div class="pcard-content">
-                            <p><%= project.name.truncate(30) %></p>
+                            <p><%= project.name.truncate(20) %></p>
+                            <br>
+                            <% project.users.each do |user| %>
+                              <%= image_tag user.avatar, width: 20 %>
+                            <% end %>
                         </div>
                       <% end %>
                     </div>
