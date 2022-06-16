@@ -105,14 +105,14 @@
         </ul>
       </div>
 
-    <%= month_calendar(attribute: :due_date, events: @projects) do |date, projects| %>
+ <%= month_calendar(attribute: :due_date, events: @projects) do |date, projects| %>
     <%= date %>
     <% projects.each do |project| %>
     <div class="project">
       <p><%= project.name %></p>
     </div>
     <% end %>
-  <% end %>
+    <% end %>
 
       <%= link_to "Add a new Project", new_project_path, class: 'btn btn-ghost' %>
     </div>
