@@ -8,8 +8,10 @@
       <%= date %>
       <% projects.each do |project| %>
       <div class="project">
+      <%= link_to project_path(project), class: 'project-info'  do %>
         <p><%= project.name %></p>
       </div>
+      <% end %>
       <% end %>
     <% end %>
   </div>
