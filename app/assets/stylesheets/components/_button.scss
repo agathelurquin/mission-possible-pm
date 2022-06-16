@@ -13,8 +13,9 @@
 }
 
 .btn-filled {
-  background-color: $my-dark-blue;
-  border: 1px solid $my-dark-blue;
+  background-color: $my-blue-green;
+  border: 1px solid $my-blue-green;
+  margin: 10px;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
@@ -22,9 +23,9 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
   &:hover{
-    background-color: $my-blue-green;
+    background-color: $my-neutral-green;
     color:white;
-    border: 1px solid $my-blue-green;
+    border: 1px solid $my-neutral-green;
   }
 }
 
@@ -62,4 +63,24 @@
     color:white;
     border: 1px solid $my-blue-green;
  }
+}
+
+.button-39 {
+  background-color: #FFFFFF;
+  border: 1px solid #40798C;
+  margin: 10px;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #40798C;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }

@@ -2,43 +2,40 @@
   <h1><%= @project.name %></h1>
 
 
-  <div class="cards-container">
+  <div class="cards-container-pview">
+
     <div class="row">
      <% if @progress_percent.nan? %>
       <p><%=@project.status%></p>
      <% else %>
       <% if @progress_percent == 0 %>
         <div class="progress p-0" style="height: 30px;">
-           <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0% completed</div>
+           <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0% completed ⚡️</div>
         </div>
         <% elsif @progress_percent == 100 %>
         <div class="progress p-0" style="height: 30px;">
           <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100% completed!</div>
         </div>
-      <% elsif @progress_percent < 50 %>
-        <div class="progress p-0" style="height: 30px;">
-          <div class="progress-bar bg-info" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed</div>
-        </div>
       <% else %>
         <div class="progress p-0" style="height: 30px;">
-          <div class="progress-bar bg-success" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed</div>
+          <div class="progress-bar bg-info" role="progressbar" style="width: <%=@progress_percent.to_i%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%=@progress_percent.to_i%>% completed 🤓 </div>
         </div>
       <% end %>
     <%end%>
 
       <div class="col-2">
-        <p class="well bg-light"><%= @project.due_date %></p>
+        <p class="button-39"><%= @project.due_date %></p>
       </div>
       <div class="col-2">
-        <%= link_to 'Chatroom', chatroom_path(@project.chatroom) %>
+        <%= link_to 'Chatroom', chatroom_path(@project.chatroom), class: "btn btn-filled"%>
       </div>
     </div><!--.row-->
 
     <div class= "row">
-      <div class="col-3">
-        <p class="well bg-light">Description: <%= @project.description %></p>   <!--descriptiion-->
+      <div class="col-5">
+        <p class="cards-container">Description: <%= @project.description %></p>   <!--descriptiion-->
 
-         <div class="well bg-light"><p>Files</p>    <!--attached files-->
+         <div class="cards-container"><p>Files</p>    <!--attached files-->
             <% if @project.files.attached? %>
               <% @project.files.each do |file| %>
                 <% if file.image? %>
@@ -57,26 +54,26 @@
           </div>
       </div>
 
-      <div class="col-9">
-        <h3>Tasks</h3>
+      <div class="col-6">
+        <div class="row title-add-new">
+          <h3 class="col-auto">Tasks</h1>
+          <div class="col-auto icon-col">
+            <%= link_to new_project_task_path(@project) do %>
+              <i class="fas fa-plus-circle"></i>
+            <% end %>
+          </div>
+        </div>
+
         <div class="search-bar">
           <div class="col-auto icon-col">
             <i class="fas fa-search element-icon" aria-hidden="true"></i>
           </div>
           <div class="col-11">
-
-
-            <%= form_tag projects_path, method: :get, :class => 'input-group' do %>
-              <%= text_field_tag :query,
-                params[:query],
-                class: "form-control-project",
-                placeholder:  'Find a task'
-              %>
+            <%= form_tag project_path, method: :get, :class => 'input-group' do %>     <!--searchbar-->
+            <%= text_field_tag :query,params[:query], class: "form-control-project" %>
             <% end %>
           </div>
         </div>
-
-
         <ul class="list-group"> <!--task list-->
           <% @tasks.each do |task| %>
             <li class="list-group-item">
