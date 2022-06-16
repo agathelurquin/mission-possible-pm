@@ -1,0 +1,24 @@
+.simple-calendar {
+  table {
+    min-height: 70vh;
+  }
+  .today {
+    background-color: #FAF3DD;
+  }
+}
+
+.project {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $my-blue-green;
+  transition: background 0.3s ease;
+}
+
+.project:hover {
+  background: #1BCB7F;
+}
+
+.project a{
+  color: white;
+}

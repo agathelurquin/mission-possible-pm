@@ -10,6 +10,9 @@
             <%= link_to "My Projects", projects_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
+            <%= link_to "My calendar", calendar_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
             <%= link_to "Dashboard", blazer_path, class: "nav-link" %>
           </li>
           <% if current_user.avatar.attached? %>

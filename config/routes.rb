@@ -20,5 +20,8 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  get "calendar", to: "pages#calendar"
+
   get "landing", to: "pages#landing"
+  
 end
