@@ -31,7 +31,7 @@
 
     <div class="row cards-container">
       <div class="col-6">
-        <h3>My projects as PM</h3>
+        <h3>Projects I am managing</h3>
         <ul class="list-group mb-3">
           <% @projects_pm.each do |project| %>
             <li>
@@ -68,7 +68,7 @@
       </div>
 
       <div class="col-6">
-        <h3>My projects as a worker</h3>
+        <h3>Projects I am working on</h3>
         <ul class="list-group mb-3">
 
           <% @projects_worker.each do |project| %>
@@ -104,8 +104,6 @@
           <% end %>
         </ul>
       </div>
-
-      <%= link_to "Add a new Project", new_project_path, class: 'btn btn-ghost' %>
     </div>
   </div>
 </div>
