@@ -105,7 +105,7 @@
         </ul>
       </div>
 
-    <%= month_calendar(attribute: :created_at, events: @projects, end_attribute: :due_date) do |date, projects| %>
+    <%= month_calendar(attribute: :due_date, events: @projects) do |date, projects| %>
     <%= date %>
     <% @projects.each do |project| %>
     <div class="project">
