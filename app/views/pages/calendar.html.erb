@@ -2,12 +2,16 @@
   <div class="text-center">
   <h1>My Calendar</h1>
   </div>
-  <%= month_calendar(attribute: :due_date, events: @projects) do |date, projects| %>
-    <%= date %>
-    <% projects.each do |project| %>
-    <div class="project">
-      <p><%= project.name %></p>
-    </div>
+  <div class="row justify-content-around">
+    <div class="col-10">
+    <%= month_calendar(attribute: :due_date, events: @projects) do |date, projects| %>
+      <%= date %>
+      <% projects.each do |project| %>
+      <div class="project">
+        <p><%= project.name %></p>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  </div>
 </div>
