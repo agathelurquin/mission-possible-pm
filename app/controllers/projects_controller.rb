@@ -63,6 +63,12 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    if @project.status_changed?
+      if @project.tasks.where.not(status: "completed").present?
+        flash[:alert] = "This project has open tasks."
+        redirect_to project_path(@project)
+      end
+    end
     @project.update(project_params)
     redirect_to project_path(@project)
 

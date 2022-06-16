@@ -1,3 +1,5 @@
-<h1>Need to update your project "<%= @project.name %>"?</h1>
-<%= render 'form', project: @project %>
-<%= link_to 'Back to project page', project_path(@project)%>
+<div class="container">
+  <h1>Edit this project</h1>
+  <%= render 'form', project: @project %>
+  <%= link_to 'Back to project', project_path(@project)%>
+</div>
