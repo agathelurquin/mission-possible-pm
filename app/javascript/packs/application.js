@@ -13,6 +13,7 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
+
 import "bootstrap"
 
 import "trix"
