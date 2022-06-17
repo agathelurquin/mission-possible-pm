@@ -40,7 +40,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @task = Task.new  # para o modal de new task
+    # define two instance variables for task modals (new and edit)
+    @task = Task.new
+    @task_update = nil
+
     #definir @tasks com base no filtro
     if params[:query].present?
       @tasks = Task.where(

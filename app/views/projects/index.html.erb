@@ -39,19 +39,26 @@
               <div class="project-card">
                   <div class="project-card-infos">
                     <div>
-                <%= link_to project_path(project), class: 'project-info'  do %>
-                      <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
-                      <p><%= project.tasks.where.not(status: "Completed").count %> tasks in progress!</p>
-                  <% end %>
-
+                      <%= link_to project_path(project), class: 'project-info'  do %>
+                        <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
+                        <p><%= project.tasks.where.not(status: "Completed").count %> tasks in progress!</p>
+                      <% end %>
                     </div>
                     <div class="project-actions project-card-actions ">
                       <% @project_update = project %>
-                      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_update"></i>
-
+                      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_update_<%=project.id%>"></i>
                       <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
                         <i class="far fa-trash-alt"></i>
                       <% end %>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="form_update_<%=project.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content" style="padding:50px">
+                        <div class="modal-body">
+                          <%= render "form", project: @project_update %>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 <div class="project-card-infos">
@@ -87,7 +94,6 @@
                       <% end %>
                     </div>
                     <div class="project-actions project-card-actions d-none">
-                      <% @project_update = project %>
                       <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_update"></i>
 
                       <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
@@ -122,16 +128,6 @@
     <div class="modal-content" style="padding:50px" data-controller="mask">
       <div class="modal-body">
         <%= render "form", project: @project %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="form_update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="padding:50px" data-controller="mask">
-      <div class="modal-body">
-        <%= render "form", project: @project_update %>
       </div>
     </div>
   </div>
