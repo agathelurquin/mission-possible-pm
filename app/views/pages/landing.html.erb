@@ -1,35 +1,39 @@
-<div class="navbar">
-  <img src="/logo.pgn", alt="Mission:Possible Logo">
+
+<%# <div class="navbar">
+  <img src="/logo.pgn", alt="Mission:Possible Logo"> %>
   <%# <%= link_to 'Dashboard', projects_path%>
   <%# <%= link_to 'My Projects', user_projects_path%>
   <%# <%=link_to 'Create new project', new_project_path %>
   <%# <%=link_to 'FAQ', faq_path %>
+<%# </div> %>
+
+<div class="lp-hero-banner">
+  <div class="container lp-banner-content">
+    <h1>Your Adventure Begins Here</h1>
+    <p class="dark-grey-p">Why use complex tools when you can manage your projects in a natural and easy way</p>
+    <button href="", class="lp-button">Learn More</button>
+  </div>
 </div>
 
-<div class="hero-banner">
-  <div class="banner-background">
-    <img src="", alt=" ">
-  </div>
-  <div class="banner-content">
-    <h1>Your Adventure Begins Here</h1>
-    <p>Why use complex tools when you can manage your projects in a natural and easy way</p>
-    <a href="">Learn More</a>
-  </div>
-
-<div class="about-section">
+<div class="about-section lp-container">
   <h2 class="on-page-section-title">About Mission:Possible</h2>
-  <p> Sometimes, your teams don’t need complex management tools that require months of training to apprehend. Mission:Possible is designed for simple workflows inside your company. We got rid of unecessary features to deliver straightforward dashboards that are fast and easy to grasp.</p>
+  <p class="dark-grey-p"> Sometimes, your teams don’t need complex management tools that require months of training to apprehend. Mission:Possible is designed for simple workflows inside your company. We got rid of unecessary features to deliver straightforward dashboards that are fast and easy to grasp.</p>
   <%# <%= link_to 'Start a new poject', user_login_path %>
 </div>
 
-<div class="services-and-products">
-  <div class="pm-value-proposition">
+<div class="row services">
+  <div class="col-5 pm-value-proposition">
     <h3 class="on-page-section-title">Project Management</h3>
-    <p>Each company has projects that don't necessarily need to keep track of every single details. When tracking takes more time than get simple tasks done, it's usually a sign that you have room for optimization in your work flow.
+    <p class="dark-grey-p">Each company has projects that don't necessarily need to keep track of every single details. When tracking takes more time than get simple tasks done, it's usually a sign that you have room for optimization in your work flow.
     <br>Mission:Possible teaches you how to focus on the essential and reach your goals the fastest way possible</p><ul>
+    <div class="arrow-navigation">
+      <button class="lp-arrow-button"><i class="fas fa-angle-left"></i></button>
+      <button class="lp-arrow-button"><i class="fas fa-angle-right"></i></button>
+    </div>
   </div>
-  <div class="pm-advantages">
+  <div class="col-7 pm-advantages">
     <div class="advantages-card">
+
       <ul>
         <li class="sp-unique">
           <h4 class="">Efficiency</h4>
@@ -53,17 +57,14 @@
         </li>
       </ul>
     </div>
-    <div class="arrow-navigation">
-      <button>Arrow back</button>
-      <button>Arrow forward</button>
-    </div>
+
   </div>
 </div>
 
-<div class="features">
-  <div class="features-intro">
+<div class="lp-features">
+  <div class="lp-features-intro lp-container">
     <h2 class="on-page-section-title">Features on Mission:Possible</h2>
-    <p>View our full value proposition below.
+    <p class="dark-grey-p">View our full value proposition below.
     <br> Click through to start your own adventure now!</p>
   </div>
   <div class="row feature-cards">
@@ -130,7 +131,7 @@
 
 <div class="partners">
   <div class="row ">
-    <h2 class="on-page-section-title">Our partners</h2>
+    <h2 class="on-page-section-title lp-container">Our partners</h2>
   </div>
   <div class="row logos">
     <%# Carousel %>
@@ -142,13 +143,13 @@
     </ul>
   </div>
   <div class="row arrow-navigation">
-      <button>Arrow back</button>
-      <button>Arrow forward</button>
+      <button class="lp-arrow-button"><i class="fas fa-angle-left"></i></button>
+      <button class="lp-arrow-button"><i class="fas fa-angle-right"></i></button>
   </div>
 </div>
 
-<div class="roadmap">
-  <div class="row roadmap-header">
+<div class="roadmap lp-color-container">
+  <div class="row roadmap-header lp-container">
     <h3 class="white-on-page-section-title">Roadmap</h3>
     <div class="roadmap-legend">
       <ul>
@@ -168,11 +169,11 @@
       </div>
     </div>
   </div>
-  <div class="timeline">
+  <div class="timeline lp-color-container">
     <div class="row phase">
       <div class="col-5 phase-text">
         <h4 class="phase-title">Phase 1<h4>
-        <p class="title">Create a project</p>
+        <p class="phase-name">Create a project</p>
       </div>
       <div class="col-2 phase-text">
         <i class="big-color-icon"></i>
@@ -186,7 +187,7 @@
     <div class="row phase">
       <div class="col-5 phase-text">
         <h4 class="phase-title">Phase 2<h4>
-        <p class="title">Gather your team</p>
+        <p class="phase-name">Gather your team</p>
       </div>
       <div class="col-2 phase-text">
         <i class="big-color-icon"></i>
@@ -200,7 +201,7 @@
     <div class="row phase">
       <div class="col-5 phase-text">
         <h4 class="phase-title">Phase 3<h4>
-        <p class="title">Create Tasks</p>
+        <p class="phase-name">Create Tasks</p>
       </div>
       <div class="col-2 phase-text">
         <i class="big-color-icon"></i>
@@ -214,7 +215,7 @@
     <div class="row phase">
       <div class="col-5 phase-text">
         <h4 class="phase-title">Phase 4<h4>
-        <p class="title">
+        <p class="phase-name">
         Get insights from your Dashboards
         </p>
       </div>
@@ -230,7 +231,7 @@
     <div class="row phase">
       <div class="col-5 phase-text">
         <h4 class="phase-title">Phase 5<h4>
-        <p class="title">
+        <p class="phase-name">
         Complete your projects
         </p>
       </div>
@@ -239,7 +240,7 @@
       </div>
       <div class="col-5 phase-description">
         <p>
-        Once all the tasks are completed, you and yours team can enjoy the sens of accomplishment and start a new adventure with new projects. We give you an interface to go back on your past projects and give some feedbacks, get the key learnçing of your experience and keep on improving everyday as a team.
+        Once all the tasks are completed, you and your team can enjoy the sense of accomplishment and start a new adventure with new projects. We give you an interface to go back on your past projects and give some feedbacks, get the key learnçing of your experience and keep on improving everyday as a team.
         </p>
       </div>
     </div>
@@ -247,30 +248,30 @@
 </div>
 
 <div class="faq">
-  <div class="row on-page-section-title">
+  <div class="row on-page-section-title lp-conainter">
     <h3>Frequently Asked Questions</h3>
   </div>
-  <div class="row question">
+  <div class="row faq-question">
     <h4>How to create a project?</h4>
     <i>+ icon</i>
     <p><p>
   </div>
-  <div class="row question">
+  <div class="row faq-question">
     <h4>How much does the service cost?</h4>
     <i>+ icon</i>
     <p><p>
   </div>
-  <div class="row question">
+  <div class="row faq-question">
     <h4>How many projects can I create simultaneously?</h4>
     <i>+ icon</i>
     <p><p>
   </div>
-  <div class="row question">
+  <div class="row faq-question">
     <h4>How many tasks can a project have?</h4>
     <i>+ icon</i>
     <p><p>
   </div>
-  <div class="row question">
+  <div class="row faq-question">
     <h4>Do you have integrations on the pkateforms for other softwares?</h4>
     <i>+ icon</i>
     <p><p>

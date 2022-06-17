@@ -1,0 +1,80 @@
+.lp-hero-banner {
+  background-image: url("background-image-lp.png");
+  background-size: cover;
+  height: 500px;
+  padding: 200px 0;
+}
+
+// .lp-banner-content{
+//   align-items: center;
+// }
+
+.lp-hero-banner h1{
+  font-size: 40px;
+  font-weight: bold;
+  color: #F8F9FA;
+
+}
+
+.lp-hero-banner p {
+  text-align: left !important;
+  color: white !important;
+  font-size: 20px !important;
+  opacity: 0.8;
+}
+
+
+.lp-button{
+  font-family: "Roboto";
+  border-radius: 25px;
+  color: white;
+  background-color: #045651;
+  padding: 16px 34px;
+  border: #045651;
+  display: inline-block;
+
+}
+
+.lp-arrow-button {
+  font-family: "Roboto";
+  font-size: 40px;
+  font-weight: lighter;
+  text-align: center;
+  width: 100px;
+  height: 90px;
+  border-radius: 25px;
+  color: #3bad83;
+  background-color: transparent;
+  padding: 16px 34px;
+  margin: 10px;
+  border: 2px solid #3bad83;
+  display: inline-block;
+}
+
+
+.on-page-section-title {
+  color: #045651;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: center;
+
+}
+
+.dark-grey-p {
+  color: #707070;
+  size: 18px;
+  text-align: center;
+
+}
+
+.services {
+  display: flex;
+  margin: 60px 40px;
+}
+
+.pm-value-proposition{
+  justify-items: start !important;
+  text-align: left !important;
+
+}
