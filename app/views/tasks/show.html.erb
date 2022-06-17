@@ -5,9 +5,7 @@
       <div class="row title-add-new">
         <h1 class="col-auto"> <%= @project.name.truncate(15) %> > <%= @task.name%> </h1>
         <div class="col-auto icon-col">
-          <%= link_to edit_project_task_path(@project, @task) do %>
-            <i class="fas fa-pen"></i>
-          <% end %>
+          <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_task_update"></i>
         </div>
       </div>
     <div class="row row upper-margin justify-content-between align-items-center mb-3">
@@ -107,4 +105,12 @@
     </div>
   </div>
 </div>
+</div>
+
+<div class="modal fade" id="form_task_update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="padding:50px">
+      <%= render "tasks/task_form", project: @project, task: @task %>
+    </div>
+  </div>
 </div>
