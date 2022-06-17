@@ -72,7 +72,10 @@
   text-align: center;
 
 }
+.about-section {
+  margin-bottom: 40px;
 
+}
 .services {
   display: flex;
   margin: 60px 40px;
@@ -92,6 +95,10 @@
   padding: 5px 25px;
 }
 
+.galery-header{
+  background-image: url("galery-header.png");
+}
+
 .background-image{
   height: 450px;
   background-image: url("benefits-background.png");
@@ -104,6 +111,16 @@
   letter-spacing: 2px;
   text-align: center;
 
+}
+
+.lp-added-value img{
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.lp-added-value li{
+  color: #707070;
+  font-size: 18px;
 }
 
 .roadmap-legend ul{
@@ -160,6 +177,9 @@ html, body {
   overflow-x: hidden;
 }
 
+.phase-text{
+  color:#707070;
+}
 
 .timeline {
 
@@ -326,6 +346,7 @@ html, body {
 }
 
 .faq-question h4 {
+  display: flex;
   line-height: 1;
   font-weight: 900;
   padding: 2rem 7rem 2rem 2.7rem;
@@ -338,16 +359,18 @@ html, body {
 .faq-q{
   display: inline-block;
   position: relative;
+  display: block;
 
 }
 
+.open-q i {
+  color: #3BAD83
+}
+
 .open-q{
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    width: 102px;
-    display: block;
+    justify-content: end;
+    // width: 102px;
+    // display: block;
 }
 
 
@@ -473,4 +496,40 @@ body{
   text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
   line-height: 1.4;
   word-spacing: 100vw;
+}
+
+// END
+
+// FOOTER
+
+.footer {
+  background-image: url('footer-background.png');
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 400px;
+  padding-right: 50px;
+  padding-left: 50px;
+  color: rgba(0,0,0,0.3);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: #F8F9FA;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 90px 10px 0 10px;
+}
+
+.footer-copyright{
+  padding-top: 90px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #045651;
 }
