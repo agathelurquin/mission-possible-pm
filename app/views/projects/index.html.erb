@@ -46,7 +46,7 @@
                     </div>
                     <div class="project-actions project-card-actions ">
                       <% @project_update = project %>
-                      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_update_<%=project.id%>"></i>
+                      <i class="fas fa-pencil-alt p-icon pt-1" data-bs-toggle="modal" data-bs-target="#form_update_<%=project.id%>"></i>
                       <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
                         <i class="far fa-trash-alt"></i>
                       <% end %>
