@@ -1,0 +1,88 @@
+.pm-advantages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+  transition: background 0.4s ease-in;
+}
+
+
+input[type=radio]{
+    display: none;
+}
+
+.carousel-card{
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    right: 0%;
+    margin: auto;
+    cursor: pointer;
+}
+
+img {
+  width: 70%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+
+}
+
+.pm-title-card{
+  margin: 10px 0px;
+  padding: 15px;
+  background-color: #F8F9FA;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.advantages-card{
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+  display: flex;
+  transform-style: preserve-3d;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-cards{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+  transition: 0.4s ease;
+}
+#item-1:checked ~ .carousel-cards #song-4,
+#item-2:checked ~ .carousel-cards #song-1,
+#item-3:checked ~ .carousel-cards #song-2,
+#item-4:checked ~ .carousel-cards #song-3{
+  transform: translateX(-60%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+#item-1:checked ~ .carousel-cards #song-2,
+#item-2:checked ~ .carousel-cards #song-3,
+#item-3:checked ~ .carousel-cards #song-4,
+#item-4:checked ~ .carousel-cards #song-1{
+  transform: translateX(60%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+#item-1:checked ~ .carousel-cards #song-1,
+#item-2:checked ~ .carousel-cards #song-2,
+#item-3:checked ~ .carousel-cards #song-3,
+#item-4:checked ~ .carousel-cards #song-4{
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+#item-1:checked ~ .carousel-cards #song-1 img,
+#item-2:checked ~ .carousel-cards #song-2 img,
+#item-3:checked ~ .carousel-cards #song-2 img,
+#item-4:checked ~ .carousel-cards #song-3 img{
+  box-shadow: 0px 0px 5px 0px rgba(81,81,81,0.47);
+}
