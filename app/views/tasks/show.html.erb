@@ -1,5 +1,6 @@
   <hr>
-  <div class="container extra-padding">
+<div class="p-5">
+  <div class="container">
     <div class="page-header">
       <div class="row title-add-new">
         <h1 class="col-auto"> <%= @project.name.truncate(15) %> > <%= @task.name%> </h1>
@@ -9,41 +10,44 @@
           <% end %>
         </div>
       </div>
-      <h2 class="indications page-subheader"><%= @task.description %> </h2>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-3">
-        <p class="badge-ghost">Due date: <%= @task.due_date %></p>
-      </div>
-      <div class="col-3">
-      <p class="badge-ghost">Estimated effort: <%= @task.estimated_effort %></p>
-      </div>
-      <div class="col-3">
-        <p class="badge-ghost">Status: <%= @task.status %></p>
-      </div>
-      <div class="col-3">
-        <p class="badge-ghost">Completion date: <%= @task.completion_date %></p>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-12 ">
-          <%= link_to edit_project_task_path(@project, @task), class: 'pull-right btn btn-default' do %>
-            <i class="fas fa-edit"></i> Edit this task
-          <% end %>
-          <%= link_to task_path(@task), class: 'pull-right btn btn-default', method: 'delete', data: { confirm: "Are you?" }  do %>
-            <i class="fas fa-trash-alt"></i> Delete this task
-          <% end %>
-          <%= link_to project_path(@task.project), class: 'pull-right btn btn-default' do %>
-            <i class="fa fa-history"></i> Back to project
-          <% end %>
+    <div class="row row upper-margin justify-content-between align-items-center mb-3">
+      <div class="col-6">
+        <div class="cards-container">
+        <p class="box-title">
+          DESCRIPTION
+          </p>
+        <p class="indications page-subheader"><%= @task.description %> </p>
         </div>
       </div>
+      <div class="col-3 d-flex justify-content-center">
+        <%= link_to task_path(@task), class: 'btn btn-ghost-pshow', method: 'delete', data: { confirm: "Are you?" }  do %>
+            <i class="fas fa-trash-alt"></i> Delete this task
+          <% end %>
+      </div>
+      <div class="col-3 d-flex justify-content-center">
+        <%= link_to project_path(@task.project), class: 'btn btn-ghost-pshow' do %>
+            <i class="fa fa-history"></i> Back to project
+          <% end %>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-3">
+        <p class="button-39">Due date: <%= @task.due_date %></p>
+      </div>
+      <div class="col-3">
+      <p class="button-39">Estimated effort: <%= @task.estimated_effort %>h</p>
+      </div>
+      <div class="col-3">
+        <p class="button-39">Status: <%= @task.status %></p>
 
-    <div class="container cards-container mt-3">
+      </div>
+      <div class="col-3">
+        <p class="button-39">Completion date: <%= @task.completion_date %></p>
+      </div>
+    </div>
+    <br>
+
+    <div class="cards-container mt-3">
       <h4>Your Project Team</h4>
       <div class="row">
         <div class="col-6">
@@ -98,8 +102,9 @@
         </div>
       </div>
     </div>
-    <div class="container cards-container mt-3">
+    <div class="cards-container mt-3">
       <%= render 'active_text_form', task: @task %>
     </div>
   </div>
+</div>
 </div>
