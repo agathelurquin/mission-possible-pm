@@ -85,6 +85,7 @@
 .pm-value-proposition{
   padding-top: 30px;
 }
+
 .pm-value-proposition p{
   text-align: left !important;
   padding: 5px 25px;
@@ -95,9 +96,9 @@
   padding: 5px 25px;
 }
 
-.galery-header{
-  background-image: url("galery-header.png");
-}
+// .galery-header{
+//   background-image: url("galery-header.png");
+// }
 
 .background-image{
   height: 450px;
@@ -123,6 +124,10 @@
   font-size: 18px;
 }
 
+
+// ROADMAP
+
+
 .roadmap-legend ul{
   display: flex;
   color: #F8F9FA;
@@ -141,7 +146,7 @@
   margin-bottom: 0 !important;
 }
 
-.roadmap-legend i {
+.roadmap-legend i{
   display: block;
   margin: 0 10px;
   border-radius: 6px;
@@ -337,6 +342,7 @@ html, body {
 .faq{
   margin: 30px auto;
 }
+
 .faq-question{
   border: 2px solid #3BAD83;
   border-radius: 35px;
