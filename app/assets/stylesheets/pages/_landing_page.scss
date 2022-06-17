@@ -5,9 +5,9 @@
   padding: 200px 0;
 }
 
-// .lp-banner-content{
-//   align-items: center;
-// }
+.lp-banner-content{
+  align-items: center;
+}
 
 .lp-hero-banner h1{
   font-size: 40px;
@@ -15,6 +15,7 @@
   color: #F8F9FA;
 
 }
+
 
 .lp-hero-banner p {
   text-align: left !important;
@@ -85,4 +86,8 @@
 .pm-value-proposition h3{
   text-align: left !important;
   padding: 5px 25px;
+}
+
+.partners{
+  background-image: url("benefits-background.png");
 }
