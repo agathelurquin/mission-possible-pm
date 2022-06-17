@@ -1,3 +1,4 @@
+
 <hr>
 <div class="container">
   <div class="container">
@@ -36,22 +37,29 @@
           <% @projects_pm.each do |project| %>
             <li>
               <div class="project-card">
-                <%= link_to project_path(project), class: 'project-info'  do %>
                   <div class="project-card-infos">
                     <div>
-                      <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
-                      <p><%= project.tasks.where.not(status: "Completed").count %> tasks in progress!</p>
-
+                      <%= link_to project_path(project), class: 'project-info'  do %>
+                        <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
+                        <p><%= project.tasks.where.not(status: "Completed").count %> tasks in progress!</p>
+                      <% end %>
                     </div>
                     <div class="project-actions project-card-actions ">
-                      <%= link_to edit_project_path(project), class: 'p-icon' do %>
-                        <i class="fas fa-pencil-alt"></i>
-                      <% end %>
+                      <% @project_update = project %>
+                      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_update_<%=project.id%>"></i>
                       <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
                         <i class="far fa-trash-alt"></i>
                       <% end %>
                     </div>
-                  <% end %>
+                  </div>
+                  <div class="modal fade" id="form_update_<%=project.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content" style="padding:50px">
+                        <div class="modal-body">
+                          <%= render "form", project: @project_update %>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 <div class="project-card-infos">
                 <div class="d-flex">
@@ -78,22 +86,21 @@
           <% @projects_worker.each do |project| %>
             <li>
               <div class="project-card">
-                <%= link_to project_path(project), class: 'project-info'  do %>
                   <div class="project-card-infos">
                     <div>
-                      <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
-                      <p><%= project.tasks.where.not(status: "Completed").count %> tasks in progress!</p>
-
-                    </div>
-                    <div class="project-actions project-card-actions ">
-                      <%= link_to edit_project_path(project), class: 'p-icon' do %>
-                        <i class="fas fa-pencil-alt"></i>
+                      <%= link_to project_path(project), class: 'project-info'  do %>
+                        <h2><%= project.name.truncate(20) %> (<%= project.status %>)</h2>
+                        <p><%= project.tasks.where.not(status: "Completed").count %> tasks in progress!</p>
                       <% end %>
+                    </div>
+                    <div class="project-actions project-card-actions d-none">
+                      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_update"></i>
+
                       <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
                         <i class="far fa-trash-alt"></i>
                       <% end %>
                     </div>
-                  <% end %>
+
                   </div>
                 <div class="project-card-infos">
                 <div class="d-flex">
@@ -116,10 +123,12 @@
   </div>
 </div>
 
-            <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content" style="padding:50px" data-controller="mask">
-                  <%= render "form", project: @project %>
-                </div>
-              </div>
-            </div>
+<div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="padding:50px" data-controller="mask">
+      <div class="modal-body">
+        <%= render "form", project: @project %>
+      </div>
+    </div>
+  </div>
+</div>
