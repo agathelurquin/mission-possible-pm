@@ -48,9 +48,7 @@
         <div class="row title-add-new extra-padding">
           <h3 class="col-auto">Project Details</h1>
           <div class="col-auto icon-col">
-            <%= link_to edit_project_path(@project) do %>
-              <i class="fas fa-pen"></i>
-            <% end %>
+            <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form"></i>
           </div>
         </div>
 
@@ -61,7 +59,16 @@
           </p>
           <p>
             <%= @project.description %>
-          </p>   <!--descriptiion-->
+          </p>
+        </div>
+
+        <div class="cards-container">
+          <p class="box-title">
+          PRICE
+          </p>
+          <p>
+            $ <%= @project.price %>
+          </p>
         </div>
 
          <div class="cards-container"><p class="box-title">FILES</p>    <!--attached files-->
@@ -153,4 +160,13 @@
       </div>
     </div><!--.row-->
   </div><!--.container-->
+</div>
+
+
+<div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="padding:50px" data-controller="mask">
+      <%= render "form", project: @project %>
+    </div>
+  </div>
 </div>

@@ -1,3 +1,17 @@
+<div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="padding:50px" data-controller="mask">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body">
+        <%= render "form", project: @project %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <hr>
 <div class="container">
   <div class="container">
@@ -44,9 +58,9 @@
 
                     </div>
                     <div class="project-actions project-card-actions ">
-                      <%= link_to edit_project_path(project), class: 'p-icon' do %>
-                        <i class="fas fa-pencil-alt"></i>
-                      <% end %>
+
+                      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form"></i>
+
                       <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
                         <i class="far fa-trash-alt"></i>
                       <% end %>
@@ -86,9 +100,9 @@
 
                     </div>
                     <div class="project-actions project-card-actions ">
-                      <%= link_to edit_project_path(project), class: 'p-icon' do %>
-                        <i class="fas fa-pencil-alt"></i>
-                      <% end %>
+
+                      <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form"></i>
+
                       <%= link_to project_path(project), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
                         <i class="far fa-trash-alt"></i>
                       <% end %>
@@ -115,11 +129,3 @@
     </div>
   </div>
 </div>
-
-            <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content" style="padding:50px" data-controller="mask">
-                  <%= render "form", project: @project %>
-                </div>
-              </div>
-            </div>
