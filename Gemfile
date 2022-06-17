@@ -43,6 +43,8 @@ gem 'blazer'
 
 gem 'devise'
 
+gem "simple_calendar", "~> 2.4"
+
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.6.1'

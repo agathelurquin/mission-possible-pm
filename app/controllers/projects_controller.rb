@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def index
     @project = Project.new
+    @project_update = nil
     # authorize @project
     @projects_pm = policy_scope(Project).where(user_id: current_user)
     @projects_worker = current_user.projects_as_contributor
@@ -39,6 +40,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    # define two instance variables for task modals (new and edit)
+    @task = Task.new
+    @task_update = nil
+
     #definir @tasks com base no filtro
     if params[:query].present?
       @tasks = Task.where(
@@ -55,7 +60,7 @@ class ProjectsController < ApplicationController
     @tasks_status = @project.tasks
     @total_tasks = @tasks_status.count
     @total_completed = @tasks_status.select do |task_status|
-      task_status.status == "completed"
+      task_status.status == "Completed"
     end
     @tasks_count = @total_completed.count
     @progress = @tasks_count / @total_tasks.to_f
@@ -66,18 +71,16 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.status_changed?
-      if @project.tasks.where.not(status: "completed").present?
-        flash[:alert] = "This project has open tasks."
+    if ok_to_complete_project?
+      if @project.update(project_params)
         redirect_to project_path(@project)
+      else
+        render :edit, status: :unprocessable_entity
       end
+    else
+      flash[:alert] = "This project has open tasks."
+      render :edit, status: :unprocessable_entity
     end
-    @project.update(project_params)
-    redirect_to project_path(@project)
-
-    # if @project.update(project_params)
-    #   @project.files.attach(params[:project][:files]) if params.dig(:project, :files).present?
-    # end
   end
 
   def destroy
@@ -94,5 +97,13 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :description, :status, :price, :due_date, files: [])
+  end
+
+  def ok_to_complete_project?
+    if params[:project][:status] == "Completed" && params[:project][:status] != @project.status && @project.tasks.where.not(status: "Completed").present?
+      return false
+    else
+      return true
+    end
   end
 end

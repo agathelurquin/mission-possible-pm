@@ -39,7 +39,8 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to task_path(@task)
+      redirect_to(request.referrer || root_path)
+
     else
       render :edit
     end

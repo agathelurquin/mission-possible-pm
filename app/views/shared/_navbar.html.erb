@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <div class="navbar navbar-expand-sm navbar-mp border-bottom border-light">
+  <div class="navbar navbar-expand-sm navbar-mp border-bottom mb-3">
     <div class="container-fluid">
       <%= link_to root_path, class: "navbar-brand mx-5 py-2" do %>
               <h4>Mission<strong>:Possible</strong></h4>
@@ -8,6 +8,9 @@
         <ul class="navbar-nav me-auto">
           <li class="nav-item active">
             <%= link_to "My Projects", projects_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "My calendar", calendar_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
             <%= link_to "Dashboard", blazer_path, class: "nav-link" %>

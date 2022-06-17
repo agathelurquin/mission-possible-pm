@@ -1,0 +1,20 @@
+<tbody>
+  <% date_range.each_slice(7) do |dates| %>
+    <tr>
+      <% dates.each do |date| %>
+        <%= content_tag :td, class: calendar.td_classes_for(date) do %>
+          <% passed_block.call date.day, sorted_events.fetch(date, []) %>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</tbody>
+
+<%= month_calendar(attribute: :due_date, events: @projects) do |date, projects| %>
+    <%= date %>
+    <% projects.each do |project| %>
+    <div class="project">
+      <p><%= project.name %></p>
+    </div>
+    <% end %>
+    <% end %>
