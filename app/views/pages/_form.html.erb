@@ -1,4 +1,7 @@
-<div class="container py-5">
+<div class="container py-5 bg-light opacity-75">
+<div class="form-actions d-flex justify-content-center">
+<h2>Sign up now!</h2>
+</div>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
@@ -17,7 +20,10 @@
       </div>
       <br>
       <div class="form-actions d-flex justify-content-center">
-        <%= submit_tag "Start now", class: 'btn btn-filled' %>
-      </div>
+        <%= submit_tag "Start now", class: 'btn btn-filled opacity-100' %>
+      </div><hr>
+      <div class="form-actions d-flex justify-content-center mt-3">
+        <h5>Already have an account? <%= link_to "Login", new_user_session_path %> </h5>
+        </div>
     <% end %>
 </div>

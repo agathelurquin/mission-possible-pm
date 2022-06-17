@@ -1,37 +1,336 @@
-<div class="background">
-<div class="banner">
-  <div class="container">
+
+<%# <div class="navbar">
+  <img src="/logo.pgn", alt="Mission:Possible Logo"> %>
+  <%# <%= link_to 'Dashboard', projects_path%>
+  <%# <%= link_to 'My Projects', user_projects_path%>
+  <%# <%=link_to 'Create new project', new_project_path %>
+  <%# <%=link_to 'FAQ', faq_path %>
+<%# </div> %>
+<%# <%= javascript_include_tag('landing_page.js') %>
+
+<div class="lp-hero-banner">
+  <div class="container lp-banner-content">
    <div class="row">
-    <div class="col text text-center">
-      <h1>Mission<strong>:Possible</strong></h1>
-      <div class="sub">
-        <p>Why use complex tools when you can manage your projects in a nice & easy way?</p>
-      </div>
-     </div>
-    <div class="col banner-form">
-      <%= render partial: 'form' %>
+   <div class="col-8 mt-5">
+    <h1>Your Adventure Begins Here</h1>
+    <p class="dark-grey-p">Why use complex tools when you can manage your projects in a natural and easy way</p>
+    <button href="", class="lp-button">Learn More</button>
     </div>
+    <div class="col-4">
+    <%= render partial: 'form' %>
     </div>
+  </div>
   </div>
 </div>
 
-<div class="container p-5 mx-5">
+<div class="about-section lp-container">
+  <h2 class="on-page-section-title">About Mission:Possible</h2>
+  <p class="dark-grey-p"> Sometimes, your teams don’t need complex management tools that require months of training to apprehend. Mission:Possible is designed for simple workflows inside your company. We got rid of unecessary features to deliver straightforward dashboards that are fast and easy to grasp.</p>
+  <%# <%= link_to 'Start a new poject', user_login_path %>
+</div>
+
+<div class="row services">
+  <div class="col-6 pm-value-proposition">
+    <h3 class="on-page-section-title">Project Management</h3>
+    <p class="dark-grey-p">Each company has projects that don't necessarily need to keep track of every single details. When tracking takes more time than get simple tasks done, it's usually a sign that you have room for optimization in your work flow.
+    <br>Mission:Possible teaches you how to focus on the essential and reach your goals the fastest way possible</p>
+  </div>
+  <div class="col-6 pm-advantages">
+    <div class="advantages-card">
+      <input type="radio" name="slider" id="item-1" checked>
+      <input type="radio" name="slider" id="item-2">
+      <input type="radio" name="slider" id="item-3">
+      <input type="radio" name="slider" id="item-4">
+      <div class="carousel-cards">
+        <label class="carousel-card" for="item-1" id="song-1">
+          <img src="https://i.pinimg.com/564x/b2/86/d6/b286d6b8d698cf50a177c3903f730196.jpg">
+          <h4 class="pm-title-card">EFFICIENCY</h4>
+        </label>
+        <label class="carousel-card" for="item-2" id="song-2">
+          <img src="https://i.pinimg.com/564x/f4/d0/cb/f4d0cbfd7af8531c465c8e3fc508e87a.jpg">
+          <h4 class="pm-title-card">TIME MANAGEMENT</h4>
+        </label>
+        <label class="carousel-card" for="item-3" id="song-3">
+          <img src="https://i.pinimg.com/564x/09/db/79/09db79142424708ca8425ee57d7f4dad.jpg">
+          <h4 class="pm-title-card">OPTIMIZATION</h4>
+        </label>
+        <label class="carousel-card" for="item-4" id="song-4">
+          <img src="https://i.pinimg.com/564x/41/e1/ae/41e1aed7bc0c793404d534cc1977e4ed.jpg">
+          <h4 class="pm-title-card">AGILITY</h4>
+        </label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="galery">
+
+  <div class="lp-features-intro lp-container">
+    <h2 class="on-page-section-title">Features on Mission:Possible</h2>
+    <p class="dark-grey-p">View our full value proposition below.
+    <br> Scroll down to know how to start your own adventure now!</p>
+  </div>
+  <section class="hero-section">
+    <div class="card-grid">
+      <a class="card" href="#">
+        <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)"></div>
+        <div class="card__content">
+          <p class="card__category">Features</p>
+          <h3 class="card__heading">DASHBOARDS</h3>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="card__background" style="background-image: url(https://i.pinimg.com/564x/67/21/b7/6721b7f5847d38b9cc1d1901feb8028c.jpg)"></div>
+        <div class="card__content">
+          <p class="card__category">Features</p>
+          <h3 class="card__heading">TO DO LISTS</h3>
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="card__background" style="background-image: url(https://i.pinimg.com/originals/7c/4d/ee/7c4dee1a7446280ee8236ac3013b0634.jpg)"></div>
+        <div class="card__content">
+          <p class="card__category">Features</p>
+          <h3 class="card__heading">TASK MANAGEMENT</h3>
+        </div>
+      </a> <!-- it used to be a </li> but I think it's a typo-->
+      <a class="card" href="#">
+        <div class="card__background" style="background-image: url(https://i.pinimg.com/564x/68/d3/cc/68d3ccabf51f7e45d8239cf7bcdbf726.jpg)"></div>
+        <div class="card__content">
+          <p class="card__category">Features</p>
+          <h3 class="card__heading">TEAM CHAT</h3>
+        </div>
+      </a>
+    <div>
+  </section>
+
+</div>
+
+
+<div class="lp-added-value">
   <div class="row">
-    <div class="col-8">
-      <div class="login-section p-3">
-          <h5 class="smaller">Already have an account? <%= link_to "Login", new_user_session_path, class: "btn btn-filled" %> </h5>
+    <div class="col-6">
+      <img src="https://i.pinimg.com/564x/10/7b/d9/107bd919841bcd90eca116b973a57ba1.jpg", alt="", class="benefits-illustration">
+    </div>
+    <div class="col-6">
+      <h2 class="on-page-section-title lp-container">Our Benefits</h2>
+      <ul class="mp-benefits">
+        <li>
+          <i class="lp-check"></i>
+          <p>Simplified workflow</p>
+        </li>
+        <li>
+          <i class="lp-check"></i>
+          <p>Transparency</p>
+        </li>
+        <li>
+          <i class="lp-check"></i>
+          <p>Clear communication</p>
+        </li>
+        <li>
+          <i class="lp-check"></i>
+          <p>Easy onboarding process for new members in your team</p>
+        </li>
+      </ul>
+      <div class="btn">
+        <%# <%= link-to "View Demo", demo_path %>
       </div>
     </div>
-    <div class="col-4">
-      <div class="newsletter text-center">
-            <h5>Join our Newsletter for our pro tips</h5>
-            <form>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="E-mail">
-                <button type="submit" class="btn btn-white">Subscribe</button>
-                </div>
-            </form>
+  </div>
+</div>
+<div class="background-image">
+</div>
+
+<div class="roadmap lp-color-container">
+  <div class="row roadmap-header">
+    <h3 class="white-on-page-section-title">Roadmap</h3>
+    <div class="roadmap-legend">
+      <ul>
+        <li class="col-3">
+          <i class="fas fa-square success"></i>
+          <p>Complete</p>
+        </li>
+        <li class="col-3 ">
+          <i class="fas fa-square info"></i>
+          <p>In Progress</p>
+        </li>
+        <li class="col-3">
+          <i class="fas fa-square danger"></i>
+          <p>Incomplete</p>
+        </li>
+      </ul>
+      <%# </div> %>
+    </div>
+  </div>
+  <section class="timeline lp-color-container">
+    <div class="code-container">
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-content  js--fadeInLeft" >
+          <div class="row phase">
+            <div class="col phase-text">
+              <h4 class="phase-title">Phase 1</h4>
+              <p class="phase-name">Create a project</p>
+            </div>
+            <div class="col phase-text">
+              <i class="big-color-icon"></i>
+            </div>
+            <div class="col-5 phase-description">
+              <p>
+              Mission:Possible allow you to create a new project with only the essential data your team needs to be creative and productive
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content js--fadeInRight">
+          <div class="row phase">
+            <div class="col-5 phase-text">
+              <h4 class="phase-title">Phase 2</h4>
+              <p class="phase-name">Gather your team</p>
+            </div>
+            <div class="col-2 phase-text">
+              <i class="big-color-icon"></i>
+            </div>
+            <div class="col-5 phase-description">
+              <p>
+              Assign the relevant members to each project and task to make sure you leverage everyone's best assets in the most efficient way possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content js--fadeInLeft">
+          <div class="row phase">
+            <div class="col-5 phase-text">
+              <h4 class="phase-title">Phase 3</h4>
+              <p class="phase-name">Create Tasks</p>
+            </div>
+            <div class="col-2 phase-text">
+              <i class="big-color-icon"></i>
+            </div>
+            <div class="col-5 phase-description">
+              <p>
+              Break your project into simple tasks and move forward in your projects through a painless process.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content js--fadeInRight">
+          <div class="row phase">
+            <div class="col-5 phase-text">
+              <h4 class="phase-title">Phase 4</h4>
+              <p class="phase-name">
+              Get insights from your Dashboards
+              </p>
+            </div>
+            <div class="col-2 phase-text">
+              <i class="big-color-icon"></i>
+            </div>
+            <div class="col-5 phase-description">
+              <p>
+              We gather understandable data in simple dashboards to allow you to have a cleat idea of how you and your team.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content js--fadeInLeft">
+          <div class="row phase">
+            <div class="col-5 phase-text">
+              <h4 class="phase-title">Phase 4</h4>
+              <p class="phase-name">
+              Get insights from your Dashboards
+              </p>
+            </div>
+            <div class="col-2 phase-text">
+              <i class="big-color-icon"></i>
+            </div>
+            <div class="col-5 phase-description">
+              <p>
+              We gather understandable data in simple dashboards to allow you to have a cleat idea of how you and your team.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content js--fadeInRight">
+          <div class="row phase">
+            <div class="col-5 phase-text">
+              <h4 class="phase-title">Phase 5</h4>
+              <p class="phase-name">
+              Complete your projects
+              </p>
+            </div>
+            <div class="col-2 phase-text">
+              <i class="big-color-icon"></i>
+            </div>
+            <div class="col-5 phase-description">
+              <p>
+              Once all the tasks are completed, you and your team can enjoy the sense of accomplishment and start a new adventure with new projects. We give you an interface to go back on your past projects and give some feedbacks, get the key learnçing of your experience and keep on improving everyday as a team.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <%# </div> %>
+  </section>
+<div class="roadmap-footer">
+</div>
+
+<div class="faq">
+  <div class="row  lp-containter">
+    <h3 class="on-page-section-title">Frequently Asked Questions</h3>
+  </div>
+  <div class="row faq-question">
+    <span class="col-6 faq-q"><h4>How to create a project?</h4></span>
+    <div class="col-6 open-q"><i class="fas fa-plus"></i></div>
+  </div>
+  <div class="row faq-question">
+    <span class="faq-q"><h4>How much does the service cost?</h4></span>
+    <span class="open-q"><i class="fas fa-plus"></i></span>
+  </div>
+  <div class="row faq-question">
+    <span class="faq-q"><h4>How many projects can I create simultaneously?</h4></span>
+    <span class="open-q"><i class="fas fa-plus"></i></span>
+  </div>
+  <div class="row faq-question">
+    <span class="faq-q"><h4>How many tasks can a project have?</h4></span>
+    <span class="open-q"><i class="fas fa-plus"></i></span>
+  </div>
+  <div class="row faq-question">
+    <span class="faq-q"><h4>Do you integrate other softwares to your site?</h4></span>
+    <span class="open-q"><i class="fas fa-plus"></i></span>
+  </div>
+</div>
+
+<%# <div class="footer">
+  <div class="row footer-header">
+    <h3>Stay up to date</h3>>
+    <p class="subheader"> Sign up for our newsletter to get priceless productivity tips<p>
+  </div> %>
+    <%# <%= form %>
+    <%# <%= submit %>
+    <%# <% end %>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>
