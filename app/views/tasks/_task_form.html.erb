@@ -1,5 +1,5 @@
 <div class="cards-container-pview">
-  <%= simple_form_for [@project, @task] do |f| %>
+  <%= simple_form_for [project, task] do |f| %>
             <%= f.input :name %>
             <%= f.input :description %>
             <%= f.input :due_date %>

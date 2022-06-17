@@ -51,7 +51,7 @@
         <div class="row title-add-new extra-padding">
           <h3 class="col-auto">Project Details</h1>
           <div class="col-auto icon-col">
-            <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_project_edit"></i>
+            <i class="fas fa-pen" data-bs-toggle="modal" data-bs-target="#form_project_edit"></i>
           </div>
         </div>
 
@@ -119,20 +119,30 @@
               <% @tasks.each do |task| %>
                 <li>
                   <div class="project-card ">
-                       <div class="project-card-infos">
-                        <div>
+                    <div class="project-card-infos">
+                      <div>
+                        <%= link_to task_path(task), class: 'project-info'  do %>
                           <h2><%= task.name %></h2>
                           <p>(<%= task.status %>)</p>
-                        </div>
-                        <div class="project-actions project-card-actions ">
-                            <% @task_update = task %>
-                            <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_task_update"></i>
-                          <%= link_to task_path(task), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
-                            <i class="far fa-trash-alt"></i>
-                          <% end %>
-                        </div>
-
+                        <% end %>
                       </div>
+                      <div class="project-actions project-card-actions ">
+                        <% @task_update = task %>
+                        <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_task_update_<%=task.id%>"></i>
+                        <%= link_to task_path(task), class: 'p-icon', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
+                          <i class="far fa-trash-alt"></i>
+                        <% end %>
+                      </div>
+
+                      <div class="modal fade" id="form_task_update_<%=task.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content" style="padding:50px">
+                            <%= render "tasks/task_form", project: @project, task: @task_update %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="project-card-infos">
                       <div class="d-flex">
                         <% task.users.each do |user| %>
@@ -173,15 +183,7 @@
 <div class="modal fade" id="form_task_new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" style="padding:50px" data-controller="mask">
-      <%= render "tasks/task_form", task: @task %>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="form_task_update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="padding:50px" data-controller="mask">
-      <%= render "tasks/task_form", project: @project, task: @task_update %>
+      <%= render "tasks/task_form", project: @project, task: @task %>
     </div>
   </div>
 </div>
