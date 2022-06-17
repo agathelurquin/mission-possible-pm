@@ -71,10 +71,18 @@
 .services {
   display: flex;
   margin: 60px 40px;
+  padding: 5px 15px;
 }
 
 .pm-value-proposition{
-  justify-items: start !important;
+  padding-top: 30px;
+}
+.pm-value-proposition p{
   text-align: left !important;
+  padding: 5px 25px;
+}
 
+.pm-value-proposition h3{
+  text-align: left !important;
+  padding: 5px 25px;
 }
