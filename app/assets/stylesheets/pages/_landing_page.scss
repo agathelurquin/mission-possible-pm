@@ -172,6 +172,17 @@
 }
 
 
+.timeline-item{
+  position: absolute;
+		border-style: solid;
+		width: 0;
+		height: 0;
+		top: 30px;
+		right: -15px;
+		border-width: 10px 0 10px 15px;
+		border-color: transparent transparent transparent #f5f5f5;
+}
+
  // timeline
 
 //
@@ -183,10 +194,10 @@
   // overflow-x: hidden;
 // }
 //
-// .phase-text{
-  // color:#707070;
-// }
-//
+.phase-text{
+  color:#707070;
+}
+
 // .timeline {
 //
 	// position: relative;
@@ -202,35 +213,35 @@
 // }
 //
 //
-// .timeline-item {
-	// width: 100%;
-	// margin-bottom: 70px;
+.timeline-item {
+	width: 100%;
+	margin-bottom: 70px;
 //
 	// &:nth-child(even) {
 //
-		// .timeline-content {
-			// float: right;
-			// padding: 40px 30px 10px 30px;
+		.timeline-content {
+			float: right;
+			padding: 40px 30px 10px 30px;
 //
-			.date {
-				right: auto;
-				left: 0;
-			}
+			// .date {
+			// 	right: auto;
+			// 	left: 0;
+			// }
 //
 			// &::after {
-				// content: '';
-				// position: absolute;
-				// border-style: solid;
-				// width: 0;
-				// height: 0;
-				// top: 30px;
-				// left: -15px;
-				// border-width: 10px 15px 10px 0;
-				// border-color: transparent #f5f5f5 transparent transparent;
-			// }
+				content: '';
+				position: absolute;
+				border-style: solid;
+				width: 0;
+				height: 0;
+				top: 30px;
+				left: -15px;
+				border-width: 10px 15px 10px 0;
+				border-color: transparent #f5f5f5 transparent transparent;
+			}
 		// }
 	// }
-//
+
 	// &::after {
 		// content: '';
 		// display: block;
@@ -295,9 +306,9 @@
 			// left: 50px;
 		// }
 //
-		.timeline-img {
-			left: 50px;
-		}
+		// .timeline-img {
+		// 	left: 50px;
+		// }
 //
 		// .timeline-content {
 			// max-width: 100%;
