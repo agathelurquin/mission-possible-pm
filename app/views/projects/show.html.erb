@@ -8,6 +8,10 @@
     </div>
 
     <div class="col-3">
+        <p class="button-39">Status: <%= @project.status %></p>
+    </div>
+
+    <div class="col-3">
       <%= link_to project_path(@project), class: 'btn btn-ghost-pshow', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
         <i class="fas fa-trash-alt"></i> Delete this project
       <% end %>
@@ -42,16 +46,14 @@
       <%end%>
     </div><!--.row-->
 
-
     <div class= "row upper-margin justify-content-between extra-padding">
       <div class="col-5 ">
         <div class="row title-add-new extra-padding">
           <h3 class="col-auto">Project Details</h1>
           <div class="col-auto icon-col">
-            <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form"></i>
+            <i class="fas fa-pencil-alt" data-bs-toggle="modal" data-bs-target="#form_project_edit"></i>
           </div>
         </div>
-
 
         <div class="cards-container">
           <p class="box-title">
@@ -67,7 +69,7 @@
           PRICE
           </p>
           <p>
-            $ <%= @project.price %>
+            <%= @project.price %>
           </p>
         </div>
 
@@ -97,9 +99,7 @@
         <div class="row title-add-new">
           <h3 class="col-auto">Tasks</h1>
           <div class="col-auto icon-col">
-            <%= link_to new_project_task_path(@project) do %>
-              <i class="fas fa-plus-circle"></i>
-            <% end %>
+            <i class="fas fa-plus-circle" data-bs-toggle="modal" data-bs-target="#form_task_new"></i>
           </div>
         </div>
 
@@ -146,7 +146,7 @@
                           <% end %>
                         <% end %>
                       </div>
-                      <h2 class="project-card-pricing">Effort: <%= task.estimated_effort%> </h2>
+                      <h2 class="project-card-pricing">Effort: <%= task.estimated_effort%> h</h2>
 
                     </div>
                   </div>
@@ -163,10 +163,19 @@
 </div>
 
 
-<div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="form_project_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" style="padding:50px" data-controller="mask">
       <%= render "form", project: @project %>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="form_task_new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="padding:50px" data-controller="mask">
+      <%= render "tasks/task_form", task: @task %>
     </div>
   </div>
 </div>

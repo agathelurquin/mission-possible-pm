@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def index
     @project = Project.new
+    @project_update = nil
     # authorize @project
     @projects_pm = policy_scope(Project).where(user_id: current_user)
     @projects_worker = current_user.projects_as_contributor
@@ -39,6 +40,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @task = Task.new  # para o modal de new task
     #definir @tasks com base no filtro
     if params[:query].present?
       @tasks = Task.where(
