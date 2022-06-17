@@ -1,4 +1,5 @@
 <hr>
+<div class="p-5">
 <div class="container mt-3">
   <h1 class="page-header"><%= @project.name %></h1>
 
@@ -11,13 +12,13 @@
         <p class="button-39">Status: <%= @project.status %></p>
     </div>
 
-    <div class="col-3">
+    <div class="col-3  d-flex justify-content-center">
       <%= link_to project_path(@project), class: 'btn btn-ghost-pshow', method: 'delete', data: { confirm: "Are you sure you want to delete?" }  do %>
         <i class="fas fa-trash-alt"></i> Delete this project
       <% end %>
     </div>
 
-    <div class="col-3">
+    <div class="col-3  d-flex justify-content-center">
       <%= link_to projects_path, class: 'btn btn-ghost-pshow' do %>
         <i class="fa fa-history"></i> Back to projects
       <% end %>
@@ -185,4 +186,6 @@
       <%= render "tasks/task_form", project: @project, task: @task_update %>
     </div>
   </div>
+</div>
+
 </div>
