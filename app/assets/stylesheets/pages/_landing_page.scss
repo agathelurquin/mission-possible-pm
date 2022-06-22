@@ -1,7 +1,7 @@
 .lp-hero-banner {
   background-image: url("background-image-lp.png");
   background-size: cover;
-  height:1200px;
+  height:1000px;
   padding: 200px 0;
 }
 
@@ -166,8 +166,9 @@
  }
 
 .roadmap-footer{
-  height: 450px;
+  height: 200px;
   background-image: url("timeline-footer.png");
+  object-fit: contain;
   width: 100%;
 }
 
