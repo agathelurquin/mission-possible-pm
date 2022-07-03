@@ -1,7 +1,7 @@
 .lp-hero-banner {
   background-image: url("background-image-lp.png");
   background-size: cover;
-  height: 1000px;
+  height: 800px;
   padding: 200px 0;
 }
 
@@ -15,7 +15,6 @@
   color: #F8F9FA;
 
 }
-
 
 .lp-hero-banner p {
   text-align: left !important;
@@ -55,6 +54,9 @@
   display: inline-block;
 }
 
+.sign-up-form{
+  margin-top: -100px;
+}
 
 .on-page-section-title {
   color: #045651;
