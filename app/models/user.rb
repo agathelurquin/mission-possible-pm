@@ -10,15 +10,11 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   include PgSearch::Model
-  pg_search_scope :search_by_name,
-    against: [ :name ],
-    using: {
-      tsearch: { prefix: true }
-    }
+  pg_search_scope :search_by_name, against: [ :name ], using: {
+    tsearch: { prefix: true }
+  }
 
   def projects_as_contributor
-    tasks.map do |task|
-      task.project
-    end
+    tasks.map(&:project).sort_by(&:name)
   end
 end

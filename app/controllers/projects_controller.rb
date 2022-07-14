@@ -18,29 +18,32 @@ class ProjectsController < ApplicationController
   end
 
   def index
+    # instance variables for project modals (new and edit)
     @project = Project.new
     @project_update = nil
-    # authorize @project
-    @projects_pm = policy_scope(Project).where(user_id: current_user)
+
+    # get projects for current user both as PM and contributor
+    @projects_pm = policy_scope(Project).where(user_id: current_user).order(:name)
     @projects_worker = current_user.projects_as_contributor
     @today = "2022-06-18"
 
-    if params[:query].present?
-      @projects_pm = Project.where(
-        ["name ILIKE :name and user_id = :current_user",
-          {name: "%#{params[:query]}%",
-          current_user: current_user
-          }
-        ]
-      )
-      @projects_worker.select! do |project|
-        project.name.downcase.include?(params[:query].downcase)
-      end
+    # if a search parameter was passed for project name
+    return unless params[:query].present?
+
+    @projects_pm = Project.where(
+      ["name ILIKE :name and user_id = :current_user", {
+        name: "%#{params[:query]}%",
+        current_user: current_user
+      }]
+    ).order(:name)
+
+    @projects_worker.select! do |project|
+      project.name.downcase.include?(params[:query].downcase)
     end
   end
 
   def show
-    # define two instance variables for task modals (new and edit)
+    # instance variables for task modals (new and edit)
     @task = Task.new
     @task_update = nil
 
@@ -79,7 +82,8 @@ class ProjectsController < ApplicationController
       end
     else
       flash[:alert] = "This project has open tasks."
-      render :edit, status: :unprocessable_entity
+      redirect_to project_path(@project)
+      # render :edit, status: :unprocessable_entity
     end
   end
 
@@ -100,7 +104,9 @@ class ProjectsController < ApplicationController
   end
 
   def ok_to_complete_project?
-    if params[:project][:status] == "Completed" && params[:project][:status] != @project.status && @project.tasks.where.not(status: "Completed").present?
+    if params[:project][:status] == "Completed" &&
+       params[:project][:status] != @project.status &&
+       @project.tasks.where.not(status: "Completed").present?
       return false
     else
       return true
