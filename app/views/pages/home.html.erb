@@ -110,35 +110,49 @@
 
 <div class="lp-added-value">
   <div class="row">
-    <div class="col-6">
-      <img src="https://i.pinimg.com/564x/10/7b/d9/107bd919841bcd90eca116b973a57ba1.jpg", alt="", class="benefits-illustration">
-    </div>
-    <div class="col-6">
+    <div class="col-4">
       <h2 class="on-page-section-title lp-container">Our Benefits</h2>
-      <ul class="mp-benefits">
-        <li>
-          <i class="lp-check"></i>
-          <p>Simplified workflow</p>
-        </li>
-        <li>
-          <i class="lp-check"></i>
-          <p>Transparency</p>
-        </li>
-        <li>
-          <i class="lp-check"></i>
-          <p>Clear communication</p>
-        </li>
-        <li>
-          <i class="lp-check"></i>
-          <p>Easy onboarding process for new members in your team</p>
-        </li>
-      </ul>
-      <div class="btn">
-        <%# <%= link-to "View Demo", demo_path %>
-      </div>
+    </div>
+    <div class="col-8">
+        <div id="slider-container">
+          <div class="slider-benefits">
+            <div class="slide-benefits-col">
+              <p>Simplified workflow</p>
+            </div>
+            <div class="slide-benefits-col">
+              <p>Transparency</p>
+
+            </div>
+            <div class="slide-benefits-col">
+              <p>Clear communication</p>
+
+            </div>
+            <div class="slide-benefits-col">
+              <p>Easy onboarding process for new members in your team</p>
+
+            </div>
+          </div>
+        </div>
+
+
+      <%# <div class="btn">
+        <%= link-to "View Demo", demo_path
+      </div> %>
+       <div class="slider-controller">
+          <div id="line1">
+          </div>
+          <div id="line2">
+          </div>
+          <div id="line3">
+          </div>
+          <div id="line4">
+          </div>
+
+        </div>
     </div>
   </div>
 </div>
+
 <div class="background-image">
 </div>
 
@@ -163,7 +177,7 @@
     </div>
   </div>
 
-  <div class="centered-block" align="center">
+  <div class="centered-block" align="center" >
 
     <div class="timeline-item">
       <div class="timeline-content">
@@ -172,7 +186,7 @@
             <h4 class="phase-title" >Phase 1</h4>
             <p class="phase-name">Create a project</p>
           </div>
-          <div class="col-2 phase-text roadmap-legend">
+          <div class="col-2 phase-status roadmap-legend">
             <i class="fas fa-square success"></i>
           </div>
           <div class="col-5 phase-description" data-aos="fade-left">
@@ -191,7 +205,7 @@
               <h4 class="phase-title">Phase 2</h4>
               <p class="phase-name">Gather your team</p>
             </div>
-            <div class="col-2 phase-text roadmap-legend">
+            <div class="col-2 phase-status roadmap-legend">
               <i class="fas fa-square success"></i>
             </div>
             <div class="col-5 phase-description" data-aos="fade-left">
@@ -210,7 +224,7 @@
               <h4 class="phase-title">Phase 3</h4>
               <p class="phase-name">Create Tasks</p>
             </div>
-            <div class="col-2 phase-text roadmap-legend">
+            <div class="col-2 phase-status roadmap-legend">
               <i class="fas fa-square info"></i>
             </div>
             <div class="col-5 phase-description" data-aos="fade-left">
@@ -231,7 +245,7 @@
               Get insights from your Dashboards
               </p>
             </div>
-            <div class="col-2 phase-text roadmap-legend">
+            <div class="col-2 phase-status roadmap-legend">
               <i class="fas fa-square info"></i>
             </div>
             <div class="col-5 phase-description" data-aos="fade-left">
@@ -252,7 +266,7 @@
               Complete your projects
               </p>
             </div>
-            <div class="col-2 phase-text roadmap-legend">
+            <div class="col-2 phase-status roadmap-legend">
               <i class="fas fa-square danger"></i>
             </div>
             <div class="col-5 phase-description" data-aos="fade-left">
