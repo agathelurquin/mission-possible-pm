@@ -123,78 +123,38 @@
 }
 
 .lp-added-value{
-  // width: 100%;
-  height: 200px;
+  height: 100px;
+  line-height: 100px;
   margin: 40px;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
 }
 
 #slider-container {
-  height: 150px;
-  margin: 5px 20px;
-  padding: 0 20px;
-  // position: absolute;
-  // left: 14%;
-  // top: 57%;
-  // transform: translateY(-50%);
-  overflow: auto;
-
-
-}
-.slider-benefits{
-  // display: flex;
-  // width: 900px;
+  color: #045651;
+  font-size: 30px;
+  margin-left: 30px;
+  box-sizing: border-box;
+  animation: slider 6s linear infinite;
 }
 
-.slide-benefits-col {
-	color: #fff;
-  background-color: #045651;
-  border-radius: 25px;
-	font-size: 20px;
-	font-weight: 900;
-  margin: 10px;
-  padding: 25px;
-  align-content: center;
+@keyframes slider {
+  0% {margin-top: -400px;}
+  5% {margin-top: -200px;}
+  15% {margin-top: -200px;}
+  30% {margin-top: -100px;}
+  45% {margin-top: -100px;}
+  60% {margin-top: 0px;}
+  75% {margin-top: 0px;}
+  80% {margin-top: 100px;}
+  95% {margin-top: 100px;}
+  98% {margin-top: 200px;}
+  100% {margin-top: 200px;}
 }
-
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #fff;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #045651;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #0f4667;
-}
-
-// .slider-controller {
-//   width: 1px;
-//   height: 150px;
-//   display: block;
-//   background-color: #045651;
-//   position: absolute;
-
-//   transform: translateY(-50%);
-// }
-
-// #line1,#line2,#line3,#line4 {
-//   height: 80px;
-//   width: 10px;
-//   cursor: pointer;
-//   transform: translateX(-50%);
-//   background-color: red;
-// }
-
-
 
 // ROADMAP
 
