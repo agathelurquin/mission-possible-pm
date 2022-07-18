@@ -420,32 +420,7 @@ body{
 
 .footer {
   background-image: url('footer-background.png');
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 400px;
-  padding-right: 50px;
-  padding-left: 50px;
-  color: rgba(0,0,0,0.3);
-}
-.footer-links {
-  display: flex;
-  align-items: center;
-}
-.footer-links a {
-  color: #F8F9FA;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 90px 10px 0 10px;
-}
-
-.footer-copyright{
-  padding-top: 90px;
-}
-.footer-links a:hover {
-  opacity: 1;
-}
-.footer .fa-heart {
-  color: #045651;
+  position: relative;
+  top: 20px;
 }
