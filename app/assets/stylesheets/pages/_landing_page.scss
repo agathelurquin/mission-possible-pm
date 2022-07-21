@@ -281,9 +281,12 @@
 
 
 .faq{
-  margin: 30px auto;
+  // margin: 50px auto;
 }
 
+.faq .on-page-section-title {
+  margin: 100px auto !important;
+}
 .faq-question{
   border: 2px solid #3BAD83;
   border-radius: 35px;
@@ -312,14 +315,8 @@
 
 .open-q {
   color: #3BAD83;
-  margin: auto;}
-
-.open-q{
-    justify-content: end;
-    // width: 102px;
-    // display: block;
+  margin: auto;
 }
-
 
 // grid
 
