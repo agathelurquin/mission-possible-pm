@@ -5,8 +5,8 @@
         <%= f.input :due_date %>
         <%= f.input :status, collection: Project::STATUS %>
         <%= f.file_field :files, multiple: true %>
-        <div class="form-actions mt-3">
-          <%= f.button_button t(".Submit"), class: "btn-filled-general" %>
+        <div class="mt-3">
+          <%= f.submit class: 'btn btn-primary' %>
         </div>
     <% end %>
     <br>
