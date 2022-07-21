@@ -216,8 +216,12 @@
   margin: 0 10px;
 }
 
+.phase-status{
+  margin: auto;
+}
 .phase-status .fas {
   font-size: 30px;
+
 }
 
 .roadmap-legend .success{
@@ -244,8 +248,10 @@
 }
 
 .phase-text{
+  display: block;
   text-align: right;
   align-items: center;
+  margin: auto;
 }
 
 // .timeline-items {
@@ -260,10 +266,11 @@
 
 .phase-description{
   background-color: #F8F9FA;
+  font-size: 18px;
   color: #707070;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 10px;
-  margin: 10px auto;
+  margin: 10px;
   max-width: 350px;
 }
 
