@@ -189,7 +189,7 @@
 .roadmap-legend ul{
   display: flex;
   color: #F8F9FA;
-  font-size: 22px;
+  font-size: 20px;
   margin: 10px auto;
   justify-content: center;
 
@@ -201,15 +201,23 @@
   width: 200px;
   padding: 20px 10px;
   text-align: center;
+  align-items: center;
   margin-bottom: 0 !important;
 }
 
 .roadmap-legend i{
-  display: block;
   margin: 0 10px;
   border-radius: 6px;
   align-items: center;
   justify-content: center;
+}
+
+.roadmap-legend p{
+  margin: 0 10px;
+}
+
+.phase-status .fas {
+  font-size: 30px;
 }
 
 .roadmap-legend .success{
