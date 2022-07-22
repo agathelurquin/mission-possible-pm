@@ -206,6 +206,7 @@
 }
 
 .roadmap-legend i{
+  display: block;
   margin: 0 10px;
   border-radius: 6px;
   align-items: center;
@@ -216,12 +217,22 @@
   margin: 0 10px;
 }
 
+.timeline-items {
+  max-width: 90%;
+}
+.phase-title{
+  width: auto;
+}
+
+.phase-name {
+  margin-bottom: 0;
+}
 .phase-status{
   margin: auto;
 }
+
 .phase-status .fas {
   font-size: 30px;
-
 }
 
 .roadmap-legend .success{
@@ -281,7 +292,7 @@
 
 
 .faq{
-  // margin: 50px auto;
+  margin: auto;
 }
 
 .faq .on-page-section-title {
