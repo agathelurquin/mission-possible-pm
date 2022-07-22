@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :tasks, dependent: :destroy
   has_many :assignments, through: :tasks
-  has_many :users, through: :assignments
+  has_many :users, -> { distinct }, through: :assignments
   has_one :chatroom, dependent: :destroy
   has_many_attached :files, dependent: :destroy
 
