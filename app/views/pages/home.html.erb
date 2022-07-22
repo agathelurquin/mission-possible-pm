@@ -16,7 +16,7 @@
     <p class="dark-grey-p">Why use complex tools when you can manage your projects in a natural and easy way</p>
     <button href="", class="lp-button">Learn More</button>
     </div>
-    <div class="col-4">
+    <div class="col-4 sign-up-form">
     <%= render partial: 'form' %>
     </div>
   </div>
@@ -64,13 +64,14 @@
   </div>
 </div>
 
-
 <div class="galery">
 
   <div class="lp-features-intro lp-container">
     <h2 class="on-page-section-title">Features on Mission:Possible</h2>
     <p class="dark-grey-p">View our full value proposition below.
     <br> Scroll down to know how to start your own adventure now!</p>
+  </div>
+  <div class="gallery-header">
   </div>
   <section class="hero-section">
     <div class="card-grid">
@@ -104,41 +105,27 @@
       </a>
     <div>
   </section>
-
 </div>
-
+  <div class="gallery-footer">
+  </div>
 
 <div class="lp-added-value">
-  <div class="row">
-    <div class="col-6">
-      <img src="https://i.pinimg.com/564x/10/7b/d9/107bd919841bcd90eca116b973a57ba1.jpg", alt="", class="benefits-illustration">
-    </div>
-    <div class="col-6">
-      <h2 class="on-page-section-title lp-container">Our Benefits</h2>
-      <ul class="mp-benefits">
-        <li>
-          <i class="lp-check"></i>
-          <p>Simplified workflow</p>
-        </li>
-        <li>
-          <i class="lp-check"></i>
-          <p>Transparency</p>
-        </li>
-        <li>
-          <i class="lp-check"></i>
-          <p>Clear communication</p>
-        </li>
-        <li>
-          <i class="lp-check"></i>
-          <p>Easy onboarding process for new members in your team</p>
-        </li>
-      </ul>
-      <div class="btn">
-        <%# <%= link-to "View Demo", demo_path %>
-      </div>
-    </div>
+  <h2 class="on-page-section-title lp-container">Choose Mission:Possible and experience</h2>
+  <div id="slider-container">
+    <span class="slide-benefits-col">Simplified workflow</span>
+    <br>
+    <span class="slide-benefits-col">Transparency</span>
+    <br>
+    <span class="slide-benefits-col">Clear communication</span>
+    <br>
+    <span class="slide-benefits-col">Easy onboarding process</span>
+    <br>
+    <span class="slide-benefits-col">Readable insights</span>
+    <br>
+    <span class="slide-benefits-col">Visual information</span>
   </div>
 </div>
+
 <div class="background-image">
 </div>
 
@@ -160,162 +147,140 @@
           <p>Incomplete</p>
         </li>
       </ul>
-      <%# </div> %>
     </div>
   </div>
-  <section class="timeline lp-color-container">
-    <div class="code-container">
-      <div class="timeline-item" data-aos="fade-right">
-        <div class="timeline-content  js--fadeInLeft" >
-          <div class="row phase">
-            <div class="col phase-text">
-              <h4 class="phase-title">Phase 1</h4>
-              <p class="phase-name">Create a project</p>
-            </div>
-            <div class="col phase-text">
-              <i class="big-color-icon"></i>
-            </div>
-            <div class="col-5 phase-description">
-              <p>
-              Mission:Possible allow you to create a new project with only the essential data your team needs to be creative and productive
-              </p>
-            </div>
+
+  <div class="timeline-items centered-block" align="center" >
+
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <div class="row phase">
+          <div class="col-5 phase-text" data-aos="fade-right">
+            <h4 class="phase-title" >Phase 1</h4>
+            <p class="phase-name">Create a project</p>
+          </div>
+          <div class="col-2 phase-status roadmap-legend">
+            <i class="fas fa-square success" data-aos="zoom-in"></i>
+          </div>
+          <div class="col-5 phase-description" data-aos="fade-left">
+            <p>
+            Mission:Possible allows you to create a new project with only the essential data your team needs to be creative and productive
+            </p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-content js--fadeInRight">
+    <div class="timeline-item">
+        <div class="timeline-content">
           <div class="row phase">
-            <div class="col-5 phase-text">
+            <div class="col-5 phase-text" data-aos="fade-right">
               <h4 class="phase-title">Phase 2</h4>
               <p class="phase-name">Gather your team</p>
             </div>
-            <div class="col-2 phase-text">
-              <i class="big-color-icon"></i>
+            <div class="col-2 phase-status roadmap-legend">
+              <i class="fas fa-square success" data-aos="zoom-in"></i>
             </div>
-            <div class="col-5 phase-description">
+            <div class="col-5 phase-description" data-aos="fade-left">
               <p>
               Assign the relevant members to each project and task to make sure you leverage everyone's best assets in the most efficient way possible.
               </p>
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-content js--fadeInLeft">
+    <div class="timeline-item">
+        <div class="timeline-content">
           <div class="row phase">
-            <div class="col-5 phase-text">
+            <div class="col-5 phase-text" data-aos="fade-right">
               <h4 class="phase-title">Phase 3</h4>
               <p class="phase-name">Create Tasks</p>
             </div>
-            <div class="col-2 phase-text">
-              <i class="big-color-icon"></i>
+            <div class="col-2 phase-status roadmap-legend">
+              <i class="fas fa-square info" data-aos="zoom-in"></i>
             </div>
-            <div class="col-5 phase-description">
+            <div class="col-5 phase-description" data-aos="fade-left">
               <p>
               Break your project into simple tasks and move forward in your projects through a painless process.
               </p>
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-content js--fadeInRight">
+    <div class="timeline-item">
+        <div class="timeline-content">
           <div class="row phase">
-            <div class="col-5 phase-text">
+            <div class="col-5 phase-text" data-aos="fade-right">
               <h4 class="phase-title">Phase 4</h4>
               <p class="phase-name">
               Get insights from your Dashboards
               </p>
             </div>
-            <div class="col-2 phase-text">
-              <i class="big-color-icon"></i>
+            <div class="col-2 phase-status roadmap-legend">
+              <i class="fas fa-square info" data-aos="zoom-in"></i>
             </div>
-            <div class="col-5 phase-description">
+            <div class="col-5 phase-description" data-aos="fade-left">
               <p>
               We gather understandable data in simple dashboards to allow you to have a cleat idea of how you and your team.
               </p>
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      <div class="timeline-item">
-        <div class="timeline-content js--fadeInLeft">
+    <div class="timeline-item">
+        <div class="timeline-content">
           <div class="row phase">
-            <div class="col-5 phase-text">
-              <h4 class="phase-title">Phase 4</h4>
-              <p class="phase-name">
-              Get insights from your Dashboards
-              </p>
-            </div>
-            <div class="col-2 phase-text">
-              <i class="big-color-icon"></i>
-            </div>
-            <div class="col-5 phase-description">
-              <p>
-              We gather understandable data in simple dashboards to allow you to have a cleat idea of how you and your team.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-content js--fadeInRight">
-          <div class="row phase">
-            <div class="col-5 phase-text">
+            <div class="col-5 phase-text" data-aos="fade-right">
               <h4 class="phase-title">Phase 5</h4>
               <p class="phase-name">
               Complete your projects
               </p>
             </div>
-            <div class="col-2 phase-text">
-              <i class="big-color-icon"></i>
+            <div class="col-2 phase-status roadmap-legend">
+              <i class="fas fa-square danger" data-aos="zoom-in"></i>
             </div>
-            <div class="col-5 phase-description">
+            <div class="col-5 phase-description" data-aos="fade-left">
               <p>
               Once all the tasks are completed, you and your team can enjoy the sense of accomplishment and start a new adventure with new projects. We give you an interface to go back on your past projects and give some feedbacks, get the key learnçing of your experience and keep on improving everyday as a team.
               </p>
             </div>
           </div>
         </div>
-      </div>
     </div>
-    <%# </div> %>
-  </section>
+  </div>
+
 </div>
 
 <div class="roadmap-footer">
 </div>
-<div class="bg-white my-0">
 <div class="faq my-0">
   <div class="row  lp-containter my-0">
-
     <h3 class="on-page-section-title mt-3">Frequently Asked Questions</h3>
   </div>
-  <div class="row faq-question">
-    <span class="col-6 faq-q"><h4>How to create a project?</h4></span>
-    <div class="col-6 open-q"><i class="fas fa-plus"></i></div>
-  </div>
-  <div class="row faq-question">
-    <span class="faq-q"><h4>How much does the service cost?</h4></span>
-    <span class="open-q"><i class="fas fa-plus"></i></span>
-  </div>
-  <div class="row faq-question">
-    <span class="faq-q"><h4>How many projects can I create simultaneously?</h4></span>
-    <span class="open-q"><i class="fas fa-plus"></i></span>
-  </div>
-  <div class="row faq-question">
-    <span class="faq-q"><h4>How many tasks can a project have?</h4></span>
-    <span class="open-q"><i class="fas fa-plus"></i></span>
-  </div>
-  <div class="row faq-question">
-    <span class="faq-q"><h4>Do you integrate other softwares to your site?</h4></span>
-    <span class="open-q"><i class="fas fa-plus"></i></span>
+  <div class="faq-questions">
+    <div class="row faq-question">
+      <div class="col-11 faq-q"><h4>How to create a project?</h4></div>
+      <div class="col-1 open-q"><i class="fas fa-plus"></i></div>
+    </div>
+    <div class="row faq-question">
+      <span class="col-11 faq-q"><h4>How much does the service cost?</h4></span>
+      <span class="col-1 open-q"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="row faq-question">
+      <span class="col-11 faq-q"><h4>How many projects can I create simultaneously?</h4></span>
+      <span class="col-1 open-q"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="row faq-question">
+      <span class="col-11 faq-q"><h4>How many tasks can a project have?</h4></span>
+      <span class="col-1 open-q"><i class="fas fa-plus"></i></span>
+    </div>
+    <div class="row faq-question">
+      <span class="col-11 faq-q"><h4>Do you integrate other softwares to your site?</h4></span>
+      <span class="col-1 open-q"><i class="fas fa-plus"></i></span>
+    </div>
   </div>
 </div>
 <div class="footer my-0">
