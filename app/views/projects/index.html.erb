@@ -71,7 +71,7 @@
                     <% end %>
                   <% end %>
                 </div>
-                  <h2 class="project-card-pricing">Due in <%= (1..40).to_a.sample %> days</h2>
+                  <h2 class="project-card-pricing">Due in <%= (project.due_date - Date.today).to_i %> days</h2>
                 </div>
               </div>
             </li>
@@ -112,7 +112,7 @@
                     <% end %>
                   <% end %>
                 </div>
-                  <h2 class="project-card-pricing">Due in 2 days</h2>
+                  <h2 class="project-card-pricing">Due in <%= (project.due_date - Date.today).to_i %> days</h2>
                 </div>
               </div>
             </li>
