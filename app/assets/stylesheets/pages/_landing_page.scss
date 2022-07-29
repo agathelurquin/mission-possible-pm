@@ -1,7 +1,7 @@
 .lp-hero-banner {
   background-image: url("background-image-lp.png");
   background-size: cover;
-  height: 900px;
+  height: 890px;
   padding: 200px 0;
 }
 
@@ -289,44 +289,64 @@
   padding: 80px;
 }
 
-
+// FAQ
 
 .faq{
+  box-sizing: border-box;
   margin: auto;
 }
 
 .faq .on-page-section-title {
   margin: 100px auto !important;
 }
-.faq-question{
+
+.faq-questions {
+  width: 80%;
+  min-width: 700px;
+  height: auto;
+  margin: 10px auto 0;
+}
+
+.faq-visible-pannel{
+  display: flex;
   border: 2px solid #3BAD83;
   border-radius: 35px;
   margin-bottom: 2rem;
-  margin: 10px 10%;
+  margin: 10px 10px;
+  position: relative;
+  z-index: 100;
   transition: border .3s ease-out;
 }
 
 .faq-question h4 {
-  display: flex;
   line-height: 1;
   font-weight: 900;
   padding: 2rem 7rem 2rem 2.7rem;
   color: #055651;
   font-family: "proxima-nova",sans-serif;
   position: relative;
-  cursor: pointer;
 }
 
-.faq-q{
-  display: inline-block;
-  position: relative;
-  display: block;
-
-}
+// .faq-q{
+//   display: block;
+//   position: relative;
+// }
 
 .open-q {
   color: #3BAD83;
   margin: auto;
+  cursor: pointer;
+}
+
+.faq-toggle-pannel {
+  padding:  0 15px;
+  height: 0px;
+  opacity: 0;
+}
+
+.faq-toggle-pannel p {
+  line-height: 1.5;
+  padding: 0 7rem 0rem 2.7rem;
 }
 
 // grid
