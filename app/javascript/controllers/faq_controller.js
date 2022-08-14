@@ -13,16 +13,15 @@ export default class extends Controller {
   // const = this.answerTarget
 
   open() {
-
-        this.blockTargets.forEach(element => {
           if (this.iconTarget.classList.contains('fa-plus')){
             this.iconTarget.classList.remove('fa-plus')
             this.iconTarget.classList.add('fa-minus')
+            this.answerTarget.classList.remove('d-none')
           } else {
             this.iconTarget.classList.remove('fa-minus')
             this.iconTarget.classList.add('fa-plus')
+            this.answerTarget.classList.add('d-none')
           }
-        });
 
       // }
   }
