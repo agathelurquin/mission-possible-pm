@@ -3,7 +3,6 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = ["block", "question", "icon", "answer"]
 
-  itemHeight = this.answerTarget.scrollHeight
 
   connect() {
     console.log(this.questionTargets);
@@ -13,6 +12,7 @@ export default class extends Controller {
   // const = this.answerTarget
 
   open() {
+    // itemHeight = this.answerTarget.scrollHeight
     this.blockTargets.forEach(block => {
       if (this.iconTarget.classList.contains('fa-plus')){
         this.iconTarget.classList.remove('fa-plus')
