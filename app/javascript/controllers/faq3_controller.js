@@ -12,7 +12,7 @@ export default class extends Controller {
   // const allCross = this.questionTarget
   // const = this.answerTarget
 
-  open() {
+  open3() {
     this.blockTargets.forEach(block => {
       if (this.iconTarget.classList.contains('fa-plus')){
         this.iconTarget.classList.remove('fa-plus')
@@ -25,19 +25,4 @@ export default class extends Controller {
       }
     });
   }
-
-  // open() {
-  //   this.iconTargets.forEach(icon => {
-  //     icon.addEventListener('click', function(){
-  //       if (this.iconTarget.classList.contains('fa-plus')){
-  //       block.this.iconTarget.classList.remove('fa-plus')
-  //       block.this.iconTarget.classList.add('fa-minus')
-  //       } else {
-  //       block.this.iconTarget.classList.remove('fa-minus')
-  //       block.this.iconTarget.classList.add('fa-plus')
-  //       }
-  //     })
-
-  //   });
-  // }
 }
