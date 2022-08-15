@@ -307,30 +307,30 @@
   margin: 10px auto 0;
 }
 
-.faq-visible-pannel{
-  display: flex;
+.faq-question {
   border: 2px solid #3BAD83;
   border-radius: 35px;
-  margin-bottom: 2rem;
   margin: 10px 10px;
+  // transition: border .3s ease-out;
+}
+
+.faq-visible-pannel{
+  display: flex;
   position: relative;
   z-index: 100;
-  transition: border .3s ease-out;
+  // transition: border .3s ease-out;
 }
 
 .faq-question h4 {
   line-height: 1;
+  font-size: 24px;
   font-weight: 900;
+  margin-bottom: 0px;
   padding: 2rem 7rem 2rem 2.7rem;
   color: #055651;
   font-family: "proxima-nova",sans-serif;
   position: relative;
 }
-
-// .faq-q{
-//   display: block;
-//   position: relative;
-// }
 
 .open-q {
   color: #3BAD83;
@@ -339,15 +339,95 @@
 }
 
 .faq-toggle-pannel {
-  padding:  0 15px;
-  height: 0px;
-  opacity: 0;
+  color: rgb(92, 91, 91);
+  font-family: "proxima-nova",sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  // margin-top: -20px;
+  padding: 0 7rem 0rem 2.7rem;
+  // transition: height .5s ease-in, opacity .5s ease-in 0.3s;
 }
 
-.faq-toggle-pannel p {
-  line-height: 1.5;
-  padding: 0 7rem 0rem 2.7rem;
+.zero-height {
+  height: 0;
+  transition: height 100ms ease-in 300ms;
 }
+
+.zero-opacity {
+  opacity: 0;
+  transition: opacity 1ms ease-in 10ms;
+}
+
+.norm-height {
+  height: 100%;
+  transition: height 500ms ease-in;
+}
+
+.norm-opacity {
+  opacity: 0.9;
+  transition: opacity 300ms ease-in 100ms;
+}
+
+.hover-title::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.hover-title:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.hover-title::before {
+  content: " ";
+  // display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 47px 10px 0px 43px;
+  height: 12px;
+  background: #b4dac9;
+  z-index: -1;
+  transition: transform .5s ease-in;
+}
+.inline-icon {
+  font-size: 16px;
+}
+
+// .accordion {
+//   border: 2px solid #3BAD83;
+//   background-color: transparent;
+//   border-radius: 35px;
+//   margin-bottom: 2rem;
+//   margin: 10px 10px;
+//   position: relative;
+//   z-index: 100;
+//   transition: border .3s ease-out;
+// }
+
+// .accordion-item {
+//   border: none;
+// }
+
+// .accordion-header, .accordion-button {
+//   background-color: transparent;
+//   border-radius: 35px;
+// }
+
+
+
+// .accordion-button {
+//   line-height: 1;
+//   font-weight: 900;
+//   padding: 2rem 7rem 2rem 2.7rem;
+//   color: #055651;
+//   font-family: "proxima-nova",sans-serif;
+//   position: relative;
+// }
+
+// .faq-q{
+//   display: block;
+//   position: relative;
+// }
 
 // grid
 
