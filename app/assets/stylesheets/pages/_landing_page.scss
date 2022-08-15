@@ -311,14 +311,14 @@
   border: 2px solid #3BAD83;
   border-radius: 35px;
   margin: 10px 10px;
-
+  // transition: border .3s ease-out;
 }
 
 .faq-visible-pannel{
   display: flex;
   position: relative;
   z-index: 100;
-  transition: border .3s ease-out;
+  // transition: border .3s ease-out;
 }
 
 .faq-question h4 {
@@ -342,13 +342,31 @@
   color: rgb(92, 91, 91);
   font-family: "proxima-nova",sans-serif;
   font-size: 18px;
-  opacity: 0.9;
   line-height: 1.5;
-  margin-top: -20px;
+  // margin-top: -20px;
   padding: 0 7rem 0rem 2.7rem;
-  transition: height .5s ease-in;
+  // transition: height .5s ease-in, opacity .5s ease-in 0.3s;
 }
 
+.zero-height {
+  height: 0;
+  transition: height 100ms ease-in 300ms;
+}
+
+.zero-opacity {
+  opacity: 0;
+  transition: opacity 1ms ease-in 10ms;
+}
+
+.norm-height {
+  height: 100%;
+  transition: height 500ms ease-in;
+}
+
+.norm-opacity {
+  opacity: 0.9;
+  transition: opacity 300ms ease-in 100ms;
+}
 
 .hover-title::before {
   transform: scaleX(0);

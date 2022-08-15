@@ -13,16 +13,16 @@ export default class extends Controller {
   // const = this.answerTarget
 
   open5() {
-    this.blockTargets.forEach(block => {
-      if (this.iconTarget.classList.contains('fa-plus')){
-        this.iconTarget.classList.remove('fa-plus')
-        this.iconTarget.classList.add('fa-minus')
-        this.answerTarget.classList.remove('d-none')
-      } else {
-        this.iconTarget.classList.remove('fa-minus')
-        this.iconTarget.classList.add('fa-plus')
-        this.answerTarget.classList.add('d-none')
-      }
-    });
+    if (this.iconTarget.classList.contains('fa-plus')){
+      this.iconTarget.classList.remove('fa-plus')
+      this.iconTarget.classList.add('fa-minus')
+      this.answerTarget.classList.remove('zero-height', 'zero-opacity')
+      this.answerTarget.classList.add('norm-height', 'norm-opacity')
+    } else {
+      this.iconTarget.classList.remove('fa-minus')
+      this.iconTarget.classList.add('fa-plus')
+      this.answerTarget.classList.remove('norm-height', 'norm-opacity')
+      this.answerTarget.classList.add('zero-height', 'zero-opacity');
+    }
   }
 }
