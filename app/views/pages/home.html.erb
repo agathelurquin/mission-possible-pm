@@ -10,16 +10,26 @@
 
 <div class="lp-hero-banner">
   <div class="container lp-banner-content">
-   <div class="row">
-   <div class="col-8 mt-5">
-    <h1>Your Adventure Begins Here</h1>
-    <p class="dark-grey-p">Why use complex tools when you can manage your projects in a natural and easy way</p>
-    <button href="", class="lp-button">Learn More</button>
+    <div class="row justify-content-around">
+      <% if !user_signed_in? %>
+          <div class="col-6 mt-5">
+            <h1>Your Adventure Begins Here</h1>
+            <p class="dark-grey-p">Why should you use complex tools when you can manage your projects in a natural and easy way?</p>
+            <button href="", class="lp-button">Learn More</button>
+          </div>
+          <div class="col-4 sign-up-form">
+            <%= render partial: 'form' %>
+          </div>
+      <% else %>
+
+        <div class="lp__main-content">
+          <h1>Your Adventure Begins Here</h1>
+          <p class="dark-grey-p">Why should you use complex tools when you can manage your projects in a natural and easy way?</p>
+          <button href="", class="lp-button">Learn More</button>
+        </div>
+
+      <% end %>
     </div>
-    <div class="col-4 sign-up-form">
-    <%= render partial: 'form' %>
-    </div>
-  </div>
   </div>
 </div>
 
