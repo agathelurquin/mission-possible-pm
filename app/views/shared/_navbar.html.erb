@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+
   <div class="navbar navbar-expand-sm navbar-mp mb-3">
     <div class="container-fluid">
       <%= link_to root_path, class: "navbar-brand mx-5 py-2" do %>
@@ -6,26 +6,35 @@
       <% end %>
       <div class="navbar-collapse">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
-            <%= link_to "My Projects", projects_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "My calendar", calendar_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Dashboard", blazer_path, class: "nav-link" %>
-          </li>
-          <% if current_user.avatar.attached? %>
-            <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "My Projects", projects_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "My calendar", calendar_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Dashboard", blazer_path, class: "nav-link" %>
+            </li>
+            <% if current_user.avatar.attached? %>
+              <%= image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "default-avatar-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
           <% else %>
-            <%= image_tag "default-avatar-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <li class="nav-item active">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Sign up", new_registration_path(resource_name), class: "nav-link" %>
+            </li>
           <% end %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
         </ul>
       </div>
     </div>
   </div>
-<% end %>
