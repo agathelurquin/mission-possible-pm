@@ -1,7 +1,7 @@
 .lp-hero-banner {
   background-image: url("background-image-lp.png");
   background-size: cover;
-  height: 890px;
+  height: 135vh;
   padding: 200px 0;
 }
 
@@ -23,7 +23,6 @@
   opacity: 0.8;
   margin: 20px 0;
 }
-
 
 .lp-button{
   font-family: "Roboto";
@@ -53,6 +52,21 @@
   border: 2px solid #3bad83;
   display: inline-block;
 }
+
+.lp__main-content {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.lp__main-content h1{
+  font-size: 3.5rem;
+}
+
+.lp__main-content p {
+  font-size: 1.5rem !important;
+}
+
+
 
 .sign-up-form{
   margin-top: -100px;
